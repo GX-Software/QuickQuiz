@@ -36,19 +36,25 @@
 <div id = "fig1" style = "margin-bottom: 5px; width: 90%; text-align: center;">表2&nbsp;&nbsp;QuickQuiz 2.0支持的文件格式</div>
 <table style = "width: 90%;">
 <tr><th style = "width: 10%; text-align: center;">扩展名</th><th style = "width: 20%; text-align: center;">类型描述</th><th style = "text-align: center;">说明</th></tr>
-<tr><td>*.qux</td><td>标准题库文件</td><td>QuickQuiz 2.0及更新版本应用程序的默认题库文件格式，适配最新应用程序的全部功能，<b>在大部分场景下推荐保存为此格式</b>，</td></tr>
+<tr><td>*.qux</td><td>标准题库文件</td><td>QuickQuiz 2.0及更新版本应用程序的默认题库文件格式，适配最新应用程序的全部功能，<b>在大部分情况下推荐保存为此格式</b>，</td></tr>
 <tr><td>*.quiz</td><td>适用于1.x版本的题库文件</td><td>QuickQuiz 1.x版本应用程序的默认题库文件格式，<b>无法适配2.0版本新增功能</b>。</td></tr>
-<tr><td>*.xml<br/>*.qxml<br/>*.txt</td><td>兼容题库文件</td><td>按QuickQuiz的标准保存为XML格式的题库文件，适用于任何版本QuickQuiz，且适用于移动端。</td></tr>
-<tr><td>*.jpeg<br/>*.jpg</td><td>带封面的标准/兼容题库文件</td><td>带有jpeg图片文件头的标准/兼容题库文件，除jpeg文件头外其余内容与标准/兼容题库文件完全相同。<table class = "info" style = "margin-left: 10px;"><tr><th><img class = "info" src = "images/info.png" alt = "警告" /></th><td>不是所有的jpeg/jpg文件都是带封面的标准/兼容题库文件，这里指的是利用QuickQuiz生成的题库文件，或者您自行给标准/兼容题库文件添加jpeg文件头后制作出的题库文件。更多说明详见<a href = "1.2.3_setcover.html">题库封面</a></td></tr></table></td></tr>
+<tr><td>*.xml<br/>*.qxml<br/>*.txt</td><td>兼容题库文件</td><td>按QuickQuiz的标准保存为XML格式的题库文件，可被任何版本QuickQuiz读取，本格式也适用于<a href = "4.0.0_mobile.html">简易网页版</a>。</td></tr>
+<tr><td>*.jpeg<br/>*.jpg</td><td>带封面的标准/兼容题库文件</td><td>带有jpeg图片文件头的标准/兼容题库文件，除jpeg文件头外其余内容与标准/兼容题库文件完全相同，本格式也适用于<a href = "4.0.0_mobile.html">简易网页版</a>。<table class = "info" style = "margin-left: 10px;"><tr><th><img class = "info" src = "images/info.png" alt = "警告" /></th><td>不是所有的jpeg/jpg文件都是带封面的标准/兼容题库文件，这里指的是利用QuickQuiz生成的题库文件，或者您自行给标准/兼容题库文件添加jpeg文件头后制作出的题库文件。更多说明详见<a href = "1.2.3_setcover.html">题库封面</a></td></tr></table></td></tr>
 </table>
 
 <table class = "info">
 <tr><th><img class = "info" src = "images/info.png"  alt = "警告" /></th><td>在较旧版本操作系统（Windows 9x）上存取题库时，请参照<a href = "0.0.3_inold.html">在旧版本系统上使用本程序</a>的相关内容，以免造成数据丢失！</td></tr>
 </table>
 
-<div class = "h4"><ul><li>保存题库</li></ul></div>
+<div class = "h4" id = "rule1"><ul><li>保存题库</li></ul></div>
 <div class = "p">
 将当前选中的题库保存至硬盘。若为新建题库，则保存时需选择保存路径及保存格式；若题库文件曾经编辑过，则不作询问，直接保存至原路径且存为原格式，<b>若需要更改格式，请执行“另存为”</b>。
+</div>
+<div class = "p">
+<img src = "images/save.png" alt = "最大兼容" />
+</div>
+<div class = "p">
+当勾选“最大兼容”时，生成的兼容题库文件可以被所有版本的应用程序读取，但文件可能较大；当不勾选“最大兼容”时，生成的兼容题库文件用1.x版应用程序读取时可能无法完整读取（但已读取的内容可以正常使用），在保存时，默认不勾选。此选项不影响标准题库文件的存储。
 </div>
 
 <div class = "h4"><ul><li>全部保存</li></ul></div>
