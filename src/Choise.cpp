@@ -1091,26 +1091,19 @@ void CChoise::MakeHTML(FILE *fp,
 		str += _T("<li class=\"choise\"");
 		if (nOptionsInALine > 2)
 		{
-			if (bWithAnswer && m_Option[i].answer)
-			{
-				str += _T(" style=\"text-decoration:underline;font-weight:bold;\">");
-			}
-			else
-			{
-				str += _T(">");
-			}
+			str += _T(" style=\"float:left;");
 		}
 		else
 		{
 			str += _T(" style=\"clear:both;padding:0;");
-			if (bWithAnswer && m_Option[i].answer)
-			{
-				str += _T("text-decoration:underline;font-weight:bold;\">");
-			}
-			else
-			{
-				str += _T("\">");
-			}
+		}
+		if (bWithAnswer && m_Option[i].answer)
+		{
+			str += _T("text-decoration:underline;font-weight:bold;\">");
+		}
+		else
+		{
+			str += _T("\">");
 		}
 		str += m_Option[i].option;
 		str += _T("</li>\n");

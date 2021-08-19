@@ -31,7 +31,7 @@ static LPCTSTR szHead4 =
 	_T("ol.desc{margin-top:0em;margin-bottom:0.5em;clear:both;}\n") \
 	_T("ol.choise,li.choise{list-style-type:upper-alpha;line-height:2em;}\n") \
 	_T("ol.choise{margin-top:0em;margin-bottom:0.5em;padding-left:4em;clear:both;}\n") \
-	_T("li.choise{padding:0 6.5em 0 0;}\n") \
+	_T("li.choise{padding:0 5em 0 0;}\n") \
 	_T("ol.choisein,li.choisein{list-style-type:upper-alpha;line-height:2em;}\n") \
 	_T("ol.choisein{margin-top:0em;margin-bottom:0.5em;padding-left:1.5em;}\n") \
 	_T("li.choisein{padding:0 4em 0 0;}\n") \
