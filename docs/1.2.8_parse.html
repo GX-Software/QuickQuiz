@@ -1,0 +1,358 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+
+<meta http-equiv = "Content-Type" content = "text/html; charset = utf-8;">
+<title>QuickQuiz帮助文档</title>
+<link rel = "stylesheet" type = "text/css" href = "css/style.css">
+
+</head>
+
+<body>
+
+<h2>
+<img src = "images/title.png" alt = "icon" style = "width: 50px; height: 50px; vertical-align: middle;"/><span style = "margin-left: 8px;">批量生成</span>
+</h2>
+<hr/>
+
+<table class = "info">
+<tr><th><img class = "info" src = "images/info.png" alt = "警告" /></th><td>本功能生成的题目及答案可能不完全与预期相符，生成后请务必检查<br/>以下说明中凡涉及“文字内容”的，均指<a href = "1.2.0_newitem.html#rule1">取得的文字</a>。</td></tr>
+</table>
+
+<div class = "p">
+<b>批量生成</b>是在<b>新建题目</b>时，将符合一定格式的文字内容自动识别为题目。请在<b>“新建题目”对话框</b>中启动此功能，界面如下：
+</div>
+<div class = "p">
+<img src = "images/parse.png" alt = "批量生成" />
+</div>
+<table class = "info">
+<tr><th><img class = "info" src = "images/info.png" alt = "警告" /></th><td>启动批量生成时，当前编辑的题目将被自动保存。</td></tr>
+</table>
+
+<div class = "h4"><ul><li>题目格式概述</li></ul></div>
+<div class = "p">
+被识别的题目文字一般具有下述格式：
+</div>
+<ol style = "margin-left: 2em;">
+<li><b>至少一行的题干内容</b>，当题干内容中包含题目答案时，通过适当设置可以自动识别答案；</li>
+<li>若题目为单选题或多选题，则必须有至少一行选项内容，<b>选项和题干不能位于同一行</b>，否则无法正确识别；其它类型题目没有这个部分；</li>
+<li>一行题目的答案，此部分可以没有，当题目答案位于题目后时，通过适当设置可以在这一行内识别答案。</li>
+</ol>
+
+<div class = "p"><b>题目格式一般是围绕着表2中描述的几个方面进行设置的</b></div>
+<div style = "margin-top: 16px; margin-bottom: 5px; width: 90%; text-align: center;">表3&nbsp;&nbsp;影响格式的设置</div>
+<table style = "width: 90%;">
+<tr><th style = "width: 30%; text-align: center;">格式</th><th style = "text-align: center;">影响格式的选项</th></tr>
+<tr><td>以何种题目类型进行解析</td><td>“<b>按何类型解析</b>”，指定文本以何种题目类型进行解析</td></tr>
+<tr><td>题干是否包含题号</td><td>“<b>自动删除阿拉伯数字题目序号</b>”，选中后将自动剔除题目开头的题号</td></tr>
+<tr><td>题干和选项是单行还是多行</td><td>“<b>以阿拉伯数字序号区分各题目</b>”，选中后允许题干与选项为多行文字，否则题干与选项必须均为单行文字</td></tr>
+<tr><td>是否包含答案，答案位于题干中还是题目后</td><td>“<b>在题干中检测答案</b>”，选中后在题干中寻找答案并设置；<br/>“<b>在题目最后一行检测答案</b>”，选中后在每道题目的最后一行检测答案；<br/>若检测不到答案，不影响题目的识别；若均不勾选，则不检测答案。</td></tr>
+</table>
+
+<div class = "h4"><ul><li>举例</li></ul></div>
+<div class = "p">表4中的题目均可被正确识别：</div>
+<table class = "info">
+<tr><th><img class = "info" src = "images/info.png" alt = "警告" /></th><td>为表述方便，将对话框中5个复选框自上而下分别简称为“选项1”“选项2”“选项3”“选项4”“选项5”。</td></tr>
+</table>
+
+<div style = "margin-top: 16px; margin-bottom: 5px; width: 90%; text-align: center;">表4&nbsp;&nbsp;示例题目与格式说明</div>
+<table style = "width: 90%;">
+<tr><th style = "width: 45%; text-align: center;">示例题目</th><th style = "width: 35%; text-align: center;">格式说明</th><th style = "text-align: center;">至少应选中</th></tr>
+<tr><td style = "white-space: nowrap;">1、单项选择题（A）<br/>A、选择1&nbsp;&nbsp;B、选择2&nbsp;&nbsp;C、选择3&nbsp;&nbsp;D、选择4</td>
+<td>“包含题号，题干与选项均为单行、答案位于题干中”的单选题</td>
+<td>单选题，选项2、选项4</td></tr>
+<tr><td style = "white-space: nowrap;">2、单项选择题<br/>单项选择题（A）<br/>A、选择1<br/>B、选择2</td>
+<td>“包含题号，题干与选项均为多行、答案位于题干中”的单选题</td>
+<td>单选题，选项2、选项3、选项4</td></tr>
+<tr><td style = "white-space: nowrap;">多项选择题（）<br/>A、选择1&nbsp;&nbsp;B、选择2&nbsp;&nbsp;C、选择3&nbsp;&nbsp;D、选择4<br/>答案：ABC</td>
+<td>“没有题号，题干与选项均为单行、答案位于题目下一行”的多选题</td>
+<td>多选题，选项5</td></tr>
+<tr><td style = "white-space: nowrap;">4、多项选择题（）<br/>A、选择1<br/>B、选择2<br/>C、选择3<br/>D、选择4</td>
+<td>“包含题号，题干为单行、选项为多行、没有答案”的多选题</td>
+<td>多选题，选项2、选项3</td></tr>
+<tr><td style = "white-space: nowrap;">5、判断题（√）</td>
+<td>“包含题号，题干为单行、答案位于题干中”的判断题</td>
+<td>判断题，选项2、选项4</td></tr>
+<tr><td>6、判断题<br/>判断题</td>
+<td>“包含题号，题干为多行、没有答案”的判断题</td>
+<td>判断题，选项2、选项3</td></tr>
+<tr><td>7、填空题（空白1）填空题（空白2）</td>
+<td>“包含题号，题干为单行、答案位于题干中”的填空题</td>
+<td>填空题，选项、选项4</td></tr>
+<tr><td>8、填空题（）<br/>填空题（）<br/>空白1，空白2</td>
+<td>“包含题号，题干为多行、答案位于题目下一行”的填空题</td>
+<td>填空题，选项2、选项3、选项5</td></tr>
+<tr><td>简答题<br/>简答题答案</td>
+<td>“没有题号，题干为单行、有答案且为单行”的简答题</td>
+<td>简答题，选项5</td></tr>
+<tr><td>10、简答题<br/>简答题答案段落1<br/>简答题答案段落2</td>
+<td>“包含题号，题干为单行、有答案且为多行”的简答题</td>
+<td>简答题，选项2、选项3、选项5</td></tr>
+</table>
+
+<div class = "p">
+以上例子不能穷举出所有可被识别的题目格式，设置方式也不唯一。通过适当的设置，可以将符合要求且格式相同的大量文字内容快速转换为题目。
+</div>
+
+<div class = "h4"><ul><li>按何类型解析</li></ul></div>
+<div class = "p">
+每次生成只可生成一种类型的题目，若需生成多种类型题目，请多次执行批量生成功能，<b>为便于操作，请事先将文字内容按类型区分好</b>。
+</div>
+
+<div class = "h4"><ul><li>各选项详细说明</li></ul></div>
+<table class = "info">
+<tr><th><img class = "info" src = "images/info.png" alt = "警告" /></th><td>本部分涉及大量细节，即使不能完全理解，一般也不影响本功能的使用。</td></tr>
+</table>
+
+<div id = "fig1" style = "margin-bottom: 5px; width: 90%; text-align: center;">表5&nbsp;&nbsp;“<b>自动跳过不可解析的部分</b>”的说明</div>
+<table style = "width: 90%;">
+<tr><th style = "width: 10%; text-align: center;">按何类型解析</th><th style = "width: 20%; text-align: center;">选中时</th><th style = "width: 20%; text-align: center;">未选中时</th><th style = "width: 10%; text-align: center;">是否影响识别</th><th style = "text-align: center;">备注</th></tr>
+<tr>
+<td>单选题<br/>多选题</td>
+<td>无法识别出题干，或无法识别出任何选项时，跳过无法识别的部分，从下一行重新识别题干</td>
+<td>无法识别出题干，或无法识别出任何选项时，中止识别</td>
+<td rowspan = "3">-</td>
+<td rowspan = "3">
+<div>批量生成时，要求<b>所有题目必须有题干</b>，即使在创建<a href = "1.2.5_group.html">题目组</a>中无题干的子题目时也是如此；</div>
+<div class = "np">当有无法识别的内容时，若文字内容是从编辑器中取得，将选中未识别的部分；</div>
+<div class = "np">不论是否能检测到题目的答案，均不跳过。</div></td>
+</tr>
+<tr>
+<td>判断题<br/>简答题</td>
+<td>无法识别出题干时，跳过无法识别的部分，从下一行重新识别题干</td>
+<td>无法识别出题干时，中止识别</td>
+</tr>
+<tr>
+<td>填空题</td>
+<td>无法识别出题干，或无法识别出任何空白时，跳过无法识别的部分，从下一行重新识别题干</td>
+<td>无法识别出题干，或无法识别出任何空白时，中止识别</td>
+</tr>
+</table>
+
+<div style = "margin-top: 16px; margin-bottom: 5px; width: 90%; text-align: center;">表6&nbsp;&nbsp;“<b>自动删除阿拉伯数字题目序号</b>”的说明</div>
+<table style = "width: 90%;">
+<tr><th style = "width: 10%; text-align: center;">按何类型解析</th><th style = "width: 20%; text-align: center;">选中时</th><th style = "width: 20%; text-align: center;">未选中时</th><th style = "width: 10%; text-align: center;">是否影响识别</th><th style = "text-align: center;">备注</th></tr>
+<tr>
+<td>单选题<br/>多选题<br/>判断题<br/>填空题<br/>简答题</td>
+<td>检测题干开头是否有阿拉伯数字的题号，若有，则<b>在最终生成的题目中删除这些题号</b></td>
+<td>不对题干开头做检查，最终生成的题目中包含全部内容，可能包含题号</td>
+<td>不论是否检测到题号，均不影响识别</td>
+<td>题干开头的题号可以为：<ul style = "padding-top: 8px;"><li>被括号括起来的阿拉伯数字（括起来的内容不可包含非数字），<br/><b>例如</b>：“（1）题干”可被识别出题干前的选项号；</li><li>阿拉伯数字后有点符号、句号、空格，使之可以明显地与题干内容分隔开，<b><br/>例如</b>：“1、题干”“1&nbsp;&nbsp;题干”均可被识别出题干前的选项号；</li></ul><b>注意</b>，题号必须位于每一行的开头，<b>每行的题号前不可有其他非空格字符</b>，否则将不识别为题号。</td>
+</tr>
+</table>
+
+<div style = "margin-top: 16px; margin-bottom: 5px; width: 90%; text-align: center;">表7&nbsp;&nbsp;“<b>以阿拉伯数字序号区分各题目</b>”的说明</div>
+<table style = "width: 90%;">
+<tr><th style = "width: 10%; text-align: center;">按何类型解析</th><th style = "width: 20%; text-align: center;">选中时</th><th style = "width: 20%; text-align: center;">未选中时</th><th style = "width: 10%; text-align: center;">是否影响识别</th><th style = "text-align: center;">备注</th></tr>
+<tr>
+<td>单选题<br/>多选题</td>
+<td>
+<div><b>允许每道题目的题干与选项有换行</b></div>
+<div class = "np">题干的检测范围从行首有题号的行首开始，到检测到行首有<b>英文字母选项号</b>的行首截止；</div>
+<div class = "np">选项的检测范围从行首有<b>英文字母选项号</b>的行首开始，结束位置与“<b>在题目最后一行检测答案</b>”选项有关</div>
+</td>
+<td>
+<div><b>不允许每道题目的题干与选项有换行</b></div>
+<div class = "np">检测题干与选项时，<b>均只检测一行</b></div>
+</td>
+<td rowspan = "3">影响识别的情况参见<a href = "#fig1">表5</a></td>
+<td>
+<div>选中本项后，识别题目中的各选项时，若选项号位阿拉伯数字，将不被识别为选项号，</div>
+<div class = "np"><b>例如</b>：“（A）选项1&nbsp;&nbsp;（B）选项2”可被识别为两个选项。；</div>
+<div style = "text-indent: 3em;">“（1）选项1&nbsp;&nbsp;（2）选项2”将不可被识别为选项。</div></td>
+</tr>
+<tr>
+<td>判断题<br/>填空题</td>
+<td>
+<div><b>允许每道题目的题干有换行</b></div>
+<div class = "np">题干的检测范围从行首有题号的行首开始，结束位置与“<b>在题目最后一行检测答案</b>”选项有关</div>
+</td>
+<td><b>不允许每道题目的题干有换行</b><br/>检测题干时，<b>只检测一行</b></td>
+<td></td>
+</tr>
+<tr>
+<td>简答题</td>
+<td><b>允许每道题目的答案有换行</b></td>
+<td><b>不允许每道题目答案有换行</b></td>
+<td>不论勾选与否，每道简答题的<b>题干必须为单行</b></td>
+</tr>
+</table>
+
+<div id = "fig2" style = "margin-top: 16px; margin-bottom: 5px; width: 90%; text-align: center;">表8&nbsp;&nbsp;“<b>在题干中检测答案</b>”的说明</div>
+<table style = "width: 90%;">
+<tr><th style = "width: 10%; text-align: center;">按何类型解析</th><th style = "width: 20%; text-align: center;">选中时</th><th style = "width: 20%; text-align: center;">未选中时</th><th style = "width: 10%; text-align: center;">是否影响识别</th><th style = "text-align: center;">备注</th></tr>
+<tr>
+<td>单选题<br/>多选题</td>
+<td>
+<div>
+<b>首先在题干中寻找括号</b>，若某括号及其中内容符合以下要求：<ul style = "padding-top: 8px;"><li>括号内包含A~H（不区分大小写）的选项答案（可有多个），且<b>无其他任何非空字符</b></li><li>括号内的选项答案可至少对应上一个选项</li></ul>则将其设置为此题目的答案；
+</div>
+<div class = "np">
+<b>若未找到括号，则在题干的末尾检测答案</b>，要求答案与题干之间用至少一个空格隔开，答案的格式同上；
+</div>
+<div class = "np">
+<b>若识别成功，自动将题干中答案替换为空白</b>，失败则不作修改
+</div>
+</td>
+<td><b>不对题干内容进行检测和修改</b></td>
+<td rowspan = "2">不论是否检测到答案，均不影响识别</td>
+<td>
+<div>识别括号内答案时按从前向后的顺序，若已在某个括号中检测到符合要求的答案，则后续内容不再检测；</div>
+<div class = "np">若括号内答案有多个，但题目按单选题识别，则不以此作为答案识别；</div>
+<div class = "np"><b>例如</b>：某题题干为“内容（ABC），内容（D）内容”，</div><div style = "text-indent: 3em;">按单选题识别答案时，题干被修改为“内容（ABC），内容（&nbsp;）内容”，答案为“D”，</div>
+<div style = "text-indent: 3em;">按多选题识别答案时，题干被修改为“内容（&nbsp;&nbsp;&nbsp;），内容（D）内容”，答案为“ABC”。</div>
+</td></tr>
+<tr>
+<td>判断题</td>
+<td>
+<div>
+<b>首先在题干中寻找括号</b>，若某括号中内容为明确体现对错的字样（<b>例如</b>：“正确”“错”“true”“×”等字样）且<b>无其他无关文字</b>，则将其设置为此题目的答案；
+</div>
+<div class = "np">
+<b>若未找到括号，则在题干的末尾检测答案</b>，要求答案与题干之间用至少一个空格隔开，答案的格式同上；
+</div>
+<div class = "np">
+<b>若识别成功，自动将题干中答案替换为空白</b>，失败则不作修改
+</div>
+</td>
+<td><b>不对题干内容进行检测和修改</b></td>
+<td></td>
+</tr>
+<tr>
+<td>填空题</td>
+<td>
+<div>
+<b>在题干中寻找括号</b>，识别括号中的内容，作为答案保存，并自动将题干中答案替换为空白
+</div>
+</td>
+<td>取消选中此项后，<b>自动选中</b>“在题目最后一行检测答案”</b></td>
+<td><b>若检测不到答案，将无法生成题目</b></td>
+<td></td>
+</tr>
+<tr>
+<td>简答题</td>
+<td colspan = "4"><b>此项禁止选中</b></td>
+</tr>
+</table>
+
+<div style = "margin-top: 16px; margin-bottom: 5px; width: 90%; text-align: center;">表9&nbsp;&nbsp;“<b>在题目最后一行检测答案</b>”的说明</div>
+<table style = "width: 90%;">
+<tr><th style = "width: 10%; text-align: center;">按何类型解析</th><th style = "width: 20%; text-align: center;">选中时</th><th style = "width: 20%; text-align: center;">未选中时</th><th style = "width: 10%; text-align: center;">是否影响识别</th><th style = "text-align: center;">备注</th></tr>
+<tr>
+<td>单选题<br/>多选题</td>
+<td>
+<div>
+<b>在每道题目的最后一行中检测答案</b>
+</div>
+<div class = "np">
+<b>若选中“以阿拉伯数字序号区分各题目”</b>，在下一题题干的前一行检测答案；
+</div>
+<div class = "np">
+<b>未选中“以阿拉伯数字序号区分各题目”</b>，在题目选项行的下一行检测答案；
+</div>
+<div class = "np">
+答案的形式与<a href = "#fig2">表8</a>中所述完全相同，答案可以从行首开始，也可以从冒号以后开始（冒号前的内容被忽略）
+</div>
+</td>
+<td><b>不检测每题的最后一行</b>，认为选项结束后即是下一题</td>
+<td rowspan = "2">不论是否检测到答案，均不影响识别</td>
+<td>
+<div>是否选中本项将影响“以阿拉伯数字序号区分各题目”功能对选项的识别范围</div>
+<div class = "np">选中此项相比于不选中此项，选项的识别范围少一行（少的这一行作为答案进行识别）。</div>
+</td>
+</tr>
+<td>判断题</td>
+<td>
+<div>
+<b>在每道题目的最后一行中检测答案</b>，答案可以从行首开始，也可以从某个冒号以后开始
+</div>
+<div class = "np">
+<b>若选中“以阿拉伯数字序号区分各题目”</b>，在下一题题干的前一行检测答案；
+</div>
+<div class = "np">
+<b>未选中“以阿拉伯数字序号区分各题目”</b>，在当前题干的下一行检测答案；
+</div>
+<div class = "np">
+答案的形式与<a href = "#fig2">表8</a>中所述完全相同，答案可以从行首开始，也可以从冒号以后开始（冒号前的内容被忽略）
+</div>
+</td>
+<td><b>不检测每题的最后一行</b>，认为题干结束后即是下一题</td>
+<td>
+<div>是否选中本项将影响“以阿拉伯数字序号区分各题目”功能对题干的识别范围</div>
+<div class = "np">选中此项相比于不选中此项，题干的识别范围少一行（少的这一行作为答案进行识别）。</div>
+</td>
+</tr>
+<tr>
+<td>填空题</td>
+<td>
+<div>
+<b>在每道题目的最后一行中检测答案</b>
+</div>
+<div class = "np">
+答案与答案之间可用<b>空格、点符号、逗号、顿号、分号、句号</b>隔开，全角半角均可；
+</div>
+<div class = "np">
+答案可以从行首开始，也可以从冒号以后开始（冒号前的内容被忽略）
+</div>
+</td>
+<td>取消选中此项后，<b>自动选中</b>“在题干中检测答案”</b></td>
+<td><b>若检测不到答案，将无法生成题目</b></td>
+<td>
+<div>是否选中本项将影响“以阿拉伯数字序号区分各题目”功能对题干的识别范围</div>
+<div class = "np">选中此项相比于不选中此项，题干的识别范围少一行（少的这一行作为答案进行识别）。</div>
+</td>
+</tr>
+<tr>
+<td>简答题</td>
+<td>
+<div><b>等同于“在题干后检测答案”</b></div>
+<div class = "np">
+<b>若选中“以阿拉伯数字序号区分各题目”</b>，识别范围从题干的下一行行首至下一个题干的上一行行末，<b>允许答案有换行</b>；
+</div>
+<div class = "np">
+<b>未选中“以阿拉伯数字序号区分各题目”</b>，识别范围题干的下一行，<b>认为答案仅有一行</b>；
+</div>
+<div class = "np">
+答案始终从行首开始识别
+</div>
+</td>
+<td><b>等同于“不检测答案”</b>，认为题干结束后即是下一题</td>
+<td>不论是否检测到答案，均不影响识别</td>
+<td></td>
+</tr>
+</table>
+
+<div class = "h4" style = "margin-top: 16px;"><ul><li>一些生成技巧</li></ul></div>
+<div style = "margin-top: 16px; margin-bottom: 5px; width: 90%; text-align: center;">表10&nbsp;&nbsp;部分生成技巧</div>
+<table style = "width: 90%;">
+<tr><th style = "width: 40%; text-align: center;">情形</th><th style = "text-align: center;">参考解决方法</th></tr>
+<tr>
+<td>
+<div>题目中的各选项之间没有分隔符，或选项号与选项内容之间没有分隔符</div>
+<div class = "np"><b>形如</b>：</div>
+<div>题干（A）</div>
+<div>A选项B选项C选项</div>
+</td>
+<td>
+<div>利用文本编辑器，将所有“A”替换为“（A）”，“B”替换为“（B）”，以此类推。</div>
+<div class = "np"><b>替换后原题变成</b>：</div>
+<div>题干（（A））</div>
+<div>（A）选项（B）选项（C）选项</div>
+<div class = "np">即可正常识别，且不影响答案的识别。</div>
+<div class = "np"><b>替换后，请注意检查题目，避免将非选项号的英文字母替换掉</b>。建议选用带有“全词匹配”功能的文本编辑器，勾选“全词匹配”可避免将英文单词中的字母替换掉。</div>
+</td>
+</tr>
+</table>
+</div>
+
+<table class = "guide">
+<tr><td><a href = "1.2.6_customtype.html">上一篇</a></td><td style = "text-align: center;"><a href = "1.0.0_content.html">目录</a></td><td style = "text-align: right;"><a href = "1.3.0_test.html">下一篇</a></td></tr>
+</table>
+
+<hr/>
+<small>GX Software 2020-2021</small><br/>
+<small>V2.0</small>
+
+</body>
+
+</html>

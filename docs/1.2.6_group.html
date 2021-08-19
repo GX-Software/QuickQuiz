@@ -1,0 +1,108 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+
+<meta http-equiv = "Content-Type" content = "text/html; charset = utf-8;">
+<title>QuickQuiz帮助文档</title>
+<link rel = "stylesheet" type = "text/css" href = "css/style.css">
+
+</head>
+
+<body>
+
+<h2>
+<img src = "images/title.png" alt = "icon" style = "width: 50px; height: 50px; vertical-align: middle;"/><span style = "margin-left: 8px;">题目组</span>
+</h2>
+<hr/>
+
+<div class = "p">
+<b>题目组</b>是一组相关的题目，这些题目拥有一个共同的题干，例如“材料分析”“阅读理解”“完形填空”等。题目组的界面如下：
+</div>
+<div class = "p" id = "rule2">
+<img src = "images/newgroup.png" alt = "新建题目组" />
+</div>
+
+<div class = "h4"><ul><li>题目组名称</li></ul></div>
+<div class = "p">
+相当于“题目类型”，可为每个题目组设置一个独特的类型名称（但并不代表生成了一个新的题目类型），可不设置。
+</div>
+
+<div class = "h4"><ul><li>题目组描述</li></ul></div>
+<div class = "p">
+设置题目组中所有题目的共同题干，点击“设...”按钮可将<a href = "1.2.0_newitem.html#rule1">取得的文字</a>粘贴入，允许换行，<b>可以为空</b>。
+</div>
+<div class = "p">
+可以在题目组描述中插入至多10张图片，详见<a href = "1.2.3_itemimage.html">题目图片</a>。
+</div>
+<div class = "p">
+可以为题目组设置题号，参见<a href = "1.0.3_editmenu.html#rule1">题号</a>。
+</div>
+
+<div class = "h4"><ul><li>题目组解析</li></ul></div>
+<div class = "p">
+设置题目组中所有题目的共同解析，点击“设...”按钮可将<a href = "1.2.0_newitem.html#rule1">取得的文字</a>粘贴入，允许换行，可以为空。
+</div>
+<div class = "p">
+可以在题目组解析中插入至多10张图片，详见<a href = "1.2.3_itemimage.html">题目图片</a>。
+</div>
+<table class = "info">
+<tr><th><img class = "info" src = "images/info.png" alt = "警告" /></th><td>题目组中的题目也可分别设置解析。</td></tr>
+</table>
+
+<div class = "h4"><ul><li>题目组内容</li></ul></div>
+<div class = "p">
+给题目组中添加题目，最大支持添加200道题目，<b>添加的题目均为默认类型，且不可添加题目组</b>。内容中题目的显示顺序即为题目在题目组中的顺序，可通过“上移”“下移”按钮进行调整。
+</div>
+<table class = "info">
+<tr><th><img class = "info" src = "images/info.png" alt = "警告" /></th><td>仅在选中单个题目时，“上移”“下移”才允许执行。</td></tr>
+</table>
+<div class = "p">
+点击“新建题目”可向题目组中添加题目，添加方式与<a href = "1.2.0_newitem.html">新建题目</a>完全相同；点击“编辑题目”或“删除题目”可对选中题目进行编辑和删除操作。
+</div>
+
+<div class = "h4"><ul><li>粘贴/复制</li></ul></div>
+<div class = "p">
+“粘贴”是将从本应用程序中剪切或复制的题目粘贴到当前题目组的题目列表中，若粘贴自定义类型题目，则会强制转换为对应的默认题目类型后再粘贴，无法粘贴题目组。
+</div>
+<div class = "p">
+“复制”是将题目内容中选中的题目复制进剪贴板，<b>题干为空的题目将被跳过</b>。
+</div>
+
+<div class = "h4"><ul><li>前一组/后一组/新建组/删除组</li></ul></div>
+<div class = "p">
+可一次添加多个题目组，也可一次编辑多个题目组。
+</div>
+
+<div class = "h4" id = "rule1"><ul><li>确认</li></ul></div>
+<div class = "p">
+点击“确认”按钮，自动保存当前题目组的修改，退出新建，并将新建的全部有效题目组保存入当前题库中。
+</div>
+<div class = "p">
+<b>“有效题目组”的定义如下</b>。
+</div>
+<ul style = "margin-left: 2em;">
+<li>至少添加了一道<a href = "1.2.0_newitem.html#rule3">有效题目</a>。</li>
+</ul>
+
+<div class = "h4" id = "rule1"><ul><li>查看题目组</li></ul></div>
+<div class = "p">
+当在主界面右侧窗格双击一个题目组，或选中若干个题目组（未选中单个题目）后执行“查看属性”，将以如下方式显示属性，单击各子题目可以切换高亮，点击“收藏题目”可以收藏高亮的子题目。
+</div>
+<div class = "p">
+<img src = "images/groupshow.png" alt = "查看题目组" />
+</div>
+<div class = "p">
+在主界面收藏题目组时，将收藏题目组下全部题目。
+</div>
+
+<table class = "guide">
+<tr><td><a href = "1.2.5_batchset.html">上一篇</a></td><td style = "text-align: center;"><a href = "1.0.0_content.html">目录</a></td><td style = "text-align: right;"><a href = "1.2.7_customtype.html">下一篇</a></td></tr>
+</table>
+
+<hr/>
+<small>GX Software 2020-2021</small><br/>
+<small>V2.0</small>
+
+</body>
+
+</html>

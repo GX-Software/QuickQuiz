@@ -1,0 +1,77 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+
+<meta http-equiv = "Content-Type" content = "text/html; charset = utf-8;">
+<title>QuickQuiz帮助文档</title>
+<link rel = "stylesheet" type = "text/css" href = "css/style.css">
+
+</head>
+
+<body>
+
+<h2>
+<img src = "images/title.png" alt = "icon" style = "width: 50px; height: 50px; vertical-align: middle;"/><span style = "margin-left: 8px;">源码概述</span>
+</h2>
+<hr/>
+
+<div class = "h4"><ul><li>开发环境</li></ul></div>
+<div class = "p">
+IDE为Microsoft Visual C++ 6.0 Professional Edition，在Windows7 Ultimate x64系统下完美编译。
+</div>
+
+<div class = "h4"><ul><li>开发语言</li></ul></div>
+<div class = "p">
+基于C++开发框架，但几乎全部以“C风格”写就。
+</div>
+
+<div class = "h4"><ul><li>界面库</li></ul></div>
+<div class = "p">
+Platform SDK for Windows User Interface、MFC4.2。
+</div>
+
+<div class = "h4"><ul><li>字符集</li></ul></div>
+<div class = "p">
+使用“_UNICODE”或“_MBCS”宏，可编译为宽字符版或多字节版（不论何版本，生成题库文件均完全兼容）。
+</div>
+
+<div class = "h4"><ul><li>目录结构</li></ul></div>
+<pre>
+<b>.\Bin</b>
+已归档的可执行文件
+
+<b>.\help</b>
+html帮助文档
+
+<b>.\lib</b>
+依赖的第三方库，包含：
+.\lib\libjpeg&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;jpeg图像库
+.\lib\libpng&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;png图像库
+.\lib\original_package&nbsp;&nbsp;&nbsp;各库的原始压缩包
+.\lib\tinyxml&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;xml读写库
+.\lib\zlib&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;压缩库
+
+<b>.\res</b>
+主程序所使用的资源文件
+
+<b>.\src</b>
+主程序的全部源码
+
+<b>QuickQuiz.dsp</b>
+适用于Visual C++ 6.0的工程文件
+
+<b>QuickQuiz.dsw</b>
+适用于Visual C++ 6.0的工作空间文件，包含全部工程
+</pre>
+
+<table class = "guide">
+<tr><td><a href = "2.0.0_develop.html">上一篇</a></td><td style = "text-align: center;"><a href = "2.0.0_develop.html">目录</a></td><td style = "text-align: right;"><a href = "2.0.2_binformat.html">下一篇</a></td></tr>
+</table>
+
+<hr/>
+<small>GX Software 2020-2021</small><br/>
+<small>V2.0</small>
+
+</body>
+
+</html>

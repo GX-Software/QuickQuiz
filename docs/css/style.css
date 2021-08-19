@@ -1,0 +1,151 @@
+
+/* 默认全局 */
+body {
+	font-family: Helvetica, Arial, Microsoft Yahei, sans-serif;
+	background-image: url("../images/bg.png");
+}
+
+p {
+	text-indent: 2em;
+	line-height: 1.6em;
+}
+
+div.p {
+	text-indent: 2em;
+	line-height: 1.6em;
+	padding: 8px 0;
+}
+div.np {
+	line-height: 1.6em;
+	margin-top: 12px;
+}
+div.h4 {
+	font-weight: bold;
+	margin: 12px 0 5px 0;
+}
+
+ul, ol {
+	margin: 0;
+	padding: 0 20px;
+	
+	line-height: 1.6em;
+}
+li {
+	margin-bottom: 6px;
+}
+
+.codefont {
+	font-family: Courier;
+}
+
+img.info {
+	height: 50px;
+}
+
+pre {
+	font-family: Courier;
+	font-size: 1em;
+	margin-left: 2em;
+}
+
+/* 默认表格 */
+table {
+	margin-left: 2em;
+	
+	border-spacing:0px;
+	border-style: solid;
+	border-color: #777777;
+	border-width: 1px;
+	border-collapse:collapse;
+	
+	line-height: 1.6em;
+}
+
+/* 表头默认左对齐 */
+th {
+	border-style: solid;
+	border-color: #777777;
+	border-width: 1px;
+	
+	padding: 4px 8px;
+	background: #cccccc;
+	text-align: left;
+	vertical-align: top;
+	white-space: nowrap;
+}
+
+td {
+	border-style: solid;
+	border-color: #777777;
+	border-width: 1px;
+	
+	padding: 4px 8px;
+	background: #ffffff;
+	vertical-align: top;
+}
+
+/* 警告框 */
+table.info {
+	border-style: none;
+	width: auto;
+	
+	margin: 5px 0 5px 40px;
+	line-height: 1.6em;
+}
+table.info th {
+	border-style: none;
+	
+	background-color: transparent;
+	padding: 3px 15px 3px 0;
+	
+	vertical-align: top;
+}
+table.info td {
+	border-style: none;
+	
+	font-weight: bold;
+	background-color: transparent;
+	padding: 3px 0px;
+	
+	vertical-align: top;
+}
+
+/* 底部导航 */
+table.guide {
+	margin-left: 0;
+	
+	border-style: none;
+	width: 100%;
+	
+	margin-top: 12px;
+}
+table.guide td {
+	border-style: none;
+	
+	background-color: transparent;
+	padding: 3px 15px;
+}
+
+/* 目录 */
+table.content {
+	margin-left: 2em;
+	
+	border-style: none;
+	width: 75%;
+	
+	margin-top: 16px;
+}
+table.content td {
+	border-style: none;
+	
+	background-color: transparent;
+	padding: 3px 15px;
+}
+
+/* 表格中交替显示灰色 */
+table.blank th {
+	background: #FFFFFF;
+}
+tr.alt th, tr.alt td {
+	background: #EAF2D3;
+}

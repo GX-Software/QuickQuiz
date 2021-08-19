@@ -1,0 +1,1970 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// Chinese (P.R.C.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)
+#ifdef _WIN32
+LANGUAGE LANG_CHINESE, SUBLANG_CHINESE_SIMPLIFIED
+#pragma code_page(936)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)\r\n"
+    "#ifdef _WIN32\r\n"
+    "LANGUAGE 4, 2\r\n"
+    "#pragma code_page(936)\r\n"
+    "#endif //_WIN32\r\n"
+    "#include ""QuickQuiz.rc2""  // non-Microsoft Visual C++ edited resources\r\n"
+    "#include ""l.chs\\afxres.rc""          // Standard components\r\n"
+    "#endif\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON    DISCARDABLE     "QuickQuiz.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDR_MAINFRAME           BITMAP  MOVEABLE PURE   "Toolbar.bmp"
+IDB_LVIEWICON           BITMAP  DISCARDABLE     "lview.bmp"
+IDB_QVIEWICON           BITMAP  DISCARDABLE     "qview.bmp"
+IDB_STOREICON           BITMAP  DISCARDABLE     "store.bmp"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Toolbar
+//
+
+IDR_MAINFRAME TOOLBAR DISCARDABLE  16, 16
+BEGIN
+    BUTTON      ID_FILE_NEW
+    BUTTON      ID_FILE_OPEN
+    BUTTON      ID_FILE_SAVE
+    BUTTON      ID_FILE_SAVE_ALL
+    BUTTON      ID_FILE_CLOSE
+    SEPARATOR
+    BUTTON      ID_EDIT_CUT
+    BUTTON      ID_EDIT_COPY
+    BUTTON      ID_EDIT_PASTE
+    SEPARATOR
+    BUTTON      ID_EDIT_UNDO
+    BUTTON      ID_EDIT_REDO
+    SEPARATOR
+    BUTTON      ID_PAPER_NEWQUESTION
+    BUTTON      ID_PAPER_EDITOBJECT
+    BUTTON      ID_EDIT_PROPERTIES
+    BUTTON      ID_PAPER_STORE
+    BUTTON      ID_EDIT_CLEAR
+    SEPARATOR
+    BUTTON      ID_APP_ABOUT
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDR_MAINFRAME MENU PRELOAD DISCARDABLE 
+BEGIN
+    POPUP "文件(&F)"
+    BEGIN
+        MENUITEM "新建题库(&N)\tCtrl+N",        ID_FILE_NEW
+        MENUITEM "打开题库(&O)...\tCtrl+O",     ID_FILE_OPEN
+        MENUITEM "保存题库(&S)\tCtrl+S",        ID_FILE_SAVE
+        MENUITEM "全部保存(&L)",                ID_FILE_SAVE_ALL
+        MENUITEM "另存为(&A)...",               ID_FILE_SAVE_AS
+        MENUITEM SEPARATOR
+        POPUP "最近打开的题库(&R)"
+        BEGIN
+            MENUITEM "最近题库",                    ID_FILE_MRU_FILE1
+            , GRAYED
+            MENUITEM "清空最近题库(&C)",            ID_FILE_CLEARMRU
+        END
+        MENUITEM SEPARATOR
+        MENUITEM "关闭题库(&C)\tCtrl+W",        ID_FILE_CLOSE
+        MENUITEM "退出(&X)",                    ID_APP_EXIT
+    END
+    POPUP "编辑(&E)"
+    BEGIN
+        MENUITEM "撤销(&U)\tCtrl+Z",            ID_EDIT_UNDO
+        MENUITEM "重新执行(&R)\tCtrl+Y",        ID_EDIT_REDO
+        MENUITEM SEPARATOR
+        MENUITEM "剪切(&T)\tCtrl+X",            ID_EDIT_CUT
+        MENUITEM "复制(&C)\tCtrl+C",            ID_EDIT_COPY
+        MENUITEM "文字复制(&E)\tCtrl+Shift+C",  ID_EDIT_COPYEX
+        MENUITEM "粘贴(&P)\tCtrl+V",            ID_EDIT_PASTE
+        MENUITEM "删除(&D)\tDel",               ID_EDIT_CLEAR
+        MENUITEM SEPARATOR
+        MENUITEM "查找(&F)...\tCtrl+F",         ID_EDIT_FIND
+        MENUITEM "查找下一个(&X)\tF3",          ID_EDIT_FINDNEXT
+        MENUITEM SEPARATOR
+        MENUITEM "全选(&A)\tCtrl+A",            ID_EDIT_SELECT_ALL
+        MENUITEM "查看属性(&O)...",             ID_EDIT_PROPERTIES
+    END
+    POPUP "题库(&P)"
+    BEGIN
+        MENUITEM "允许编辑(&L)",                ID_PAPER_EDITABLE
+        MENUITEM "加密题库(&K)...",             ID_PAPER_LOCK
+        MENUITEM SEPARATOR
+        MENUITEM "新建题目(&N)...\tCtrl+Q",     ID_PAPER_NEWQUESTION
+        MENUITEM "收藏题目(&S)\tAlt+S",         ID_PAPER_STORE
+        MENUITEM "载入收藏夹文件(&W)...",       ID_PAPER_LOADSTORE
+        MENUITEM "编辑对象(&E)...\tCtrl+D",     ID_PAPER_EDITOBJECT
+        MENUITEM "题库封面(&C)...",             ID_PAPER_COVERSET
+        MENUITEM "批量操作(&B)...",             ID_PAPER_BATCHSET
+        MENUITEM SEPARATOR
+        MENUITEM "新建题目组(&G)...",           ID_PAPER_NEWGROUP
+        MENUITEM "编辑题目组(&T)...",           ID_PAPER_EDITGROUP
+        MENUITEM SEPARATOR
+        MENUITEM "添加自定义类型(&A)",          ID_PAPER_NEWTYPE
+        MENUITEM "删除自定义类型(&D)",          ID_PAPER_DELTYPE
+        MENUITEM SEPARATOR
+        MENUITEM "打开所在文件夹(&X)...",       ID_PAPER_OPENINEXPLORER
+    END
+    POPUP "测试(&T)"
+    BEGIN
+        MENUITEM "开始考试(&T)...\tCtrl+T",     ID_TEST_BEGIN
+        MENUITEM "开始学习(&S)...\tCtrl+R",     ID_TEST_VIEW
+        MENUITEM SEPARATOR
+        MENUITEM "生成试卷(&M)...",             ID_TEST_MAKE
+        MENUITEM "抢答练习(&C)...",             ID_TEST_COMPETITIVE
+    END
+    POPUP "界面(&V)"
+    BEGIN
+        MENUITEM "工具栏(&T)",                  ID_VIEW_TOOLBAR
+        MENUITEM "状态栏(&S)",                  ID_VIEW_STATUS_BAR
+        MENUITEM SEPARATOR
+        POPUP "界面颜色(&C)"
+        BEGIN
+            MENUITEM "默认(&N)",                    ID_VIEW_COLORNORMAL
+            MENUITEM "护眼绿(&G)",                  ID_VIEW_COLORGREEN
+            MENUITEM "夜间(&D)",                    ID_VIEW_COLORDARK
+        END
+        MENUITEM "摘要长度(&L)...",             ID_VIEW_SAMMARYLEN
+        MENUITEM SEPARATOR
+        MENUITEM "重置软件(&R)",                ID_VIEW_RESET
+    END
+    POPUP "帮助(&H)"
+    BEGIN
+        MENUITEM "关于 QuickQuiz(&A)...",       ID_APP_ABOUT
+    END
+END
+
+IDR_EDITMENU MENU PRELOAD DISCARDABLE 
+BEGIN
+    POPUP "文件(&F)"
+    BEGIN
+        MENUITEM "新建(&N)\tCtrl+N",            ID_FILE_NEW
+        MENUITEM "打开(&O)...\tCtrl+O",         ID_FILE_OPEN
+        MENUITEM "保存(&S)\tCtrl+S",            ID_FILE_SAVE
+        MENUITEM "另存为(&A)...",               ID_FILE_SAVE_AS
+        MENUITEM SEPARATOR
+        POPUP "最近打开的文档(&R)"
+        BEGIN
+            MENUITEM "最近文档",                    ID_FILE_MRU_FILE1
+            , GRAYED
+            MENUITEM "清空最近文档(&C)",            ID_FILE_CLEARMRU
+        END
+        MENUITEM SEPARATOR
+        MENUITEM "退出(&X)",                    ID_EX_EXIT
+    END
+    POPUP "编辑(&E)"
+    BEGIN
+        MENUITEM "撤销(&U)\tCtrl+Z",            ID_EDIT_UNDO
+        MENUITEM SEPARATOR
+        MENUITEM "剪切(&T)\tCtrl+X",            ID_EDIT_CUT
+        MENUITEM "复制(&C)\tCtrl+C",            ID_EDIT_COPY
+        MENUITEM "粘贴(&P)\tCtrl+V",            ID_EDIT_PASTE
+        MENUITEM "删除(&D)\tDel",               ID_EDIT_CLEAR
+        MENUITEM SEPARATOR
+        MENUITEM "查找(&F)...\tCtrl+F",         ID_EDIT_FIND
+        MENUITEM "查找下一个(&X)\tF3",          ID_EDIT_FINDNEXT
+        MENUITEM "替换(&R)...\tCtrl+H",         ID_EDIT_REPLACE
+        MENUITEM SEPARATOR
+        MENUITEM "全选(&A)\tCtrl+A",            ID_EDIT_SELECT_ALL
+    END
+    POPUP "格式(&O)"
+    BEGIN
+        MENUITEM "自动换行(&A)",                ID_EX_AUTOSEP
+        MENUITEM "字体(&F)...",                 ID_EX_FONT
+    END
+END
+
+IDR_LISTMENU MENU DISCARDABLE 
+BEGIN
+    POPUP "编辑"
+    BEGIN
+        MENUITEM "删除选中",                    ID_EDIT_CLEAR
+    END
+END
+
+IDR_SHOWMENU MENU DISCARDABLE 
+BEGIN
+    POPUP "右键"
+    BEGIN
+        MENUITEM "复制选中文字(&C)\tCtrl+C",    ID_EDIT_COPY
+        MENUITEM "选中全部文字(&A)\tCtrl+A",    ID_EDIT_SELECT_ALL
+        MENUITEM SEPARATOR
+        MENUITEM "保存图片(&S)...",             ID_SHOW_SAVEIMG
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Accelerator
+//
+
+IDR_MAINFRAME ACCELERATORS PRELOAD MOVEABLE PURE 
+BEGIN
+    "A",            ID_EDIT_SELECT_ALL,     VIRTKEY, CONTROL, NOINVERT
+    "C",            ID_EDIT_COPY,           VIRTKEY, CONTROL, NOINVERT
+    "C",            ID_EDIT_COPYEX,         VIRTKEY, SHIFT, CONTROL, 
+                                                    NOINVERT
+    "D",            ID_PAPER_EDITOBJECT,    VIRTKEY, CONTROL, NOINVERT
+    "F",            ID_EDIT_FIND,           VIRTKEY, CONTROL, NOINVERT
+    "H",            ID_EDIT_REPLACE,        VIRTKEY, CONTROL, NOINVERT
+    "N",            ID_FILE_NEW,            VIRTKEY, CONTROL, NOINVERT
+    "O",            ID_FILE_OPEN,           VIRTKEY, CONTROL, NOINVERT
+    "Q",            ID_PAPER_NEWQUESTION,   VIRTKEY, CONTROL, NOINVERT
+    "R",            ID_TEST_VIEW,           VIRTKEY, CONTROL, NOINVERT
+    "S",            ID_FILE_SAVE,           VIRTKEY, CONTROL, NOINVERT
+    "S",            ID_PAPER_STORE,         VIRTKEY, ALT, NOINVERT
+    "T",            ID_TEST_BEGIN,          VIRTKEY, CONTROL, NOINVERT
+    "V",            ID_EDIT_PASTE,          VIRTKEY, CONTROL, NOINVERT
+    VK_DELETE,      ID_EDIT_CLEAR,          VIRTKEY, NOINVERT
+    VK_DELETE,      ID_EDIT_CUT,            VIRTKEY, SHIFT, NOINVERT
+    VK_F3,          ID_EDIT_FINDNEXT,       VIRTKEY, NOINVERT
+    VK_F6,          ID_NEXT_PANE,           VIRTKEY, NOINVERT
+    VK_F6,          ID_PREV_PANE,           VIRTKEY, SHIFT, NOINVERT
+    VK_INSERT,      ID_EDIT_COPY,           VIRTKEY, CONTROL, NOINVERT
+    VK_INSERT,      ID_EDIT_PASTE,          VIRTKEY, SHIFT, NOINVERT
+    "W",            ID_FILE_CLOSE,          VIRTKEY, CONTROL, NOINVERT
+    "X",            ID_EDIT_CUT,            VIRTKEY, CONTROL, NOINVERT
+    "Y",            ID_EDIT_REDO,           VIRTKEY, CONTROL, NOINVERT
+    "Z",            ID_EDIT_UNDO,           VIRTKEY, CONTROL, NOINVERT
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ABOUTBOX DIALOG DISCARDABLE  0, 0, 259, 87
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "关于 QuickQuiz"
+FONT 9, "宋体"
+BEGIN
+    ICON            IDR_MAINFRAME,IDC_STATIC,11,17,20,20
+    LTEXT           "",IDC_STATIC_TITLE,40,10,163,12,SS_NOPREFIX
+    LTEXT           "2016-2021 GX Software By 南郊居士",IDC_STATIC,40,24,143,
+                    12
+    DEFPUSHBUTTON   "确定",IDOK,202,7,50,14,WS_GROUP
+    LTEXT           "",IDC_STATIC_INFO,39,68,177,12
+    LTEXT           "XML功能基于Lee Thomason的TinyXml2.6.2制作",IDC_STATIC,
+                    40,38,192,12
+    LTEXT           "题库压缩功能基于zlib 1.2.11库制作",IDC_STATIC,39,52,193,
+                    12
+END
+
+IDD_EDIT_DLG DIALOG DISCARDABLE  0, 0, 342, 483
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+FONT 9, "宋体"
+BEGIN
+    EDITTEXT        IDC_EDIT_DESC,14,21,313,70,ES_MULTILINE | ES_NOHIDESEL | 
+                    ES_WANTRETURN | WS_VSCROLL
+    PUSHBUTTON      "上一题",IDC_BUTTON_PRE,285,126,50,14
+    PUSHBUTTON      "下一题",IDC_BUTTON_NEXT,285,145,50,14
+    PUSHBUTTON      "新建题目",IDC_BUTTON_NEW,285,164,50,14
+    PUSHBUTTON      "删除题目",IDC_BUTTON_DEL,285,183,50,14
+    PUSHBUTTON      "批量生成",IDC_BUTTON_ALLBUILD,285,202,50,14
+    CONTROL         "总在最前",IDC_CHECK_TOPMOST,"Button",BS_AUTOCHECKBOX | 
+                    BS_PUSHLIKE | WS_TABSTOP,285,233,50,14
+    CONTROL         "显示列表",IDC_CHECK_QLIST,"Button",BS_AUTOCHECKBOX | 
+                    BS_PUSHLIKE | WS_TABSTOP,285,253,50,14
+    PUSHBUTTON      "启动编辑器",IDC_BUTTON_TEXT,285,273,50,14
+    DEFPUSHBUTTON   "确认",IDOK,285,462,50,14
+    PUSHBUTTON      "设...",IDC_BUTTON_DESC,276,95,50,14
+    CONTROL         "Tab1",IDC_TAB_TYPE,"SysTabControl32",0x0,7,122,271,220
+    GROUPBOX        "题干",IDC_STATIC_GROUP1,7,7,328,109
+    LTEXT           "",IDC_STATIC_EDITINFO,15,96,158,12
+    GROUPBOX        "题目解析",IDC_STATIC_GROUP2,7,348,271,128
+    EDITTEXT        IDC_EDIT_RESOLVE,13,361,258,90,ES_MULTILINE | 
+                    ES_NOHIDESEL | ES_WANTRETURN | WS_VSCROLL
+    PUSHBUTTON      "设...",IDC_BUTTON_RESOLVE,222,456,50,14
+    PUSHBUTTON      "添加图片",IDC_BUTTON_SETDESCIMAGE,220,95,50,14
+    PUSHBUTTON      "添加图片",IDC_BUTTON_SETRESIMAGE,165,456,50,14
+END
+
+IDD_CHILD_SCHOISE_DLG DIALOG DISCARDABLE  0, 0, 268, 203
+STYLE WS_CHILD
+FONT 9, "宋体"
+BEGIN
+    CONTROL         "A",IDC_RADIO_ANSWER1,"Button",BS_AUTORADIOBUTTON | 
+                    WS_GROUP | WS_TABSTOP,7,9,20,10
+    CONTROL         "B",IDC_RADIO_ANSWER2,"Button",BS_AUTORADIOBUTTON | 
+                    WS_TABSTOP,7,31,20,10
+    CONTROL         "C",IDC_RADIO_ANSWER3,"Button",BS_AUTORADIOBUTTON | 
+                    WS_TABSTOP,7,53,20,10
+    CONTROL         "D",IDC_RADIO_ANSWER4,"Button",BS_AUTORADIOBUTTON | 
+                    WS_TABSTOP,7,75,20,10
+    CONTROL         "E",IDC_RADIO_ANSWER5,"Button",BS_AUTORADIOBUTTON | 
+                    WS_TABSTOP,7,97,20,10
+    CONTROL         "F",IDC_RADIO_ANSWER6,"Button",BS_AUTORADIOBUTTON | 
+                    WS_TABSTOP,7,118,20,10
+    CONTROL         "G",IDC_RADIO_ANSWER7,"Button",BS_AUTORADIOBUTTON | 
+                    WS_TABSTOP,7,139,20,10
+    CONTROL         "H",IDC_RADIO_ANSWER8,"Button",BS_AUTORADIOBUTTON | 
+                    WS_TABSTOP,7,160,20,10
+    EDITTEXT        IDC_EDIT_ANSWER1,28,7,185,14,ES_AUTOHSCROLL | WS_GROUP
+    EDITTEXT        IDC_EDIT_ANSWER2,28,29,185,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_ANSWER3,28,51,185,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_ANSWER4,28,73,185,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_ANSWER5,28,95,185,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_ANSWER6,28,116,185,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_ANSWER7,28,138,185,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_ANSWER8,28,159,185,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "设...",IDC_BUTTON_SET1,222,7,39,14
+    PUSHBUTTON      "设...",IDC_BUTTON_SET2,222,29,39,14
+    PUSHBUTTON      "设...",IDC_BUTTON_SET3,222,51,39,14
+    PUSHBUTTON      "设...",IDC_BUTTON_SET4,222,73,39,14
+    PUSHBUTTON      "设...",IDC_BUTTON_SET5,222,95,39,14
+    PUSHBUTTON      "设...",IDC_BUTTON_SET6,222,116,39,14
+    PUSHBUTTON      "设...",IDC_BUTTON_SET7,222,138,39,14
+    PUSHBUTTON      "设...",IDC_BUTTON_SET8,222,159,39,14
+    PUSHBUTTON      "智能识别",IDC_BUTTON_AUTO,109,182,50,14
+    CONTROL         "",IDC_STATIC,"Static",SS_ETCHEDHORZ,7,189,91,1
+    CONTROL         "",IDC_STATIC,"Static",SS_ETCHEDHORZ,170,189,91,1
+END
+
+IDD_CHILD_MCHOISE_DLG DIALOG DISCARDABLE  0, 0, 268, 203
+STYLE WS_CHILD
+FONT 9, "宋体"
+BEGIN
+    CONTROL         "A",IDC_CHECK_ANSWER1,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,7,9,20,10
+    CONTROL         "B",IDC_CHECK_ANSWER2,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,7,31,20,10
+    CONTROL         "C",IDC_CHECK_ANSWER3,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,7,53,20,10
+    CONTROL         "D",IDC_CHECK_ANSWER4,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,7,75,20,10
+    CONTROL         "E",IDC_CHECK_ANSWER5,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,7,97,20,10
+    CONTROL         "F",IDC_CHECK_ANSWER6,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,7,118,20,10
+    CONTROL         "G",IDC_CHECK_ANSWER7,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,7,139,20,10
+    CONTROL         "H",IDC_CHECK_ANSWER8,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,7,160,20,10
+    EDITTEXT        IDC_EDIT_ANSWER1,28,7,185,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_ANSWER2,28,29,185,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_ANSWER3,28,51,185,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_ANSWER4,28,73,185,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_ANSWER5,28,95,185,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_ANSWER6,28,116,185,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_ANSWER7,28,138,185,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_ANSWER8,28,159,185,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "设...",IDC_BUTTON_SET1,222,7,39,14
+    PUSHBUTTON      "设...",IDC_BUTTON_SET2,222,29,39,14
+    PUSHBUTTON      "设...",IDC_BUTTON_SET3,222,51,39,14
+    PUSHBUTTON      "设...",IDC_BUTTON_SET4,222,73,39,14
+    PUSHBUTTON      "设...",IDC_BUTTON_SET5,222,95,39,14
+    PUSHBUTTON      "设...",IDC_BUTTON_SET6,222,116,39,14
+    PUSHBUTTON      "设...",IDC_BUTTON_SET7,222,138,39,14
+    PUSHBUTTON      "设...",IDC_BUTTON_SET8,222,159,39,14
+    PUSHBUTTON      "智能识别",IDC_BUTTON_AUTO,109,182,50,14
+    CONTROL         "",IDC_STATIC,"Static",SS_ETCHEDHORZ,7,189,91,1
+    CONTROL         "",IDC_STATIC,"Static",SS_ETCHEDHORZ,170,189,91,1
+END
+
+IDD_CHILD_JUDGE_DLG DIALOG DISCARDABLE  0, 0, 268, 203
+STYLE WS_CHILD
+FONT 9, "宋体"
+BEGIN
+    CONTROL         "正确",IDC_RADIO_TRUE,"Button",BS_AUTORADIOBUTTON | 
+                    WS_GROUP,15,17,32,10
+    CONTROL         "错误",IDC_RADIO_FALSE,"Button",BS_AUTORADIOBUTTON,15,35,
+                    32,10
+END
+
+IDD_ITEMPROP_DLG DIALOG DISCARDABLE  0, 0, 400, 367
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "题目属性"
+FONT 9, "宋体"
+BEGIN
+    PUSHBUTTON      "关闭",IDCANCEL,343,346,50,14
+    PUSHBUTTON      "上一题",IDC_BUTTON_PRE,343,28,50,14
+    PUSHBUTTON      "下一题",IDC_BUTTON_NEXT,343,47,50,14
+    GROUPBOX        "题目内容",IDC_STATIC_GROUP1,7,24,329,336
+    LTEXT           "题目类型：",IDC_STATIC,7,7,41,12
+    LTEXT           "",IDC_STATIC_QUESTIONTYPE,48,7,287,12
+    CONTROL         "",IDC_CUSTOM_ITEM,"QQItemShowWnd",WS_VSCROLL | 
+                    WS_TABSTOP,14,39,314,313
+    PUSHBUTTON      "收藏本题",IDC_BUTTON_STORE,343,66,50,14
+    COMBOBOX        IDC_COMBO_FONTSIZE,343,86,50,73,CBS_DROPDOWNLIST | 
+                    WS_VSCROLL | WS_TABSTOP
+END
+
+IDD_PAPERPROP_DLG DIALOG DISCARDABLE  0, 0, 187, 185
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "题库属性"
+FONT 9, "宋体"
+BEGIN
+    DEFPUSHBUTTON   "确定",IDOK,130,164,50,14
+    LTEXT           "题库名称：",IDC_STATIC,7,7,41,12
+    LTEXT           "题库路径：",IDC_STATIC,7,22,41,12
+    EDITTEXT        IDC_EDIT_PAPERNAME,51,7,129,12,ES_AUTOHSCROLL | 
+                    ES_READONLY | NOT WS_BORDER
+    EDITTEXT        IDC_EDIT_PAPERPATH,51,22,129,12,ES_AUTOHSCROLL | 
+                    ES_READONLY | NOT WS_BORDER
+    GROUPBOX        "题库情况",IDC_STATIC_INFO,7,70,173,87
+    EDITTEXT        IDC_EDIT_PAPERINFO,14,85,161,66,ES_MULTILINE | 
+                    ES_READONLY | NOT WS_BORDER | WS_VSCROLL
+    LTEXT           "是否只读：",IDC_STATIC,7,37,41,12
+    EDITTEXT        IDC_EDIT_CANEDIT,51,37,129,12,ES_AUTOHSCROLL | 
+                    ES_READONLY | NOT WS_BORDER
+    LTEXT           "文件类型：",IDC_STATIC,7,52,41,12
+    EDITTEXT        IDC_EDIT_FILETYPE,51,52,129,12,ES_AUTOHSCROLL | 
+                    ES_READONLY | NOT WS_BORDER
+END
+
+IDD_TYPEPROP_DLG DIALOG DISCARDABLE  0, 0, 187, 77
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "类型属性"
+FONT 9, "宋体"
+BEGIN
+    DEFPUSHBUTTON   "确定",IDOK,130,56,50,14
+    LTEXT           "题目类型：",IDC_STATIC,7,7,41,12
+    LTEXT           "所属题库：",IDC_STATIC,7,23,41,12
+    EDITTEXT        IDC_EDIT_TYPE,51,7,129,12,ES_AUTOHSCROLL | ES_READONLY | 
+                    NOT WS_BORDER
+    EDITTEXT        IDC_EDIT_PARENT,51,23,129,12,ES_AUTOHSCROLL | 
+                    ES_READONLY | NOT WS_BORDER
+    LTEXT           "题目数：",IDC_STATIC,7,40,33,12
+    EDITTEXT        IDC_EDIT_ITEMCOUNT,51,40,129,12,ES_AUTOHSCROLL | 
+                    ES_READONLY | NOT WS_BORDER
+    LTEXT           "题号：",IDC_STATIC,7,57,33,12
+    EDITTEXT        IDC_EDIT_QNUMBER,49,55,38,14,ES_AUTOHSCROLL | 
+                    ES_NOHIDESEL
+END
+
+IDD_CODE_DLG DIALOG DISCARDABLE  0, 0, 141, 66
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "编码方式设定"
+FONT 9, "宋体"
+BEGIN
+    DEFPUSHBUTTON   "确定",IDOK,84,45,50,14
+    LTEXT           "无法确定文件编码方式，请选择：",IDC_STATIC,7,7,127,12
+    COMBOBOX        IDC_COMBO_CODE,7,23,127,62,CBS_DROPDOWNLIST | CBS_SORT | 
+                    WS_VSCROLL | WS_TABSTOP
+END
+
+IDD_TESTSET_COMMDLG DIALOG DISCARDABLE  0, 0, 248, 185
+STYLE WS_CHILD
+FONT 9, "宋体"
+BEGIN
+    LTEXT           "题库：",IDC_STATIC,7,9,25,12
+    COMBOBOX        IDC_COMBO_PAPERPATH,34,7,207,79,CBS_DROPDOWNLIST | 
+                    WS_VSCROLL | WS_TABSTOP
+    LTEXT           "单选题：",IDC_STATIC,7,28,33,12
+    EDITTEXT        IDC_EDIT_SCHCOUNT,42,25,30,14,ES_AUTOHSCROLL | ES_NUMBER
+    LTEXT           "",IDC_STATIC_SCHCOUNT,76,28,33,12
+    LTEXT           "多选题：",IDC_STATIC,125,28,33,12
+    EDITTEXT        IDC_EDIT_MCHCOUNT,163,25,30,14,ES_AUTOHSCROLL | 
+                    ES_NUMBER
+    LTEXT           "",IDC_STATIC_MCHCOUNT,197,27,33,12
+    LTEXT           "判断题：",IDC_STATIC,7,46,33,12
+    EDITTEXT        IDC_EDIT_JDGCOUNT,42,44,30,14,ES_AUTOHSCROLL | ES_NUMBER
+    LTEXT           "",IDC_STATIC_JDGCOUNT,76,46,33,12
+    LTEXT           "填空题：",IDC_STATIC,125,46,33,12
+    EDITTEXT        IDC_EDIT_BLKCOUNT,163,44,30,14,ES_AUTOHSCROLL | 
+                    ES_NUMBER
+    LTEXT           "",IDC_STATIC_BLKCOUNT,197,46,33,12
+    LTEXT           "简答题：",IDC_STATIC,7,65,33,12
+    EDITTEXT        IDC_EDIT_TXTCOUNT,42,63,30,14,ES_AUTOHSCROLL | ES_NUMBER
+    LTEXT           "",IDC_STATIC_TXTCOUNT,76,65,33,12
+    LTEXT           "答题时限：",IDC_STATIC,7,103,41,12
+    EDITTEXT        IDC_EDIT_HOUR,49,101,21,14,ES_AUTOHSCROLL | ES_NUMBER
+    LTEXT           "小时",IDC_STATIC,74,103,17,12
+    EDITTEXT        IDC_EDIT_MINUTE,94,101,21,14,ES_AUTOHSCROLL | ES_NUMBER
+    LTEXT           "分钟",IDC_STATIC,119,103,17,12
+    CONTROL         "",IDC_STATIC,"Static",SS_ETCHEDHORZ,7,120,234,1
+    LTEXT           "满分：",IDC_STATIC,7,129,25,12
+    EDITTEXT        IDC_EDIT_FULLMARK,33,127,40,14,ES_AUTOHSCROLL | 
+                    ES_NUMBER
+    LTEXT           "计分方法：",IDC_STATIC,84,129,41,12
+    CONTROL         "平均",IDC_RADIO_EQU,"Button",BS_AUTORADIOBUTTON | 
+                    WS_GROUP,129,128,32,10
+    CONTROL         "指定",IDC_RADIO_DIF,"Button",BS_AUTORADIOBUTTON,172,128,
+                    32,10
+    LTEXT           "单选题：",IDC_STATIC,7,147,33,12
+    EDITTEXT        IDC_EDIT_SCHPOINT,41,145,33,14,ES_AUTOHSCROLL | 
+                    ES_NUMBER
+    LTEXT           "多选题：",IDC_STATIC,81,147,33,12
+    EDITTEXT        IDC_EDIT_MCHPOINT,115,145,33,14,ES_AUTOHSCROLL | 
+                    ES_NUMBER
+    LTEXT           "判断题：",IDC_STATIC,168,146,33,12
+    EDITTEXT        IDC_EDIT_JDGPOINT,202,144,33,14,ES_AUTOHSCROLL | 
+                    ES_NUMBER
+    LTEXT           "填空题：",IDC_STATIC,7,166,33,12
+    EDITTEXT        IDC_EDIT_BLKPOINT,41,164,33,14,ES_AUTOHSCROLL | 
+                    ES_NUMBER
+    LTEXT           "简答题：",IDC_STATIC,81,166,33,12
+    EDITTEXT        IDC_EDIT_TXTPOINT,115,164,33,14,ES_AUTOHSCROLL | 
+                    ES_NUMBER
+    CONTROL         "将收藏题目作为范围",IDC_CHECK_USESTORE,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,145,103,88,10
+    COMBOBOX        IDC_COMBO_CUSTOMTYPE1,113,63,46,30,CBS_DROPDOWNLIST | 
+                    WS_VSCROLL | WS_TABSTOP
+    EDITTEXT        IDC_EDIT_CUSTCOUNT,163,63,30,14,ES_AUTOHSCROLL | 
+                    ES_NUMBER
+    LTEXT           "",IDC_STATIC_CUSTCOUNT,197,65,33,12
+    COMBOBOX        IDC_COMBO_CUSTOMTYPE2,153,164,46,30,CBS_DROPDOWNLIST | 
+                    WS_VSCROLL | WS_TABSTOP
+    EDITTEXT        IDC_EDIT_CUSTPOINT,202,164,33,14,ES_AUTOHSCROLL | 
+                    ES_NUMBER
+    LTEXT           "题目组：",IDC_STATIC,7,84,33,12
+    EDITTEXT        IDC_EDIT_GRPCOUNT,42,82,30,14,ES_AUTOHSCROLL | ES_NUMBER
+    LTEXT           "",IDC_STATIC_GRPCOUNT,76,84,33,12
+    CONTROL         "按题号顺序排列",IDC_CHECK_QNUMORDER,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,115,85,72,10
+END
+
+IDD_TESTSET_CHSDLG DIALOG DISCARDABLE  0, 0, 248, 185
+STYLE WS_CHILD
+FONT 9, "宋体"
+BEGIN
+    CONTROL         "单选题也作为多选题的范围",IDC_CHECK_SCHASMCH,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,7,7,112,10
+    CONTROL         "单个选项的多选题也作为单选题的范围",IDC_CHECK_MCHASSCH,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,23,152,10
+    CONTROL         "多选题答案不完整给一半分数",IDC_CHECK_MCHHALF,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,7,39,120,10
+    CONTROL         "多选题屏蔽单个选项的题目",IDC_CHECK_MCHNOSINGLE,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,7,56,112,10
+    CONTROL         "改变选项的顺序",IDC_CHECK_RANDOM,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,7,73,72,10
+END
+
+IDD_VIEW_DLG DIALOG DISCARDABLE  0, 0, 390, 369
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "学习模式"
+FONT 9, "宋体"
+BEGIN
+    PUSHBUTTON      "下一步",IDC_BUTTON_NEXT,333,25,50,14
+    PUSHBUTTON      "上一题",IDC_BUTTON_PRE,333,45,50,14
+    PUSHBUTTON      "收藏本题",IDC_BUTTON_SAVE,333,65,50,14
+    PUSHBUTTON      "选项",IDC_BUTTON_OPTION,333,85,50,14
+    DEFPUSHBUTTON   "结束",IDCANCEL,333,348,50,14
+    GROUPBOX        "题目",IDC_STATIC_GROUP1,7,21,318,341
+    LTEXT           "题目类型：",IDC_STATIC,7,7,41,12
+    LTEXT           "",IDC_STATIC_TYPE,48,7,236,12
+    CONTROL         "一次性显示",IDC_CHECK_HOLESHOW,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,329,109,54,14
+    CONTROL         "",IDC_CUSTOM_ITEM,"QQItemShowWnd",WS_VSCROLL | 
+                    WS_TABSTOP,15,37,301,318
+    COMBOBOX        IDC_COMBO_FONTSIZE,333,131,50,73,CBS_DROPDOWNLIST | 
+                    WS_VSCROLL | WS_TABSTOP
+END
+
+IDD_CHOOSETYPE_DLG DIALOG DISCARDABLE  0, 0, 188, 135
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "类型选项"
+FONT 9, "宋体"
+BEGIN
+    DEFPUSHBUTTON   "确定",IDOK,131,114,50,14
+    GROUPBOX        "要选择的类型",IDC_STATIC_GROUP1,7,7,174,100
+    CONTROL         "随机看题",IDC_CHECK_RANDOM,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,15,114,48,14
+    CONTROL         "List1",IDC_LIST_TYPECHOOSE,"SysListView32",LVS_REPORT | 
+                    LVS_SINGLESEL | LVS_SHOWSELALWAYS | LVS_NOSORTHEADER | 
+                    WS_BORDER | WS_TABSTOP,16,22,155,77
+END
+
+IDD_TESTCOMP_DLG DIALOGEX 0, 0, 313, 329
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "抢答练习"
+FONT 9, "宋体", 0, 0, 0x1
+BEGIN
+    GROUPBOX        "显示区",IDC_STATIC_GROUP1,7,21,299,79
+    GROUPBOX        "答案",IDC_STATIC_GROUP2,7,104,299,81
+    GROUPBOX        "抢答区",IDC_STATIC_GROUP3,7,189,243,133
+    PUSHBUTTON      "上一题",IDC_BUTTON_PRE,256,193,50,14
+    PUSHBUTTON      "下一题",IDC_BUTTON_NEXT,256,213,50,14
+    PUSHBUTTON      "练新题",IDC_BUTTON_NEW,256,233,50,14
+    PUSHBUTTON      "收藏本题",IDC_BUTTON_SAVE,256,253,50,14
+    PUSHBUTTON      "选项",IDC_BUTTON_OPTION,256,273,50,14
+    EDITTEXT        IDC_EDIT_INTER,260,308,40,14,ES_AUTOHSCROLL,WS_EX_RIGHT
+    EDITTEXT        IDC_EDIT_ANSWER,14,116,285,61,ES_MULTILINE | ES_READONLY | 
+                    ES_WANTRETURN | NOT WS_BORDER | WS_VSCROLL
+    CTEXT           "点击开始",IDC_STATIC_BUTTON,14,202,231,114,
+                    SS_CENTERIMAGE
+    LTEXT           "",IDC_STATIC_SHOW,13,33,285,60
+    EDITTEXT        IDC_EDIT_DESC,13,33,285,60,ES_MULTILINE | ES_READONLY | 
+                    ES_WANTRETURN | NOT WS_VISIBLE | NOT WS_BORDER | 
+                    WS_VSCROLL
+    LTEXT           "字间间隔(s)",IDC_STATIC,260,294,45,12
+    LTEXT           "",IDC_STATIC_TYPE,50,7,153,12
+    CONTROL         "显示题目类型",IDC_CHECK_SHOWTYPE,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,242,7,64,10
+    LTEXT           "题目类型：",IDC_STATIC,7,7,41,12
+END
+
+IDD_ALLBUILD_DLG DIALOG DISCARDABLE  0, 0, 226, 211
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "批量生成"
+FONT 9, "宋体"
+BEGIN
+    PUSHBUTTON      "确认",IDC_BUTTON_SAVE,169,190,50,14
+    COMBOBOX        IDC_COMBO_TYPE,18,102,192,54,CBS_DROPDOWNLIST | 
+                    WS_VSCROLL | WS_TABSTOP
+    CONTROL         "自动跳过不可解析的部分",IDC_CHECK_AUTOSKIP,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,7,132,104,10
+    CONTROL         "自动删除阿拉伯数字题目序号",IDC_CHECK_HANDLEINDEX,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,148,120,10
+    CONTROL         "以阿拉伯数字序号区分各题目",IDC_CHECK_NUMSEP,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,7,164,120,10
+    CONTROL         "在题干中检测答案",IDC_CHECK_DETECTASWINQ,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,7,179,80,10
+    CONTROL         "在题目最后一行检测答案",IDC_CHECK_DETECTASWAFTERQ,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,194,104,10
+    EDITTEXT        IDC_EDIT_ALLBUILDTIPS,7,7,212,75,ES_MULTILINE | 
+                    ES_READONLY | ES_WANTRETURN | NOT WS_BORDER | WS_VSCROLL
+    GROUPBOX        "按何类型解析",IDC_STATIC_GROUP1,7,88,212,39
+END
+
+IDD_TESTSET_DLG DIALOG DISCARDABLE  0, 0, 262, 241
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+FONT 9, "宋体"
+BEGIN
+    DEFPUSHBUTTON   "确定",IDOK,149,220,50,14
+    PUSHBUTTON      "取消",IDCANCEL,205,220,50,14
+    CONTROL         "Tab1",IDC_TAB,"SysTabControl32",0x0,7,7,248,205
+END
+
+IDD_OPENDOC_DLG DIALOG DISCARDABLE  0, 0, 142, 49
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION
+CAPTION "打开中..."
+FONT 9, "宋体"
+BEGIN
+    LTEXT           "正在打开文档中，请稍候",IDC_STATIC_INFO,7,20,128,12
+END
+
+IDD_CHILD_BLANK_DLG DIALOG DISCARDABLE  0, 0, 268, 203
+STYLE WS_CHILD
+FONT 9, "宋体"
+BEGIN
+    EDITTEXT        IDC_EDIT_ANSWER,35,7,226,16,ES_AUTOHSCROLL | 
+                    ES_NOHIDESEL | ES_WANTRETURN
+    PUSHBUTTON      "添加",IDC_BUTTON_ADD,7,29,50,14
+    PUSHBUTTON      "修改答案",IDC_BUTTON_EDIT,63,29,50,14,WS_DISABLED
+    PUSHBUTTON      "带答案删除",IDC_BUTTON_DELWITHASW,119,29,50,14,
+                    WS_DISABLED
+    PUSHBUTTON      "无答案删除",IDC_BUTTON_DELNOASW,175,29,50,14,
+                    WS_DISABLED
+    CONTROL         "List1",IDC_LIST_BLANKS,"SysListView32",LVS_REPORT | 
+                    LVS_SINGLESEL | LVS_SHOWSELALWAYS | LVS_OWNERDATA | 
+                    LVS_NOSORTHEADER | WS_BORDER | WS_TABSTOP,7,50,254,146
+    LTEXT           "答案：",IDC_STATIC,7,9,25,12
+END
+
+IDD_CHILD_TEXT_DLG DIALOG DISCARDABLE  0, 0, 268, 203
+STYLE WS_CHILD
+FONT 9, "宋体"
+BEGIN
+    EDITTEXT        IDC_EDIT_ANSWER,14,21,237,149,ES_MULTILINE | 
+                    ES_NOHIDESEL | ES_WANTRETURN | WS_VSCROLL
+    GROUPBOX        "答案",IDC_STATIC_GROUP1,7,7,254,189
+    PUSHBUTTON      "设...",IDC_BUTTON_ANSWER,201,175,50,14
+END
+
+IDD_TESTSET_BLKTXTDLG DIALOG DISCARDABLE  0, 0, 248, 185
+STYLE WS_CHILD
+FONT 9, "宋体"
+BEGIN
+    CONTROL         "填空题答案必须一字不错才认为正确",IDC_CHECK_BLKALLRIGHT,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,7,144,10
+    CONTROL         "简答题答案必须一字不错才认为正确",IDC_CHECK_TXTALLRIGHT,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,23,144,10
+    CONTROL         "填空题每题只测试一个空格",IDC_CHECK_ONLYBLK,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,7,39,112,10
+    CONTROL         "填空题每题只随机测试部分空格",IDC_CHECK_RANDOMBLK,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,55,128,10
+END
+
+IDD_BLKTXTCHECK_DLG DIALOG DISCARDABLE  0, 0, 497, 435
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "主观题评分"
+FONT 9, "宋体"
+BEGIN
+    DEFPUSHBUTTON   "结束评分",IDCANCEL,440,414,50,14
+    GROUPBOX        "用户答案",IDC_STATIC_GROUP1,7,24,210,404
+    GROUPBOX        "正确答案",IDC_STATIC_GROUP2,223,24,210,404
+    PUSHBUTTON      "上一题",IDC_BUTTON_PRE,440,28,50,14
+    PUSHBUTTON      "下一题",IDC_BUTTON_NEXT,440,48,50,14
+    LTEXT           "简答得分",IDC_STATIC,440,156,50,11
+    EDITTEXT        IDC_EDIT_TXTSCORE,440,170,50,14,ES_AUTOHSCROLL | 
+                    ES_NUMBER
+    LTEXT           "题目类型：",IDC_STATIC,7,7,41,13
+    LTEXT           "",IDC_STATIC_TYPE,47,7,265,13
+    LTEXT           "",IDC_STATIC_TXTSCORE,440,187,50,13
+    LTEXT           "",IDC_STATIC_SIMILAR,440,105,50,13
+    LTEXT           "参考相似度",IDC_STATIC,440,91,50,12
+    CONTROL         "",IDC_CUSTOM_REAL,"QQItemShowWnd",WS_VSCROLL | 
+                    WS_TABSTOP,230,39,195,381
+    CONTROL         "",IDC_CUSTOM_USER,"QQItemShowWnd",WS_VSCROLL | 
+                    WS_TABSTOP,14,39,195,381
+    LTEXT           "填空正确数",IDC_STATIC,440,124,50,11
+    LTEXT           "",IDC_STATIC_BLKSCORE,440,137,50,13
+    COMBOBOX        IDC_COMBO_FONTSIZE,440,69,50,73,CBS_DROPDOWNLIST | 
+                    WS_VSCROLL | WS_TABSTOP
+END
+
+IDD_PASSWORD_DLG DIALOG DISCARDABLE  0, 0, 187, 86
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "密码设置"
+FONT 9, "宋体"
+BEGIN
+    DEFPUSHBUTTON   "确定",IDOK,130,64,50,14
+    LTEXT           "旧密码：",IDC_STATIC,7,8,33,12
+    EDITTEXT        IDC_EDIT_OLDPSWD,51,7,129,14,ES_PASSWORD | 
+                    ES_AUTOHSCROLL
+    LTEXT           "新密码：",IDC_STATIC,7,28,33,12
+    EDITTEXT        IDC_EDIT_NEWPSWD,51,26,129,14,ES_PASSWORD | 
+                    ES_AUTOHSCROLL
+    LTEXT           "确认密码：",IDC_STATIC,7,48,41,12
+    EDITTEXT        IDC_EDIT_CHECKPSWD,51,45,129,14,ES_PASSWORD | 
+                    ES_AUTOHSCROLL
+END
+
+IDD_UNLOCK_DLG DIALOG DISCARDABLE  0, 0, 143, 65
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "解锁题库"
+FONT 9, "宋体"
+BEGIN
+    DEFPUSHBUTTON   "确认",IDOK,86,44,50,14
+    LTEXT           "请输入密码：",IDC_STATIC,7,7,49,11
+    EDITTEXT        IDC_EDIT_PASSWORD,7,22,129,14,ES_PASSWORD | 
+                    ES_AUTOHSCROLL
+END
+
+IDD_ADDTYPE_DLG DIALOG DISCARDABLE  0, 0, 91, 49
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "选择基础类型"
+FONT 9, "宋体"
+BEGIN
+    DEFPUSHBUTTON   "确认",IDOK,34,28,50,14
+    COMBOBOX        IDC_COMBO_TYPE,7,7,77,57,CBS_DROPDOWNLIST | WS_VSCROLL | 
+                    WS_TABSTOP
+END
+
+IDD_ITEMGROUP_DLG DIALOG DISCARDABLE  0, 0, 369, 487
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "题目组"
+FONT 9, "宋体"
+BEGIN
+    EDITTEXT        IDC_EDIT_ITEMGRPNAME,59,7,185,14,ES_AUTOHSCROLL | 
+                    ES_NOHIDESEL
+    EDITTEXT        IDC_EDIT_DESC,13,40,342,129,ES_MULTILINE | ES_NOHIDESEL | 
+                    ES_WANTRETURN | WS_VSCROLL
+    EDITTEXT        IDC_EDIT_RESOLVE,13,217,284,82,ES_MULTILINE | 
+                    ES_NOHIDESEL | ES_WANTRETURN | WS_VSCROLL
+    PUSHBUTTON      "上移",IDC_BUTTON_UP,251,344,50,14
+    PUSHBUTTON      "下移",IDC_BUTTON_DOWN,251,363,50,14
+    PUSHBUTTON      "新建题目",IDC_BUTTON_NEW,251,382,50,14
+    PUSHBUTTON      "编辑题目",IDC_BUTTON_EDIT,251,402,50,14
+    PUSHBUTTON      "删除题目",IDC_BUTTON_DEL,251,421,50,14
+    PUSHBUTTON      "粘贴",IDC_BUTTON_PASTE,251,440,50,14
+    PUSHBUTTON      "设...",IDC_BUTTON_DESC,305,175,50,14
+    PUSHBUTTON      "设...",IDC_BUTTON_RESOLVE,247,304,50,14
+    PUSHBUTTON      "前一组",IDC_BUTTON_PRE,312,207,50,14
+    PUSHBUTTON      "后一组",IDC_BUTTON_NEXT,312,226,50,14
+    PUSHBUTTON      "新建组",IDC_BUTTON_NEWG,312,246,50,14
+    PUSHBUTTON      "删除组",IDC_BUTTON_DELG,312,265,50,14
+    PUSHBUTTON      "启动编辑器",IDC_BUTTON_TEXT,312,284,50,14
+    PUSHBUTTON      "确认",IDC_BUTTON_OK,312,466,50,14
+    LTEXT           "题目组名称：",IDC_STATIC,7,7,49,12
+    LTEXT           "",IDC_STATIC_EDITINFO,253,7,109,12
+    GROUPBOX        "题目组描述",IDC_STATIC_GROUP1,7,25,355,172
+    GROUPBOX        "题目组解析",IDC_STATIC_GROUP3,7,203,299,122
+    GROUPBOX        "题目组内容",IDC_STATIC_GROUP2,7,330,300,150
+    CONTROL         "List1",IDC_LIST_GROUP,"SysListView32",LVS_REPORT | 
+                    LVS_SHOWSELALWAYS | LVS_OWNERDATA | LVS_NOSORTHEADER | 
+                    WS_BORDER | WS_TABSTOP,13,344,233,129
+    PUSHBUTTON      "复制",IDC_BUTTON_COPY,251,459,50,14
+    PUSHBUTTON      "添加图片",IDC_BUTTON_SETDESCIMAGE,249,175,50,14
+    PUSHBUTTON      "添加图片",IDC_BUTTON_SETRESIMAGE,191,304,50,14
+    LTEXT           "题号：",IDC_STATIC,13,177,24,12
+    EDITTEXT        IDC_EDIT_QNUMBER,39,175,38,14,ES_AUTOHSCROLL | 
+                    ES_NOHIDESEL | ES_NUMBER
+END
+
+IDD_SUMMARYLEN_DLG DIALOG DISCARDABLE  0, 0, 105, 63
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "设定摘要长度"
+FONT 9, "宋体"
+BEGIN
+    EDITTEXT        IDC_EDIT_SUMMARYLEN,7,7,91,14,ES_AUTOHSCROLL | ES_NUMBER
+    DEFPUSHBUTTON   "确定",IDOK,27,42,50,14
+    LTEXT           "(20-120)",IDC_STATIC,36,23,33,12
+END
+
+IDD_BATCHSET_DLG DIALOG DISCARDABLE  0, 0, 187, 111
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "批量操作"
+FONT 9, "宋体"
+BEGIN
+    CONTROL         "将选中的单选题转换为多选题",IDC_RADIO_STOM,"Button",
+                    BS_AUTORADIOBUTTON | WS_GROUP,7,7,120,10
+    CONTROL         "将选中的单个答案多选题转换为单选题",IDC_RADIO_MTOS,
+                    "Button",BS_AUTORADIOBUTTON,7,23,152,10
+    CONTROL         "选中所有高相似度的重复题目",IDC_RADIO_SELDUPLICATE,
+                    "Button",BS_AUTORADIOBUTTON,7,40,120,10
+    CONTROL         "将选中的单个答案选择题转换为判断题",IDC_RADIO_CTOJ,
+                    "Button",BS_AUTORADIOBUTTON,7,74,152,10
+    DEFPUSHBUTTON   "确认",IDOK,130,90,50,14,WS_GROUP
+    LTEXT           "相似度超过：",IDC_STATIC,19,56,49,10
+    EDITTEXT        IDC_EDIT_SIMILAR,71,54,40,14,ES_AUTOHSCROLL | ES_NUMBER
+    LTEXT           "% 视为高相似度",IDC_STATIC,114,56,57,10
+END
+
+IDD_JPEGCOVER_DLG DIALOG DISCARDABLE  0, 0, 200, 167
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "封面设定"
+FONT 9, "宋体"
+BEGIN
+    CONTROL         "无封面",IDC_RADIO_NO,"Button",BS_AUTORADIOBUTTON | 
+                    WS_GROUP,7,7,40,10
+    CONTROL         "自动封面",IDC_RADIO_DEFAULT,"Button",BS_AUTORADIOBUTTON,
+                    7,22,48,10
+    CONTROL         "自定义封面",IDC_RADIO_USER,"Button",BS_AUTORADIOBUTTON,
+                    7,110,56,10
+    EDITTEXT        IDC_EDIT_TITLE,51,37,101,14,ES_AUTOHSCROLL | WS_GROUP
+    EDITTEXT        IDC_EDIT_WIDTH,51,54,40,14,ES_AUTOHSCROLL | ES_NUMBER
+    EDITTEXT        IDC_EDIT_HEIGHT,112,54,40,14,ES_AUTOHSCROLL | ES_NUMBER
+    EDITTEXT        IDC_EDIT_JPEGCHOOSE,7,124,130,14,ES_AUTOHSCROLL | 
+                    ES_READONLY
+    PUSHBUTTON      "浏览...",IDC_BUTTON_OPEN,143,124,50,14
+    PUSHBUTTON      "取消",IDCANCEL,87,146,50,14
+    DEFPUSHBUTTON   "确定",IDOK,143,146,50,14
+    LTEXT           "封面文字：",IDC_STATIC,7,38,41,10
+    LTEXT           "封面大小：",IDC_STATIC,7,56,41,10
+    LTEXT           "×",IDC_STATIC,97,55,9,10
+    LTEXT           "背景颜色：",IDC_STATIC,7,73,41,10
+    CONTROL         "",IDC_STATIC_BKCOLOR,"Static",SS_GRAYRECT,51,71,26,15
+    PUSHBUTTON      "封面预览...",IDC_BUTTON_VIEW,32,146,50,14
+    LTEXT           "字体颜色：",IDC_STATIC,87,73,41,10
+    CONTROL         "",IDC_STATIC_TXTCOLOR,"Static",SS_GRAYRECT,131,71,26,15
+    LTEXT           "图片品质：",IDC_STATIC,7,92,41,10
+    EDITTEXT        IDC_EDIT_QUALITY,51,91,57,14,ES_AUTOHSCROLL | ES_NUMBER
+    LTEXT           "(0-100)",IDC_STATIC,115,92,36,10
+END
+
+IDD_IMAGESET_BAR DIALOG DISCARDABLE  0, 0, 236, 48
+STYLE DS_MODALFRAME | WS_CHILD
+FONT 9, "宋体"
+BEGIN
+    PUSHBUTTON      "上一张",IDC_BUTTON_PRE,7,7,50,14
+    PUSHBUTTON      "下一张",IDC_BUTTON_NEXT,62,7,50,14
+    PUSHBUTTON      "添加图片",IDC_BUTTON_NEW,7,27,50,14
+    PUSHBUTTON      "删除图片",IDC_BUTTON_DEL,116,27,50,14
+    PUSHBUTTON      "重设图片",IDC_BUTTON_SET,62,27,50,14
+    LTEXT           "标题：",IDC_STATIC,121,9,25,10
+    EDITTEXT        IDC_EDIT_TITLE,150,7,79,14,ES_AUTOHSCROLL
+END
+
+IDD_TEST_BAR DIALOG DISCARDABLE  0, 0, 414, 48
+STYLE WS_CHILD | WS_CLIPCHILDREN
+FONT 9, "宋体"
+BEGIN
+    CONTROL         "Progress1",IDC_PROGRESS_TIME,"msctls_progress32",
+                    WS_BORDER,7,7,400,14
+    PUSHBUTTON      "标记本题",IDC_BUTTON_MARK,7,27,50,14
+    CONTROL         "总在最前",IDC_CHECK_TOPMOST,"Button",BS_AUTOCHECKBOX | 
+                    BS_PUSHLIKE | WS_TABSTOP,64,27,50,14
+    PUSHBUTTON      "交卷！",IDC_BUTTON_HANDIN,357,27,50,14
+    COMBOBOX        IDC_COMBO_FONTSIZE,120,27,64,73,CBS_DROPDOWNLIST | 
+                    WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "收藏本题",IDC_BUTTON_SAVE,7,27,50,14
+    CONTROL         "只看错题",IDC_CHECK_ONLYFALSE,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,64,27,50,14
+    CONTROL         "单题模式",IDC_CHECK_SHOWSINGLE,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,192,27,48,14
+    CONTROL         "上一题",IDC_BUTTON_PRE,"Button",BS_AUTOCHECKBOX | 
+                    BS_PUSHLIKE | WS_TABSTOP,246,27,50,14
+    CONTROL         "下一题",IDC_BUTTON_NEXT,"Button",BS_AUTOCHECKBOX | 
+                    BS_PUSHLIKE | WS_TABSTOP,302,27,50,14
+END
+
+IDD_TXTOUT_DLG DIALOG DISCARDABLE  0, 0, 225, 189
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "格式设置"
+FONT 9, "宋体"
+BEGIN
+    LISTBOX         IDC_LIST_TXTOUT,7,7,211,52,LBS_NOINTEGRALHEIGHT | 
+                    WS_VSCROLL | WS_TABSTOP
+    EDITTEXT        IDC_EDIT_FILEPATH,7,66,152,14,ES_AUTOHSCROLL | 
+                    ES_READONLY
+    PUSHBUTTON      "保存到...",IDC_BUTTON_FILEPATH,168,66,50,14
+    LTEXT           "答案格式：",IDC_STATIC,7,88,41,12
+    CONTROL         "仅答案",IDC_RADIO_ONLYASW,"Button",BS_AUTORADIOBUTTON | 
+                    WS_GROUP,54,87,40,12
+    CONTROL         "带原题",IDC_RADIO_WITHQ,"Button",BS_AUTORADIOBUTTON,109,
+                    87,40,12
+    CONTROL         "带解析",IDC_CHECK_WITHRES,"Button",BS_AUTOCHECKBOX | 
+                    WS_GROUP | WS_TABSTOP,164,87,40,12
+    LTEXT           "西文字体：",IDC_STATIC,7,108,41,12,NOT WS_GROUP
+    COMBOBOX        IDC_COMBO_ANSIFONT,53,106,165,94,CBS_DROPDOWN | 
+                    WS_VSCROLL | WS_TABSTOP
+    LTEXT           "正文字体：",IDC_STATIC,7,129,41,12
+    COMBOBOX        IDC_COMBO_MAINFONT,53,127,165,94,CBS_DROPDOWN | 
+                    WS_VSCROLL | WS_TABSTOP
+    LTEXT           "引文字体：",IDC_STATIC,7,149,41,12
+    COMBOBOX        IDC_COMBO_PREFACEFONT,53,148,165,94,CBS_DROPDOWN | 
+                    WS_VSCROLL | WS_TABSTOP
+    DEFPUSHBUTTON   "确定",IDOK,168,168,50,14
+END
+
+IDD_COPYEX_DLG DIALOG DISCARDABLE  0, 0, 137, 79
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "文字复制选项"
+FONT 9, "宋体"
+BEGIN
+    CONTROL         "仅复制题目文字",IDC_RADIO_ONLYQ,"Button",
+                    BS_AUTORADIOBUTTON | WS_GROUP,7,7,123,10
+    CONTROL         "复制题目文字及答案",IDC_RADIO_WITHASW,"Button",
+                    BS_AUTORADIOBUTTON,7,23,123,10
+    CONTROL         "复制题目文字、答案及解析",IDC_RADIO_ALL,"Button",
+                    BS_AUTORADIOBUTTON,7,39,123,10
+    DEFPUSHBUTTON   "确认",IDOK,80,58,50,14,WS_GROUP
+END
+
+
+#ifndef _MAC
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 2,0,0,0
+ PRODUCTVERSION 2,0,0,0
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "080404b0"
+        BEGIN
+            VALUE "Comments", "快考，适用于学习、自测的应用软件\0"
+            VALUE "CompanyName", "GX Software\0"
+            VALUE "FileDescription", "快考，适用于学习、自测的应用软件\0"
+            VALUE "FileVersion", "2.0.0.0\0"
+            VALUE "InternalName", "QuickQuiz\0"
+            VALUE "LegalCopyright", "GX Software 2016-2021\0"
+            VALUE "LegalTrademarks", "\0"
+            VALUE "OriginalFilename", "QUICKQUIZ.EXE\0"
+            VALUE "PrivateBuild", "\0"
+            VALUE "ProductName", "QuickQuiz\0"
+            VALUE "ProductVersion", "2.0.0.0\0"
+            VALUE "SpecialBuild", "\0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x804, 1200
+    END
+END
+
+#endif    // !_MAC
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    IDD_ABOUTBOX, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 252
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 80
+    END
+
+    IDD_EDIT_DLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 335
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 476
+    END
+
+    IDD_CHILD_SCHOISE_DLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 261
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 196
+    END
+
+    IDD_CHILD_MCHOISE_DLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 261
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 196
+    END
+
+    IDD_CHILD_JUDGE_DLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 261
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 196
+    END
+
+    IDD_ITEMPROP_DLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 393
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 360
+    END
+
+    IDD_PAPERPROP_DLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 180
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 178
+    END
+
+    IDD_TYPEPROP_DLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 180
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 70
+    END
+
+    IDD_CODE_DLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 134
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 59
+    END
+
+    IDD_TESTSET_COMMDLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 241
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 178
+    END
+
+    IDD_TESTSET_CHSDLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 241
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 178
+    END
+
+    IDD_VIEW_DLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 383
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 362
+    END
+
+    IDD_CHOOSETYPE_DLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 181
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 128
+    END
+
+    IDD_TESTCOMP_DLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 306
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 322
+    END
+
+    IDD_ALLBUILD_DLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 219
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 204
+    END
+
+    IDD_TESTSET_DLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 255
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 234
+    END
+
+    IDD_OPENDOC_DLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 135
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 42
+    END
+
+    IDD_CHILD_BLANK_DLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 261
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 196
+    END
+
+    IDD_CHILD_TEXT_DLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 261
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 196
+    END
+
+    IDD_TESTSET_BLKTXTDLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 241
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 178
+    END
+
+    IDD_BLKTXTCHECK_DLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 490
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 428
+    END
+
+    IDD_PASSWORD_DLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 180
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 79
+    END
+
+    IDD_UNLOCK_DLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 136
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 58
+    END
+
+    IDD_ADDTYPE_DLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 84
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 42
+    END
+
+    IDD_ITEMGROUP_DLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 362
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 480
+    END
+
+    IDD_SUMMARYLEN_DLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 98
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 56
+    END
+
+    IDD_BATCHSET_DLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 180
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 104
+    END
+
+    IDD_JPEGCOVER_DLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 193
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 160
+    END
+
+    IDD_IMAGESET_BAR, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 229
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 41
+    END
+
+    IDD_TEST_BAR, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 407
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 41
+    END
+
+    IDD_TXTOUT_DLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 218
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 182
+    END
+
+    IDD_COPYEX_DLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 130
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 72
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// 24
+//
+
+1                       24      DISCARDABLE     "default1.bin"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog Info
+//
+
+IDD_CODE_DLG DLGINIT
+BEGIN
+    IDC_COMBO_CODE, 0x403, 5, 0
+0x4e41, 0x4953, "\000" 
+    IDC_COMBO_CODE, 0x403, 7, 0
+0x5455, 0x2d46, 0x3631, "\000" 
+    IDC_COMBO_CODE, 0x403, 18, 0
+0x5455, 0x2d46, 0x3631, 0x6220, 0x6769, 0x6520, 0x646e, 0x6169, 0x006e, 
+
+    IDC_COMBO_CODE, 0x403, 6, 0
+0x5455, 0x2d46, 0x0038, 
+    IDC_COMBO_CODE, 0x403, 13, 0
+0x5455, 0x2d46, 0x2038, 0x6f6e, 0x4220, 0x4d4f, "\000" 
+    0
+END
+
+IDD_ALLBUILD_DLG DLGINIT
+BEGIN
+    IDC_COMBO_TYPE, 0x403, 7, 0
+0xa5b5, 0xa1d1, 0xe2cc, "\000" 
+    IDC_COMBO_TYPE, 0x403, 7, 0
+0xe0b6, 0xa1d1, 0xe2cc, "\000" 
+    IDC_COMBO_TYPE, 0x403, 7, 0
+0xd0c5, 0xcfb6, 0xe2cc, "\000" 
+    IDC_COMBO_TYPE, 0x403, 7, 0
+0xeecc, 0xd5bf, 0xe2cc, "\000" 
+    IDC_COMBO_TYPE, 0x403, 7, 0
+0xf2bc, 0xf0b4, 0xe2cc, "\000" 
+    0
+END
+
+IDD_ADDTYPE_DLG DLGINIT
+BEGIN
+    IDC_COMBO_TYPE, 0x403, 7, 0
+0xa5b5, 0xa1d1, 0xe2cc, "\000" 
+    IDC_COMBO_TYPE, 0x403, 7, 0
+0xe0b6, 0xa1d1, 0xe2cc, "\000" 
+    IDC_COMBO_TYPE, 0x403, 7, 0
+0xd0c5, 0xcfb6, 0xe2cc, "\000" 
+    IDC_COMBO_TYPE, 0x403, 7, 0
+0xeecc, 0xd5bf, 0xe2cc, "\000" 
+    IDC_COMBO_TYPE, 0x403, 7, 0
+0xf2bc, 0xf0b4, 0xe2cc, "\000" 
+    0
+END
+
+IDD_TEST_BAR DLGINIT
+BEGIN
+    IDC_COMBO_FONTSIZE, 0x403, 7, 0
+0xa1d0, 0xd6d7, 0xe5cc, "\000" 
+    IDC_COMBO_FONTSIZE, 0x403, 7, 0
+0xd0d6, 0xd6d7, 0xe5cc, "\000" 
+    IDC_COMBO_FONTSIZE, 0x403, 7, 0
+0xf3b4, 0xd6d7, 0xe5cc, "\000" 
+    IDC_COMBO_FONTSIZE, 0x403, 9, 0
+0xd8cc, 0xf3b4, 0xd6d7, 0xe5cc, "\000" 
+    0
+END
+
+IDD_VIEW_DLG DLGINIT
+BEGIN
+    IDC_COMBO_FONTSIZE, 0x403, 7, 0
+0xa1d0, 0xd6d7, 0xe5cc, "\000" 
+    IDC_COMBO_FONTSIZE, 0x403, 7, 0
+0xd0d6, 0xd6d7, 0xe5cc, "\000" 
+    IDC_COMBO_FONTSIZE, 0x403, 7, 0
+0xf3b4, 0xd6d7, 0xe5cc, "\000" 
+    IDC_COMBO_FONTSIZE, 0x403, 9, 0
+0xd8cc, 0xf3b4, 0xd6d7, 0xe5cc, "\000" 
+    0
+END
+
+IDD_ITEMPROP_DLG DLGINIT
+BEGIN
+    IDC_COMBO_FONTSIZE, 0x403, 7, 0
+0xa1d0, 0xd6d7, 0xe5cc, "\000" 
+    IDC_COMBO_FONTSIZE, 0x403, 7, 0
+0xd0d6, 0xd6d7, 0xe5cc, "\000" 
+    IDC_COMBO_FONTSIZE, 0x403, 7, 0
+0xf3b4, 0xd6d7, 0xe5cc, "\000" 
+    IDC_COMBO_FONTSIZE, 0x403, 9, 0
+0xd8cc, 0xf3b4, 0xd6d7, 0xe5cc, "\000" 
+    0
+END
+
+IDD_BLKTXTCHECK_DLG DLGINIT
+BEGIN
+    IDC_COMBO_FONTSIZE, 0x403, 7, 0
+0xa1d0, 0xd6d7, 0xe5cc, "\000" 
+    IDC_COMBO_FONTSIZE, 0x403, 7, 0
+0xd0d6, 0xd6d7, 0xe5cc, "\000" 
+    IDC_COMBO_FONTSIZE, 0x403, 7, 0
+0xf3b4, 0xd6d7, 0xe5cc, "\000" 
+    IDC_COMBO_FONTSIZE, 0x403, 9, 0
+0xd8cc, 0xf3b4, 0xd6d7, 0xe5cc, "\000" 
+    0
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE PRELOAD DISCARDABLE 
+BEGIN
+    IDR_MAINFRAME           "QuickQuiz\n\nQuickQ\n\n\nQuickQuiz.Document\nQuickQ Document"
+END
+
+STRINGTABLE PRELOAD DISCARDABLE 
+BEGIN
+    AFX_IDS_APP_TITLE       "QuickQuiz"
+    AFX_IDS_IDLEMESSAGE     "就绪"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_INDICATOR_EXT        "扩展名"
+    ID_INDICATOR_CAPS       "大写"
+    ID_INDICATOR_NUM        "数字"
+    ID_INDICATOR_SCRL       "滚动"
+    ID_INDICATOR_OVR        "改写"
+    ID_INDICATOR_REC        "记录"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_FILE_NEW             "建立新题库\n新建题库"
+    ID_FILE_OPEN            "打开一个现有题库\n打开题库"
+    ID_FILE_CLOSE           "关闭当前题库\n关闭题库"
+    ID_FILE_SAVE            "保存当前题库\n保存题库"
+    ID_FILE_SAVE_AS         "将当前题库以一个新文件名保存\n另存为"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_APP_ABOUT            "显示程序信息，版本号和版权\n关于"
+    ID_APP_EXIT             "退出应用程序；提示保存文档\n退出"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_NEXT_PANE            "切换到下一个窗格\n下一窗格"
+    ID_PREV_PANE            "切换回前一个窗格\n前一窗格"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_EDIT_CLEAR           "删除被选对象\n删除"
+    ID_EDIT_CLEAR_ALL       "全部删除\n全部删除"
+    ID_EDIT_COPY            "复制被选对象并将其置于剪贴板上\n复制"
+    ID_EDIT_CUT             "剪切被选对象并将其置于剪贴板上\n剪切"
+    ID_EDIT_FIND            "查找包含某字段的题目\n查找"
+    ID_EDIT_PASTE           "插入剪贴板内容\n粘贴"
+    ID_EDIT_REPEAT          "重复上一步操作\n重复"
+    ID_EDIT_REPLACE         "用不同的正文替换指定的正文\n替换"
+    ID_EDIT_SELECT_ALL      "选中当前列表中全部的项\n全选"
+    ID_EDIT_UNDO            "撤消最后一步操作\n撤消"
+    ID_EDIT_REDO            "重新执行先前已撤消的操作\n重新执行"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_VIEW_TOOLBAR         "显示或隐藏工具栏\n显隐工具栏"
+    ID_VIEW_STATUS_BAR      "显示或隐藏状态栏\n显隐状态栏"
+    ID_VIEW_AUTOARRANGE     "在网格上排列图标。"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    AFX_IDS_SCSIZE          "改变窗口大小"
+    AFX_IDS_SCMOVE          "改变窗口位置"
+    AFX_IDS_SCMINIMIZE      "将窗口缩小成图标"
+    AFX_IDS_SCMAXIMIZE      "把窗口放大到最大尺寸"
+    AFX_IDS_SCNEXTWINDOW    "切换到下一个文档窗口"
+    AFX_IDS_SCPREVWINDOW    "切换到先前的文档窗口"
+    AFX_IDS_SCCLOSE         "关闭活动的窗口并提示保存所有文档"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    AFX_IDS_SCRESTORE       "把窗口恢复到正常大小"
+    AFX_IDS_SCTASKLIST      "激活任务表"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_LIST_INDEX          "序号"
+    IDS_LIST_TYPE           "题目类型"
+    IDS_LIST_SUMMARY        "摘要"
+    IDS_ITEMCOUNT           "题目数：0"
+    IDS_ITEMCOUNTFORMAT     "题目数：%d"
+    IDS_ITEMTYPE_SCH        "单选题"
+    IDS_ITEMTYPE_MCH        "多选题"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_FILE_SAVE_ALL        "保存当前全部打开的题库\n全部保存"
+    ID_FILE_CLEARMRU        "清空程序中保存的最近题库\n清空最近题库"
+    ID_EDIT_FINDNEXT        "根据当前的查找选项寻找下一个目标\n查找下一个"
+    ID_EDIT_PROPERTIES      "显示选中的项目的属性\n查看属性"
+    ID_EDIT_COPYEX          "复制选中的题目文字\n文字复制"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_PAPER_EDITABLE       "允许编辑当前选中的内容\n允许编辑"
+    ID_PAPER_LOCK           "为当前选中题库设置密码并加密\n加密题库"
+    ID_PAPER_NEWQUESTION    "在当前题库中新建若干个题目\n新建题目"
+    ID_PAPER_STORE          "将当前选中的题目收藏或取消收藏\n收藏题目"
+    ID_PAPER_LOADSTORE      "为当前题库导入收藏夹文件\n载入收藏夹文件"
+    ID_PAPER_EDITOBJECT     "对选中的题库或题目进行编辑\n编辑对象"
+    ID_PAPER_COVERSET       "设定一个封面，使得题库可以保存为图像格式\n题库封面"
+    ID_PAPER_BATCHSET       "对题库中的题目进行批量操作\n批量操作"
+    ID_PAPER_NEWGROUP       "为当前选中的题库新增一个题目组\n新建题目组"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_PAPER_NEWTYPE        "为当前题库新增自定义类型\n添加自定义类型"
+    ID_PAPER_DELTYPE        "将新增的自定义类型删除\n删除自定义类型"
+    ID_PAPER_EDITGROUP      "修改当前选中的题目组（一次只能编辑一个）\n编辑题目组"
+    ID_PAPER_OPENINEXPLORER "从资源管理器中显示题库所在位置\n打开所在文件夹"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_EX_EXIT              "退出编辑界面\n退出"
+    ID_EX_AUTOSEP           "当一行显示不完时自动跳转到下一行显示\n自动换行"
+    ID_EX_FONT              "设置显示字体\n字体"
+    ID_TEST_BEGIN           "以某个题库为范围开始考试\n开始考试"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_TEST_VIEW            "学习题库中的题目\n开始学习"
+    ID_TEST_MAKE            "以某题库生成一份试题\n生成试卷"
+    ID_TEST_COMPETITIVE     "练习抢答的神器，用了才知道\n抢答练习"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_VIEW_COLORNORMAL     "采用默认界面颜色\n默认"
+    ID_VIEW_COLORGREEN      "采用护眼绿界面颜色\n护眼绿"
+    ID_VIEW_COLORDARK       "采用夜间界面颜色\n夜间"
+    ID_VIEW_RESET           "将计算机内关于本软件的信息全部清除\n重置软件"
+    ID_VIEW_SAMMARYLEN      "设置题目摘要的显示字数\n摘要长度"
+    ID_SHOW_SAVEIMG         "将当前图片保存为文件\n保存图片"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_FILE_MRU_FILE1       "打开该题库"
+    ID_FILE_MRU_FILE2       "打开该题库"
+    ID_FILE_MRU_FILE3       "打开该题库"
+    ID_FILE_MRU_FILE4       "打开该题库"
+    ID_FILE_MRU_FILE5       "打开该题库"
+    ID_FILE_MRU_FILE6       "打开该题库"
+    ID_FILE_MRU_FILE7       "打开该题库"
+    ID_FILE_MRU_FILE8       "打开该题库"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_ITEMTYPE_JDG        "判断题"
+    IDS_ITEMTYPE_BLK        "填空题"
+    IDS_ITEMTYPE_TXT        "简答题"
+    IDS_ITEMTYPE_GRP        "题目组"
+    IDS_ITEMTYPE_CUSTOM     "自定义"
+    IDS_MSGCAPTION_INFOR    "提示"
+    IDS_MSGCAPTION_WARNING  "警告"
+    IDS_MSGCAPTION_ERROR    "错误"
+    IDS_MSGCAPTION_ASK      "请选择"
+    IDS_MSGCAPTION_RESULT   "结果"
+    IDS_MSGINFO_TIME        "%s\r\n\r\n(%d秒之后关闭)"
+    IDS_MSGINFO_ERROR       "发生错误！错误码：%d。"
+    IDS_MAIN_QUIT           "您确定要退出吗？"
+    IDS_MAIN_RESET          "重置将在软件退出后完成，在此之前，您可以随时取消重置计划。"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_MAIN_LIBRARYVIEW    "导出文本"
+    IDS_QVIEW_FINDFAIL      "没有找到符合查找条件的题目！"
+    IDS_QVIEW_MENUSTORE     "收藏题目(&S)\tAlt+S"
+    IDS_QVIEW_BUTTONUNSTORE "取消收藏"
+    IDS_QVIEW_BUTTONSTORE   "收藏题目"
+    IDS_QVIEW_MENUUNSTORE   "取消收藏(&S)\tAlt+S"
+    IDS_QVIEW_DELASK        "您确定要删除选中的题目吗？"
+    IDS_QVIEW_FINDCUSTEOM   "您的选择中包含了自定义题目类型，在本视图中不可编辑。\r\n如要编辑自定义题目，请在相应自定义题目列表下选择编辑。"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_DOC_INITPAPERFAIL   "初始化题库失败！错误码：%d。"
+    IDS_DOC_OPENFAIL        "打开题库失败！错误码：%d。"
+    IDS_DOC_OPENFILECAPTION "打开题库"
+    IDS_DOC_SAVEFAIL        "保存题库失败！错误码：%d。"
+    IDS_DOC_SAVEFILECAPTION "保存题库"
+    IDS_DOC_CLOSEASKNOSAVE  "您确认要关闭题库“%s”吗？"
+    IDS_DOC_CLOSEASKMODIFY  "您是否要保存您对题库“%s”所做的修改？"
+    IDS_DOC_CLOSEASKNEW     "您是否要保存题库“%s”？"
+    IDS_DOC_PASTEFAIL       "粘贴过程中发生错误！可能有部分内容未粘贴入！"
+    IDS_DOC_LOADSTORECAPTION "载入错题本"
+    IDS_DOC_UNSTOREASK      "您确认不再收藏选中的题目？"
+    IDS_DOC_ADDTYPEFAIL     "添加自定义题目类型失败！错误码：%d。"
+    IDS_DOC_DELTYPEFAIL     "删除自定义题目类型失败！"
+    IDS_DOC_SAVEFILEFILTER  "标准题库文件 (*.qux)|*.qux|适用于1.x版本的题库文件 (*.quiz)|*.quiz|兼容题库文件 (*.xml)|*.xml|带封面的标准题库文件 (*.jpeg)|*.jpeg|带封面的兼容题库文件 (*.jpeg)|*.jpeg|"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_DOC_LOADFILEFILTER  "所有支持格式|*.qux;*.quiz;*.qxml;*xml;*.jpeg;*.jpg|标准题库文件 (*.qux)|*.qux|由1.x版本生成的题库文件 (*.quiz)|*.quiz|兼容题库文件 (*.qxml,*xml)|*.qxml;*.xml|带封面的题库文件 (*.jpeg,*.jpg)|*.jpeg;*.jpg|"
+    IDS_DOC_LOADSTOREFILTER "Save file (*.sav)|*.sav|"
+    IDS_DOC_CLEARMRU        "您确认要清空最近打开的文件列表吗？"
+    IDS_DOC_95SAVEFILEFILTER 
+                            "兼容题库文件 (*.xml)|*.xml|适用于1.x版本的题库文件 (*.quiz)|*.quiz|"
+    IDS_DOC_SAVEFILEFILTERNC 
+                            "标准题库文件 (*.qux)|*.qux|适用于1.x版本的题库文件 (*.quiz)|*.quiz|兼容题库文件 (*.xml)|*.xml|"
+    IDS_DOC_95LOADFILEFILTER 
+                            "所有支持格式|*.xml;*.qxml;*.quiz|兼容题库文件 (*.xml)|*.xml|适用于1.x版本的题库文件 (*.quiz)|*.quiz|"
+    IDS_DOC_OPENINCOMPLETE  "题库内容有不可读入的部分！告警码：%d"
+    IDS_DOC_WIN95XML        "兼容Windows 95"
+    IDS_DOC_MAXCOMPATIBLE   "最大兼容"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_EDITDLG_NOANSWER    "有尚未设置答案的题目。是否返回设置？"
+    IDS_EDITDLG_NOSAVE      "您确实要放弃您所做的修改吗？"
+    IDS_EDITDLG_TITLENEW    "新建题目"
+    IDS_EDITDLG_TITLEEDIT   "编辑题目"
+    IDS_EDITDLG_INFONEW     "共%d题，正在新建"
+    IDS_EDITDLG_INFOREVIEW  "共%d题，当前为第%d题"
+    IDS_EDITDLG_NODESC      "题干中无有效字符，继续将丢失您对本题所做的修改，是否继续？"
+    IDS_EDITDLG_ALLBUILDNULL "没有生成题目！"
+    IDS_EDITDLG_ALLBUILDALLASW 
+                            "成功生成%d道题目\r\n全部题目均已识别出答案，请确认！"
+    IDS_EDITDLG_ALLBUILDNOASW 
+                            "成功生成%d道题目\r\n新生成的题目均未设定答案，请手动设定！"
+    IDS_EDITDLG_ALLBUILDPARTASW 
+                            "成功生成%d道题目\r\n%d道题目已识别出答案，请确认！"
+    IDS_EDITDLG_ALLBUILDNOTALL "\r\n\r\n部分内容未解析"
+    IDS_EDITDLG_ALLBUILDSHOWSEL "，已在编辑器中选中"
+    IDS_EDITDLG_ALLBUILDTIPS 
+                            "敬请留意！！！本功能生成的题目及答案可能不完全与预期相符，生成后请务必检查！！！\r\n\r\n本功能支持所有默认类型题目的批量生成，使用此功能可以大大减少制作题库的工作量，强烈建议您参阅帮助文档以了解更多信息。"
+    IDS_EDITDLG_CANNOTALLBUILD 
+                            "您尚未复制任何文字，且未在编辑器中选择文字，无法自动生成！"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_EDITDLG_DELASK      "您确认要删除本题吗？"
+    IDS_EDITDLGC_ONLYOPTION "选择题一般不会只有一个选项，您确认要这样吗？"
+    IDS_EDITDLGC_INVALID    "您在未设置选项内容的项上设置了答案，您确认要这样吗？"
+    IDS_EDITFRM_TITLE       "编辑器"
+    IDS_EDITFRM_INITFAIL    "编辑器初始化失败！"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_EDITFRM_CREATEFAIL  "启动编辑器失败！"
+    IDS_EDITFRM_FINDFAIL    "找不到所查找的内容！"
+    IDS_EDITFRM_REPLACEDONE "替换完成！共完成%d个替换！"
+    IDS_EDITFRM_DROPMULTIFILES "您拖入了多个文件，现仅打开其中一个文件！"
+    IDS_EDITFRM_CLOSEASK    "您是否要保存您生成的内容？"
+    IDS_EDITFRM_GROUPTITLE  "题目组描述"
+    IDS_EDITFRM_CLOSEASKNEW "您是否保存您在编辑器内所作的改动？"
+    IDS_EDITFRM_LOADFILTER  "文本文件 (*.txt)|*.txt|所有文件|*.*|"
+    IDS_EDITFRM_SAVEFILTER  "文本文件 (*.txt)|*.txt|"
+    IDS_EDITFRM_READFAIL    "读取文本失败！错误码：%d。"
+    IDS_EDITFRM_SAVEFAIL    "保存文本失败！错误码：%d。"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_JPEGCOVERDLG_OPENFAIL "打开封面图像文件失败！错误码：%d。"
+    IDS_JPEGCOVERDLG_NOTITLE "您尚未输入封面名称，请检查或退出编辑！"
+    IDS_JPEGCOVERDLG_NOPATH "您尚未指定自定义封面文件路径，请检查或退出编辑！"
+    IDS_VIEWDLG_FINDFAIL    "按照您的设置无法找到题目！将保持原有设置！"
+    IDS_VIEWDLG_BUTTONSTORE "收藏本题"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_TESTSET_TIMETOOSHORT "您设定的答题时间可能太短了\r\n是否返回修改？"
+    IDS_TESTSET_TIMETOOLONG "您设定的答题时间太长了\r\n是否返回修改？"
+    IDS_TESTSET_CONFLICT    "由于您的设置，多选题无法达到您要求的数目！\r\n是否返回修改？"
+    IDS_TESTSET_COMMSET     "基本设置"
+    IDS_TESTSET_CHSSET      "选择题设置"
+    IDS_TESTSET_BLKTXTSET   "主观题设置"
+    IDS_TESTFRAME_TITLE     "测试 - 测试内容：%s"
+    IDS_TESTFRAME_CANCEL    "您要取消本次考试吗？\r\n\r\n取消后将不会计算成绩！"
+    IDS_TESTFRAME_NOTALLDONEASK "您尚有未回答的题目，确认要交卷了吗？"
+    IDS_TESTFRAME_DONEASK   "您确认要交卷了吗？"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_TESTBAR_MARK        "标记本题"
+    IDS_TESTBAR_UNMARK      "取消标记"
+    IDS_TESTBAR_TIMELEFT_H  "剩余 %2d时%2d分%2d秒"
+    IDS_TESTBAR_TIMELEFT_M  "剩余 %2d分%2d秒"
+    IDS_TESTBAR_TIMELEFT_S  "剩余 %2d秒"
+    IDS_TESTBAR_NOTIMELMT   "考试时间不限"
+    IDS_TESTBAR_TIMEOUT     "考试时间到！！！"
+    IDS_TXTOUTDLG_TXTONLY   "文本+图像文件形式"
+    IDS_TXTOUTDLG_HTMLPLUS  "HTML文件+图像文件形式"
+    IDS_TXTOUTDLG_HTMLONLY  "单HTML文件形式"
+    IDS_TXTOUTDLG_SAVEPATH  "保存路径"
+    IDS_TXTOUTDLG_TXTFILTER "文本文档 (*.txt)|*.txt|"
+    IDS_TXTOUTDLG_HTMLFILTER "HTML网页 (*.html)|*.html|"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_TESTFRAME_BLKTXT    "题目中含有主观题，请阅卷。"
+    IDS_LISTFRM_TITLE       "题目列表"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_QLIST_INDEX         "序号"
+    IDS_QLIST_STATE         "状态"
+    IDS_QLIST_TYPE          "题型"
+    IDS_QLIST_ABSTRACT      "摘要"
+    IDS_QLIST_STORED        "已收藏"
+    IDS_QLIST_UNASW         "未答"
+    IDS_QLIST_MARK          "标记"
+    IDS_QLIST_WRONG         "错误"
+    IDS_QLIST_HALFRIGHT     "半对"
+    IDS_QLIST_ALLRIGHT      "正确"
+    IDS_QLIST_NOSET         "无答案"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_QUIZMKR_TIMEPOINT   "（时间：%d分钟，满分：%d分）"
+    IDS_QUIZMKR_TYPEINFO    "%s（共%d题，每题"
+    IDS_QUIZMKR_BLKINFO     "%s（共%d题，每空"
+    IDS_QUIZMKR_NOSCOREINFO "%s（共%d题）"
+    IDS_QUIZMKR_POINT       "%d分）"
+    IDS_QUIZMKR_ASWTXT      "【答案】"
+    IDS_QUIZMKR_RESTXT      "【解析】"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_TESTCOMP_START      "点击鼠标或按任意数字、字母、空格开始"
+    IDS_TESTCOMP_STOP       "点击鼠标或按任意数字、字母、空格抢答"
+    IDS_TESTCOMP_CHECK      "抢答用时%.4f秒，点此查看答案"
+    IDS_TESTCOMP_CHECKDIF   "抢答人%c，抢答用时%.4f秒，点此查看答案"
+    IDS_TESTCOMP_CONTINUE   "点击鼠标或按任意数字、字母、空格继续"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_TESTVIEW_TITLE      "查看答案 - 得分%.4G (%.4G%%)"
+    IDS_TESTVIEW_STOREALL   "您是否希望收藏所有错题？"
+    IDS_ABOUTDLG_CODE       "QuickQuiz 2.0 Beta - %s版"
+    IDS_ABOUTDLG_DATE       "编译时间：%s - %s"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_ITEM_YES            "是"
+    IDS_ITEM_NO             "否"
+    IDS_ITEM_CORRECT        "正确"
+    IDS_ITEM_INCORRECT      "错误"
+    IDS_ITEM_RESOLVE        "解析："
+    IDS_ITEM_IMAGETITLE     "图%d"
+    IDS_ITEM_BLANKSAMPLE    "每个空至少这么长"
+    IDS_ITEM_TEXTASW        "答案："
+    IDS_ITEM_USERASW        "考生答案："
+    IDS_ITEM_SCORE          "考生得分："
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_PAPER_DEFAULTDESC   "新建题库"
+    IDS_PAPER_STORELIST     "收藏夹"
+    IDS_PAPER_NOPATH        "待保存..."
+    IDS_PAPER_ITEMCOUNT     "题目总数：%d题\r\n\r\n"
+    IDS_PAPER_TYPEINFO      "%s：%d题"
+    IDS_PAPER_BIN           "标准题库文件（.qux）"
+    IDS_PAPER_OLDBIN        "适用于1.x版本题库文件（.quiz）"
+    IDS_PAPER_XML           "XML文件（.xml/.qxml/.txt）"
+    IDS_PAPER_UNKNOWN       "未知格式"
+    IDS_TMPLIST_SCHCOUNT    "单选题：%d题\r\n"
+    IDS_TMPLIST_MCHCOUNT    "多选题：%d题\r\n"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_TMPLIST_JDGCOUNT    "判断题：%d题\r\n"
+    IDS_TMPLIST_BLKCOUNT    "填空题：%d题\r\n"
+    IDS_TMPLIST_TXTCOUNT    "简答题：%d题\r\n"
+    IDS_PROPS_STORE         "收藏信息"
+    IDS_PROPS_NOPARENT      "无所属..."
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_DOCDLG_INFO         "正在打开文档中，请稍候"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_LVIEW_INFO          "双击打开题库..."
+    IDS_LVIEW_ASKDELTYPE    "您确定要删除“%s”类型吗？该类型的全部题目也将被删除！"
+    IDS_LVIEW_OPENEXPLRFAIL "打开题库目录失败，该题库文件可能已被删除，请重新保存本题库。"
+    IDS_LVIEW_READONLY      "[只读]"
+    IDS_LVIEW_LOCKXMLCAUTION 
+                            "当前题库为兼容格式题库，无法加密。\r\n如需加密，请另存为“标准题库文件”！"
+    IDS_LVIEW_SETCOVERFAIL  "设置题库封面失败！错误码：%d。"
+    IDS_BLKDLG_INDEX        "序号"
+    IDS_BLKDLG_START        "始"
+    IDS_BLKDLG_END          "终"
+    IDS_BLKDLG_ASW          "答案"
+    IDS_BLKDLG_SWITCHPAGE   "如果您题目类型修改为其他，则将丢失题目中的全部空白信息（空白的答案将保留在题干中）\r\n\r\n您确认要修改题目类型吗？"
+    IDS_BLKDLG_NOSEL        "请先在下面列表中选择一项！"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_BLKDLG_DELASK       "您确认要删除这个空白吗？"
+    IDS_BLKDLG_EDITASK      "您真的要修改该空白的答案吗？"
+    IDS_BLKDLG_ERRREACHMAX  "空白数已达上限（32个）！"
+    IDS_BLKDLG_ERRNODESC    "请先设置题目后再添加空白！"
+    IDS_BLKDLG_ERRRANGECONF "空白位置冲突！"
+    IDS_BLKDLG_ERRALLOCFAIL "创建空白失败！"
+    IDS_BLKDLG_ERRNOASW     "您没有设置该空白的答案！"
+    IDS_BLKDLG_ERREDITOVER  "操作了不正确的对象！"
+    IDS_BLKDLG_ERRTRANSCODEFAIL "内部转码失败！"
+    IDS_BLKDLG_NOBLOCKS     "您尚未设置题目及答案，是否继续？"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_EDITDLGT_NOASW      "您尚未设置答案。是否继续？"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_PSWDDLG_OLDPSWDF    "旧密码验证错误！"
+    IDS_PSWDDLG_NEWPSWDIN   "两次输入的密码不一致！"
+    IDS_PSWDDLG_DELPSWD     "您没有输入新密码，这将会取消对题库的锁定，您确认取消锁定吗？"
+    IDS_PSWDDLG_WRONG       "密码错误！请重新输入！"
+    IDS_PSWDDLG_TOOSHORT    "新密码少于6位，请重新设置！"
+    IDS_TYPEDLG_TYPE        "题目类型"
+    IDS_TYPEDLG_COUNT       "题目数"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_VERCHK_ASK1         "将题库保存为旧版本可能会产生如下后果：\r\n"
+    IDS_VERCHK_ASK2         "\r\n\r\n您确认要保存吗？"
+    IDS_VERCHK_VER1         "\r\n丢失全部自定义类型题目。"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_ITEMGRPDLG_IDX      "序号"
+    IDS_ITEMGRPDLG_TYPE     "题目类型"
+    IDS_ITEMGRPDLG_DESC     "摘要"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_GROUPDLG_DELASK     "您确定要删除选中的题目吗？\r\n删除操作将不可撤销！"
+    IDS_GROUPDLG_DELGASK    "您确定要删除当前题目组吗？"
+    IDS_GROUPDLG_NOITEM     "部分题目组中无题目，如果继续将丢失这些题目组，是否继续？"
+    IDS_GROUPDLG_NOSAVE     "您确实要放弃您所做的修改吗？"
+    IDS_GROUPDLG_INFOVIEW   "共%d组，当前为第%d组"
+    IDS_CHECKDLG_MISS       "尚有未完成评分的题目，如果此时退出，未评分的题目将计0分。\r\n\r\n您确认要退出评分吗？"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_BATCHSETDLG_SELDUPY "选中了%d个高相似度题目\r\n注意：选中题目仅供参考。"
+    IDS_BATCHSETDLG_SELDUPN "未找到任何高相似度题目，请自行检查。"
+    IDS_JPEGCOVERDLG_OPENTITLE "选取封面"
+    IDS_JPEGCOVERDLG_OPENFILTER "封面图片|*.jpeg;*.jpg|"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_TEST_TESTSET        "考试设置"
+    IDS_TEST_CREATETESTFAIL "创建试卷失败！"
+    IDS_TEST_BEGINTESTASK   "试卷已生成，是否开始考试？"
+    IDS_TEST_SHOWSCORE      "您的得分：%.4G (%.4G%%)"
+    IDS_TEST_RETESTASK      "您是否希望重新做一遍刚才的所有题目？"
+    IDS_TEST_PAPERSET       "试卷设置"
+    IDS_TEST_GROUPCAUTIONM  "阅读以下内容，并据此回答第%d题至第%d题"
+    IDS_TEST_GROUPCAUTIONS  "阅读以下内容，并据此回答第%d题"
+    IDS_IMGFRM_COVERVIEW    "封面预览"
+    IDS_IMGFRM_NOIMAGE      "无图像"
+    IDS_IMGFRM_LOADFILTER   "支持的图像格式|*.bmp;*.jpeg;*.jpg;*.png|"
+    IDS_IMGFRM_LOADTITLE    "读取图像"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_IMGFRM_DELASK       "删除图像不可撤销，您确认要删除图像吗？"
+    IDS_IMGFRM_INVALIDIMG   "当前图像可能已被破坏"
+    IDS_IMGFRM_TITLE        "图像%d - %s"
+    IDS_IMGFRM_ITEMIMAGE    "题目图片"
+    IDS_IMGFRM_READFAIL     "打开图像失败！错误码：%d。"
+    IDS_IMGFRM_TOOBIG       "不支持读入超过%d×%d大小的图片！"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_TXTOUTDLG_SAVEFAIL  "导出试卷失败！错误码：%d。"
+    IDS_SHOWWND_JPEGFILTER  "JPEG图像|*.jpeg;*.jpg|"
+    IDS_SHOWWND_BMPFILTER   "BMP图像|*.bmp|"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_SHOWWND_PNGFILTER   "PNG图像|*.png|"
+    IDS_SHOWWND_SAVETITLE   "保存图像"
+    IDS_TYPEPROPT_DUPL      "此题号与“%s”的题号冲突，请重新设置\n若无法确认设置为何值，建议设置为0"
+    IDS_TYPEPROPT_DEFAULT   "不可用"
+END
+
+#endif    // Chinese (P.R.C.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)
+#ifdef _WIN32
+LANGUAGE 4, 2
+#pragma code_page(936)
+#endif //_WIN32
+#include "QuickQuiz.rc2"  // non-Microsoft Visual C++ edited resources
+#include "l.chs\afxres.rc"          // Standard components
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

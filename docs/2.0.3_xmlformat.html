@@ -1,0 +1,166 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+
+<meta http-equiv = "Content-Type" content = "text/html; charset = utf-8;">
+<title>QuickQuiz帮助文档</title>
+<link rel = "stylesheet" type = "text/css" href = "css/style.css">
+
+</head>
+
+<body>
+
+<h2>
+<img src = "images/title.png" alt = "icon" style = "width: 50px; height: 50px; vertical-align: middle;"/><span style = "margin-left: 8px;">兼容题库文件格式</span>
+</h2>
+<hr/>
+
+<div class = "p">
+兼容题库文件可被任何版本QuickQuiz读取，也可供QuickQuiz-M使用，本质为无BOM头的XML文件，完整格式如下：
+</div>
+
+<table class = "info">
+<tr><th><img class = "info" src = "images/info.png" alt = "警告" /></th><td><span style = "color: red;">红色</span>标出的标签或属性必须存在，否则将视为题库损坏<br/><span style = "color: blue;">蓝色</span>标出的内容为若父标签存在，则必须存在的内容，否则父标签包含内容不予读取</td></tr>
+</table>
+
+<pre>
+<span style = "color:green;">&lt;!--标签、属性名称区分大小写--&gt;</span>
+<span style = "color:green;">&lt;!--推荐编码方式为UTF-8，对于简体中文系统，也可用GBK编码（用于兼容Windows&nbsp;95，但不推荐）--&gt;</span>
+&lt;<span style = "color: red; font-weight: bold;">?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?</span>&gt;
+&lt;<span style = "color: red; font-weight: bold;">library</span>&gt;
+<span style = "color:green;">&nbsp;&nbsp;&nbsp;&nbsp;&lt;!--题库头，区分大小写--&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span style = "color: red; font-weight: bold;">key</span>&gt;QuickQuiz&lt;<span style = "color: red; font-weight: bold;">/key</span>&gt;
+<span style = "color:green;">&nbsp;&nbsp;&nbsp;&nbsp;&lt;!--版本号采用四段数字形式，如2.0.0.0，建议使用生成题库所用的应用程序版本号，目前此段不做检查--&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;version&gt;版本号&lt;/version&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span style = "color: red; font-weight: bold;">title</span>&gt;题库名称&lt;<span style = "color: red; font-weight: bold;">/title</span>&gt;
+<span style = "color:green;">&nbsp;&nbsp;&nbsp;&nbsp;&lt;!--默认封面信息，各属性分别为宽度、高度、背景色、文字颜色、图像品质--&gt;</span>
+<span style = "color:green;">&nbsp;&nbsp;&nbsp;&nbsp;&lt;!--若无默认封面，可以无此项--&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;cover width=&quot;300&quot; height=&quot;300&quot;&nbsp;clrbk=&quot;#FFFFFF&quot;&nbsp;clrtxt=&quot;#000000&quot;&nbsp;quality=&quot;85&quot;&gt;封面文字&lt;/cover&gt;
+
+<span style = "color:green;">&nbsp;&nbsp;&nbsp;&nbsp;&lt;!--自定义类型列表，若无自定义类型，可以无此项--&gt;</span>
+<span style = "color:green;">&nbsp;&nbsp;&nbsp;&nbsp;&lt;!--由于历史原因，index属性允许缺失，缺失后，将以文档顺序对类型进行编号，但强烈建议包含index属性--&gt;</span>
+<span style = "color:green;">&nbsp;&nbsp;&nbsp;&nbsp;&lt;!--自定义类型序号（index属性）必须从1开始并连续增加，否则将以文档顺序对类型进行编号--&gt;</span>
+<span style = "color:green;">&nbsp;&nbsp;&nbsp;&nbsp;&lt;!--当包含index属性时，列表的顺序允许打乱，建议按照index序号顺序进行排列--&gt;</span>
+<span style = "color:green;">&nbsp;&nbsp;&nbsp;&nbsp;&lt;!--qnum属性代表题号，默认为0--&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;cust&nbsp;<span style = "color: blue; font-weight: bold;">type</span>=&quot;基础类型&quot;&nbsp;index=&quot;1&quot;&nbsp;qnum=&quot;1&quot;&gt;自定义类型1名称&lt;/cust&gt;
+<span style = "color:green;">&nbsp;&nbsp;&nbsp;&nbsp;&lt;!--...--&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;cust&nbsp;<span style = "color: blue; font-weight: bold;">type</span>=&quot;基础类型&quot;&nbsp;index=&quot;n&quot;&gt;自定义类型n名称&lt;/cust&gt;
+<span style = "color:green;">&nbsp;&nbsp;&nbsp;&nbsp;&lt;!--基础类型名称参考以下各题目--&gt;</span>
+
+<span style = "color:green;">&nbsp;&nbsp;&nbsp;&nbsp;&lt;!--以下题目答案：t为正确、f为错误，不区分大小写--&gt;</span>
+<span style = "color:green;">&nbsp;&nbsp;&nbsp;&nbsp;&lt;!--cust属性对应自定义类型列表中index属性，若无cust属性，或cust属性为0，视为默认类型--&gt;</span>
+<span style = "color:green;">&nbsp;&nbsp;&nbsp;&nbsp;&lt;!--各题目的顺序允许打乱，但为了便于保存收藏夹文件，建议按固定顺序保存--&gt;</span>
+<span style = "color:green;">&nbsp;&nbsp;&nbsp;&nbsp;&lt;!--每题必须包含desc标签，即使内容为空也不能忽略；res标签可忽略--&gt;</span>
+
+<span style = "color:green;">&nbsp;&nbsp;&nbsp;&nbsp;&lt;!--单选题--&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;qstn&nbsp;<span style = "color: blue; font-weight: bold;">type</span>=&quot;s-choise&quot;&nbsp;cust=&quot;0&quot;&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span style = "color: blue; font-weight: bold;">desc</span>&gt;题目描述&lt;<span style = "color: blue; font-weight: bold;">/desc</span>&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;res&gt;题目解析&lt;/res&gt;
+<span style = "color:green;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;!--支持bmp、jpeg、png格式图像，题干和解析中均可插入不超过10张图片--&gt;</span>
+<span style = "color:green;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;!--图像内容按DataUrl方式存储，不做压缩--&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;img&nbsp;title=&quot;题干图像1标题&quot;&nbsp;<span style = "color: blue; font-weight: bold;">index</span>=&quot;1&quot;&nbsp;<span style = "color: blue; font-weight: bold;">loc</span>=&quot;desc&quot;&gt;题干图像1内容&lt;/img&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;img&nbsp;title=&quot;题干图像2标题&quot;&nbsp;<span style = "color: blue; font-weight: bold;">index</span>=&quot;2&quot;&nbsp;<span style = "color: blue; font-weight: bold;">loc</span>=&quot;desc&quot;&gt;题干图像2内容&lt;/img&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;img&nbsp;title=&quot;解析图像1标题&quot;&nbsp;<span style = "color: blue; font-weight: bold;">index</span>=&quot;1&quot;&nbsp;<span style = "color: blue; font-weight: bold;">loc</span>=&quot;res&quot;&gt;解析图像1内容&lt;/img&gt;
+<span style = "color:green;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;!--单选题与多选题应至少包含一个选项，否则认为题目无效--&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span style = "color: blue; font-weight: bold;">opt</span>&nbsp;<span style = "color: blue; font-weight: bold;">ans</span>=&quot;t&quot;&gt;选项1&lt;<span style = "color: blue; font-weight: bold;">/opt</span>&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;opt&nbsp;<span style = "color: blue; font-weight: bold;">ans</span>=&quot;f&quot;&gt;选项2&lt;/opt&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;opt&nbsp;<span style = "color: blue; font-weight: bold;">ans</span>=&quot;f&quot;&gt;选项3&lt;/opt&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/qstn&gt;
+
+<span style = "color:green;">&nbsp;&nbsp;&nbsp;&nbsp;&lt;!--多选题--&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;qstn&nbsp;<span style = "color: blue; font-weight: bold;">type</span>=&quot;m-choise&quot;&nbsp;cust=&quot;0&quot;&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span style = "color: blue; font-weight: bold;">desc</span>&gt;题目描述&lt;<span style = "color: blue; font-weight: bold;">/desc</span>&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;res&gt;题目解析&lt;/res&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span style = "color: blue; font-weight: bold;">opt</span>&nbsp;<span style = "color: blue; font-weight: bold;">ans</span>=&quot;t&quot;&gt;选项1&lt;<span style = "color: blue; font-weight: bold;">/opt</span>&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;opt&nbsp;<span style = "color: blue; font-weight: bold;">ans</span>=&quot;f&quot;&gt;选项2&lt;/opt&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;opt&nbsp;<span style = "color: blue; font-weight: bold;">ans</span>=&quot;t&quot;&gt;选项3&lt;/opt&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/qstn&gt;
+
+<span style = "color:green;">&nbsp;&nbsp;&nbsp;&nbsp;&lt;!--判断题--&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;qstn&nbsp;<span style = "color: blue; font-weight: bold;">type</span>=&quot;judge&quot;&nbsp;cust=&quot;0&quot;&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span style = "color: blue; font-weight: bold;">desc</span>&gt;题目描述&lt;<span style = "color: blue; font-weight: bold;">/desc</span>&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;res&gt;题目解析&lt;/res&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span style = "color: blue; font-weight: bold;">ans</span>&gt;t&lt;<span style = "color: blue; font-weight: bold;">/ans</span>&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/qstn&gt;
+
+<span style = "color:green;">&nbsp;&nbsp;&nbsp;&nbsp;&lt;!--填空题--&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;qstn&nbsp;<span style = "color: blue; font-weight: bold;">type</span>=&quot;blank&quot;&nbsp;cust=&quot;0&quot;&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span style = "color: blue; font-weight: bold;">desc</span>&gt;题目描述&lt;<span style = "color: blue; font-weight: bold;">/desc</span>&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;res&gt;题目解析&lt;/res&gt;
+<span style = "color:green;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;!--填空题应至少包含一个空白，否则认为题目无效--&gt;</span>
+<span style = "color:green;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;!--空白顺序允许打乱，但为了便于读取，建议按照实际顺序排列--&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span style = "color: blue; font-weight: bold;">blk</span>&nbsp;<span style = "color: blue; font-weight: bold;">beg</span>=&quot;空白起始位置&quot;&nbsp;<span style = "color: blue; font-weight: bold;">end</span>=&quot;空白结束位置&quot;&gt;答案1&lt;<span style = "color: blue; font-weight: bold;">/blk</span>&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;blk&nbsp;<span style = "color: blue; font-weight: bold;">beg</span>=&quot;空白起始位置&quot;&nbsp;<span style = "color: blue; font-weight: bold;">end</span>=&quot;空白结束位置&quot;&gt;答案2&lt;/blk&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/qstn&gt;
+
+<span style = "color:green;">&nbsp;&nbsp;&nbsp;&nbsp;&lt;!--简答题--&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;qstn&nbsp;<span style = "color: blue; font-weight: bold;">type</span>=&quot;text&quot;&nbsp;cust=&quot;0&quot;&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span style = "color: blue; font-weight: bold;">desc</span>&gt;题目描述&lt;<span style = "color: blue; font-weight: bold;">/desc</span>&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;res&gt;题目解析&lt;/res&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span style = "color: blue; font-weight: bold;">ans</span>&gt;答案&lt;<span style = "color: blue; font-weight: bold;">/ans</span>&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/qstn&gt;
+
+<span style = "color:green;">&nbsp;&nbsp;&nbsp;&nbsp;&lt;!--题目组--&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;qstn&nbsp;<span style = "color: blue; font-weight: bold;">type</span>=&quot;group&quot;&nbsp;cust=&quot;0&quot;&nbsp;qnum=&quot;2&quot;&gt;
+<span style = "color:green;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;!--题目组描述与题干允许缺失，但建议包含--&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;type&gt;题目组描述&lt;/type&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;desc&gt;题目组题干&lt;/desc&gt;
+<span style = "color:green;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;!--这里假设题目组中有一道单选题--&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;qstn&nbsp;<span style = "color: blue; font-weight: bold;">type</span>=&quot;s-choise&quot;&nbsp;cust=&quot;0&quot;&gt;
+<span style = "color:green;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;!--除填空题外，题目组中的子题目允许缺失题目描述与解析，但建议包含--&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;desc&gt;题目描述&lt;/desc&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;res&gt;题目解析&lt;/res&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span style = "color: blue; font-weight: bold;">opt</span>&nbsp;<span style = "color: blue; font-weight: bold;">ans</span>=&quot;t&quot;&gt;选项1&lt;<span style = "color: blue; font-weight: bold;">/opt</span>&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;opt&nbsp;<span style = "color: blue; font-weight: bold;">ans</span>=&quot;f&quot;&gt;选项2&lt;/opt&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;opt&nbsp;<span style = "color: blue; font-weight: bold;">ans</span>=&quot;f&quot;&gt;选项3&lt;/opt&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/qstn&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/qstn&gt;
+
+<span style = "color:green;">&nbsp;&nbsp;&nbsp;&nbsp;&lt;!--自定义题目（例如自定义简答题）--&gt;</span>
+<span style = "color:green;">&nbsp;&nbsp;&nbsp;&nbsp;&lt;!--cust属性对应自定义类型必须与type属性相同，否则不能读取--&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;qstn&nbsp;<span style = "color: blue; font-weight: bold;">type</span>=&quot;text&quot;&nbsp;cust=&quot;1&quot;&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span style = "color: blue; font-weight: bold;">desc</span>&gt;题目描述&lt;<span style = "color: blue; font-weight: bold;">/desc</span>&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;res&gt;题目解析&lt;/res&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span style = "color: blue; font-weight: bold;">ans</span>&gt;答案&lt;<span style = "color: blue; font-weight: bold;">/ans</span>&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/qstn&gt;
+
+<span style = "color:green;">&nbsp;&nbsp;&nbsp;&nbsp;&lt;!--1.x版本生成的兼容题库中，题目组有单独的标签“grp”--&gt;</span>
+<span style = "color:green;">&nbsp;&nbsp;&nbsp;&nbsp;&lt;!--“grp”题目组与“qstn”题目组仅标签名不同--&gt;</span>
+<span style = "color:green;">&nbsp;&nbsp;&nbsp;&nbsp;&lt;!--本项仅作为兼容用途，在未来的版本中将完全淘汰这个标签--&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;grp&nbsp;qnum=&quot;2&quot;&gt;
+<span style = "color:green;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;!--题目组描述与题干允许缺失，但建议包含--&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;type&gt;题目组描述&lt;/type&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;desc&gt;题目组题干&lt;/desc&gt;
+<span style = "color:green;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;!--这里假设题目组中有一道单选题--&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;qstn&nbsp;<span style = "color: blue; font-weight: bold;">type</span>=&quot;s-choise&quot;&nbsp;cust=&quot;0&quot;&gt;
+<span style = "color:green;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;!--除填空题外，题目组中的子题目允许缺失题目描述与解析，但建议包含--&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;desc&gt;题目描述&lt;/desc&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;res&gt;题目解析&lt;/res&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span style = "color: blue; font-weight: bold;">opt</span>&nbsp;<span style = "color: blue; font-weight: bold;">ans</span>=&quot;t&quot;&gt;选项1&lt;<span style = "color: blue; font-weight: bold;">/opt</span>&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;opt&nbsp;<span style = "color: blue; font-weight: bold;">ans</span>=&quot;f&quot;&gt;选项2&lt;/opt&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;opt&nbsp;<span style = "color: blue; font-weight: bold;">ans</span>=&quot;f&quot;&gt;选项3&lt;/opt&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/qstn&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/grp&gt;
+&lt;<span style = "color: red; font-weight: bold;">/library</span>&gt;
+</pre>
+
+<table class = "info">
+<tr><th><img class = "info" src = "images/info.png" alt = "警告" /></th><td>兼容题库文件中部分内容发生意外变动，可能依然能够正常读取，但读取后可能产生未知错误。<br/>若无跨平台或与旧版本兼容等目的，仍然推荐将题库保存为标准题库文件。</td></tr>
+</table>
+
+<div id = "rule1" class = "h4"><ul><li>自定义类型序号</li></ul></div>
+<div class = "p">
+每个自定义类型均有一个自定义类型序号，从1开始依次连续编号，无上限，用来唯一标识一个自定义类型。<b>自定义类型序号不是固定的</b>，在QuickQuiz内部，自定义类型序号在读入题库文件、添加或删除自定义类型后将自动重新分配。
+</div>
+
+<table class = "guide">
+<tr><td><a href = "2.0.2_binformat.html">上一篇</a></td><td style = "text-align: center;"><a href = "2.0.0_develop.html">目录</a></td><td style = "text-align: right;"><a href = "2.0.4_oldbinformat.html">下一篇</a></td></tr>
+</table>
+
+<hr/>
+<small>GX Software 2020-2021</small><br/>
+<small>V2.0</small>
+
+</body>
+
+</html>

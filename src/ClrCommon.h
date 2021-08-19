@@ -1,0 +1,31 @@
+#ifndef _CLRCOMMON_H_
+#define _CLRCOMMON_H_
+
+#define CLRTYPE_DEFAULT			0
+#define CLRTYPE_GREEN			1
+#define CLRTYPE_DARK			2
+
+enum QColor {
+	QCOLOR_FACE = 0,
+	QCOLOR_EDITFACE,
+	QCOLOR_SHADOW,
+	QCOLOR_HIGHLIGHT,
+	QCOLOR_BORDER,
+	QCOLOR_TEXT,
+	QCOLOR_TEXTDISABLE,
+	QCOLOR_TEXTHIGHLIGHT,
+	QCOLOR_TEXTFOCUS,
+	QCOLOR_TEXTSELECTBACK
+};
+
+extern int g_nColorType;
+extern HBRUSH g_hGreenBrush;
+extern HBRUSH g_hDarkBrush;
+
+void FUNCCALL AfxInitGlobalBrush();
+void FUNCCALL AfxDestroyGlobalBrush();
+
+COLORREF FUNCCALL AfxGetQColor(UINT uColorIndex);
+HBRUSH FUNCCALL AfxGetQBrush();
+
+#endif // #define _CLRCOMMON_H_

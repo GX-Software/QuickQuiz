@@ -1,0 +1,101 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+
+<meta http-equiv = "Content-Type" content = "text/html; charset = utf-8;">
+<title>QuickQuiz帮助文档</title>
+<link rel = "stylesheet" type = "text/css" href = "css/style.css">
+
+</head>
+
+<body>
+
+<h2>
+<img src = "images/title.png" alt = "icon" style = "width: 50px; height: 50px; vertical-align: middle;"/><span style = "margin-left: 8px;">加密算法</span>
+</h2>
+<hr/>
+
+<div class = "p">
+标准题库文件的默认加密算法为CBC模式的128位密钥AES算法，<b>如果题库内容被压缩，则在压缩之后再进行加密</b>。
+</div>
+
+<div class = "h4">密码规则</div>
+<div class = "p">
+密码最大支持16字节字符共128位，允许使用任何ASCII编码的半角字符；当密码数量不够16字节时，重复密码直到足够16字节。
+</div>
+<table class = "info">
+<tr><th><img class = "info" src = "images/info.png" alt = "警告" /></th><td>在补全密码时，末尾“\0”不参与补全，补全后的16字节密码也不包含末尾“\0”。</td></tr>
+</table>
+
+<div class = "h4">128位补全</div>
+<div class = "p">
+AES加密算法要求加密内容长度为16字节（128位）的整倍数，在进行128位补全时，可任意选择补全的内容，不会影响最终读取。本应用程序用0xcd进行补全。
+</div>
+
+<div class = "h4">S盒与逆S盒</div>
+<div class = "p">
+使用AES加密算法的标准S盒及逆S盒，不再列出。
+</div>
+
+<div class = "h4">初始向量</div>
+<div class = "p">
+CBC模式所需要的初始向量如下：
+</div>
+<pre style = "background-color: transparent; margin-top: 0;">
+byte&nbsp;init_array[]&nbsp;=&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;0xa5,&nbsp;0xa5,&nbsp;0xa5,&nbsp;0xa5,
+&nbsp;&nbsp;&nbsp;&nbsp;0xc3,&nbsp;0xc3,&nbsp;0xc3,&nbsp;0xc3,
+&nbsp;&nbsp;&nbsp;&nbsp;0x5a,&nbsp;0x5a,&nbsp;0x5a,&nbsp;0x5a,
+&nbsp;&nbsp;&nbsp;&nbsp;0x3c,&nbsp;0x3c,&nbsp;0x3c,&nbsp;0x3c
+};
+</pre>
+
+<div class = "h4">兼容性测试</div>
+<div class = "p">
+采用如下密钥：
+</div>
+<pre style = "background-color: transparent; margin-top: 0;">
+byte&nbsp;key[]&nbsp;=&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;0x2b,&nbsp;0x7e,&nbsp;0x15,&nbsp;0x16,
+&nbsp;&nbsp;&nbsp;&nbsp;0x28,&nbsp;0xae,&nbsp;0xd2,&nbsp;0xa6,
+&nbsp;&nbsp;&nbsp;&nbsp;0xab,&nbsp;0xf7,&nbsp;0x15,&nbsp;0x88,
+&nbsp;&nbsp;&nbsp;&nbsp;0x09,&nbsp;0xcf,&nbsp;0x4f,&nbsp;0x3c
+};
+</pre>
+<div class = "p">
+对如下数据进行加密：
+</div>
+<pre style = "background-color: transparent; margin-top: 0;">
+byte&nbsp;in[]&nbsp;=&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;0x32,&nbsp;0x88,&nbsp;0x31,&nbsp;0xe0,
+&nbsp;&nbsp;&nbsp;&nbsp;0x43,&nbsp;0x5a,&nbsp;0x31,&nbsp;0x37,
+&nbsp;&nbsp;&nbsp;&nbsp;0xf6,&nbsp;0x30,&nbsp;0x98,&nbsp;0x07,
+&nbsp;&nbsp;&nbsp;&nbsp;0xa8,&nbsp;0x8d,&nbsp;0xa2,&nbsp;0x34
+};
+</pre>
+<div class = "p">
+若能得出如下结果：
+</div>
+<pre style = "background-color: transparent; margin-top: 0;">
+byte&nbsp;out[]&nbsp;=&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;0xc6,&nbsp;0xea,&nbsp;0xa0,&nbsp;0x35,
+&nbsp;&nbsp;&nbsp;&nbsp;0x9d,&nbsp;0xdc,&nbsp;0xbe,&nbsp;0x5d,
+&nbsp;&nbsp;&nbsp;&nbsp;0x1b,&nbsp;0xad,&nbsp;0x65,&nbsp;0xfa,
+&nbsp;&nbsp;&nbsp;&nbsp;0xb5,&nbsp;0x55,&nbsp;0xe7,&nbsp;0x0e
+};
+</pre>
+<div class = "p">
+且解密后可以还原数据，则证明加密算法与本应用程序完全兼容。
+</div>
+
+<table class = "guide">
+<tr><td><a href = "2.0.5_saveformat.html">上一篇</a></td><td style = "text-align: center;"><a href = "2.0.0_develop.html">目录</a></td><td style = "text-align: right;"><a href = "2.1.1_check.html">下一篇</a></td></tr>
+</table>
+
+<hr/>
+<small>GX Software 2020-2021</small><br/>
+<small>V2.0</small>
+
+</body>
+
+</html>

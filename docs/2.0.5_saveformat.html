@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+
+<meta http-equiv = "Content-Type" content = "text/html; charset = utf-8;">
+<title>QuickQuiz帮助文档</title>
+<link rel = "stylesheet" type = "text/css" href = "css/style.css">
+
+</head>
+
+<body>
+
+<h2>
+<img src = "images/title.png" alt = "icon" style = "width: 50px; height: 50px; vertical-align: middle;"/><span style = "margin-left: 8px;">收藏夹文件格式</span>
+</h2>
+<hr/>
+
+<div class = "p">
+用于记录题库收藏信息的文件，扩展名*.sav，此文件丢失也不应影响题库的正常读取。
+</div>
+
+<div style = "margin-top: 8px; margin-bottom: 5px; width: 90%; text-align: center;">表16&nbsp;&nbsp;收藏夹文件格式</div>
+<table style = "width: 90%">
+<tr><th style = "width: 10%;">段序号</th><th style = "width: 15%; text-align: center;">段描述</th><th style = "width: 15%; text-align: center;">长度</th><th style = "text-align: center;">说明</th></tr>
+<tr>
+<td>1</td><td>收藏夹开始标记</td><td>14Bytes</td>
+<td>ASCII编码方式的“QuickQuiz_Save”字串，区分大小写。</td>
+</tr>
+<tr>
+<tr><th colspan = "4" style = "text-align: center;">收藏信息段开始，此段的个数为题库中题目总数量（题目组中每个子题目均各占一段）</th></tr>
+<td rowspan = "2">2</td><td>题目是否收藏</td><td>1Byte</td>
+<td>0为未收藏，1为收藏。</td>
+</tr>
+<tr>
+<td>题目校验码</td><td>2Bytes</td>
+<td>用于校验题目，计算方法详见<a href = "2.1.1_check.html">题目校验算法</a></td>
+</tr>
+<tr><th colspan = "4" style = "text-align: center;">收藏信息段结束</th></tr>
+<tr>
+</table>
+
+<div class = "p" style = "margin-top: 16px;">
+收藏夹文件中各收藏信息的顺序与题库中题目的顺序完全一致，读完全部题目内容后才读取收藏信息；读取时将判断题目的校验码是否正确，如果某题的校验码错误，将立即停止读取。
+</div>
+
+<table class = "guide">
+<tr><td><a href = "2.0.4_oldbinformat.html">上一篇</a></td><td style = "text-align: center;"><a href = "2.0.0_develop.html">目录</a></td><td style = "text-align: right;"><a href = "2.1.0_aes.html">下一篇</a></td></tr>
+</table>
+
+<hr/>
+<small>GX Software 2020-2021</small><br/>
+<small>V2.0</small>
+
+</body>
+
+</html>

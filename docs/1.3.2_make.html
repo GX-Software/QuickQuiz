@@ -1,0 +1,101 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+
+<meta http-equiv = "Content-Type" content = "text/html; charset = utf-8;">
+<title>QuickQuiz帮助文档</title>
+<link rel = "stylesheet" type = "text/css" href = "css/style.css">
+
+</head>
+
+<body>
+
+<h2>
+<img src = "images/title.png" alt = "icon" style = "width: 50px; height: 50px; vertical-align: middle;"/><span style = "margin-left: 8px;">生成试卷</span>
+</h2>
+<hr/>
+
+<div class = "p">
+“生成试卷”将根据题库生成一张试卷，并附答案。
+</div>
+<div class = "p">
+首先对试卷的题目、分数进行设置，详细说明请参见<a href = "1.3.0_test.html#goto1">考试设置</a>。然后进入如下界面进行格式设置：
+</div>
+<div class = "p">
+<img src = "images/makeformat.png" alt = "格式设置" />
+</div>
+
+<div class = "h4"><ul><li>文件格式</ul></li></div>
+<div class = "p">
+<b>文本+图像文件形式</b>：生成纯文本形式的试卷，试卷中包含的图片将导出为图片文件，保存于与试卷文件相同路径的文件夹下。此类型试卷除换行外不包含任何排版信息，可使用文本编辑器打开及编辑。
+</div>
+<div class = "p">
+<img src = "images/maketxt.png" alt = "文本格式" />
+</div>
+<div class = "p">
+<b>HTML文件+图像文件形式</b>：生成HTML形式的试卷，试卷中包含的图片将导出为图片文件，保存于与试卷文件相同路径的文件夹下。此类型试卷包含一些简单的排版信息，可使用绝大部分网络浏览器（包括较旧版本的IE）浏览及打印。
+</div>
+<div class = "p">
+<img src = "images/makehtml1.png" alt = "HTML格式1" />
+</div>
+<div class = "p">
+<b>单HTML文件形式</b>：生成HTML形式的试卷，试卷中包含的图片以代码形式嵌入HTML文件中（不导出图片文件，可能导致试卷文件较大）。此类型试卷包含一些简单的排版信息，可使用支持HTML5规范的网络浏览器浏览及打印，使用IE8及更旧浏览器可能无法正常查看图片。
+</div>
+<div class = "p">
+<img src = "images/makehtml2.png" alt = "HTML格式2" />
+</div>
+<table class = "info">
+<tr><th><img class = "info" src = "images/info.png" alt = "警告" /></th><td>试卷文件中包含的排版信息有限，若您需要分隔线、装订线等格式，请自行使用排版工具进行排版。<br/>您也可以使用任何所见即所得HTML编辑器对HTML试卷文件进行编辑。</td></tr>
+</table>
+
+<div class = "h4"><ul><li>答案格式</ul></li></div>
+<div class = "p">
+试卷答案保存在试卷文件相同路径下，可选择保存为以下格式：
+</div>
+<div class = "p">
+<b>仅答案</b>：答案文件保存为文本形式，文件中仅包含答案。
+</div>
+<div class = "p">
+<img src = "images/makeansweronly.png" alt = "仅答案" />
+</div>
+<div class = "p">
+<b>带原题</b>：答案文件中包含题目及答案信息，答案文件格式与试卷文件格式一致。
+</div>
+<div class = "p">
+<img src = "images/makeanswerin.png" alt = "带原题" />
+</div>
+<div class = "p">
+<b>带解析</b>：勾选后，答案文件中包含解析。
+</div>
+
+<div class = "h4"><ul><li>字体</ul></li></div>
+<div class = "p">
+在生成HTML格式试卷时，可设置HTML文件的字体。
+</div>
+<div class = "p">
+<b>西文字体</b>：默认字体，试卷中的数字、字母使用此字体。
+</div>
+<div class = "p">
+<b>正文字体</b>：试卷中题目的字体。
+</div>
+<div class = "p">
+<b>引文字体</b>：当试卷中包含题目组时，题目组描述的字体。
+</div>
+
+<div class = "h4"><ul><li>确定</ul></li></div>
+<div class = "p">
+生成后，将使用默认程序自动打开试卷文件。
+</div>
+
+<table class = "guide">
+<tr><td><a href = "1.3.1_view.html">上一篇</a></td><td style = "text-align: center;"><a href = "1.0.0_content.html">目录</a></td><td style = "text-align: right;"><a href = "1.3.3_
+competitive.html">下一篇</a></td></tr>
+</table>
+
+<hr/>
+<small>GX Software 2020-2021</small><br/>
+<small>V2.0</small>
+
+</body>
+
+</html>

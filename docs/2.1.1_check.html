@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+
+<meta http-equiv = "Content-Type" content = "text/html; charset = utf-8;">
+<title>QuickQuiz帮助文档</title>
+<link rel = "stylesheet" type = "text/css" href = "css/style.css">
+
+</head>
+
+<body>
+
+<h2>
+<img src = "images/title.png" alt = "icon" style = "width: 50px; height: 50px; vertical-align: middle;"/><span style = "margin-left: 8px;">题目校验算法</span>
+</h2>
+<hr/>
+
+<div class = "p">
+题目的校验算法采用16位累加校验算法，即计算题目内容的累加和，超出16位的部分自动舍弃，最终得出校验码。
+</div>
+
+<div class = "h4">单选题/多选题的校验</div>
+<div class = "p">
+校验码=题目类型编码+题干中每字UTF-16编码的累加和+每个选项中每字UTF-16编码的累加和。
+</div>
+
+<div class = "h4">判断题的校验</div>
+<div class = "p">
+校验码=题目类型编码+题干中每字UTF-16编码的累加和。
+</div>
+
+<div class = "h4">填空题的校验</div>
+<div class = "p">
+校验码=题目类型编码+题干中每字UTF-16编码的累加和+每个空白的起始位置偏移量+每个空白的结束位置偏移量+每个空白答案中每字UTF-16编码的累加和。
+</div>
+
+<div class = "h4">简答题的校验</div>
+<div class = "p">
+校验码=题目类型编码+题干中每字UTF-16编码的累加和+答案中每字UTF-16编码的累加和。
+</div>
+
+<div class = "h4">题目组的校验</div>
+<div class = "p">
+校验码=题目类型编码+题干中每字UTF-16编码的累加和+每个子题目的校验码。
+</div>
+
+<table class = "guide">
+<tr><td><a href = "2.1.0_aes.html">上一篇</a></td><td style = "text-align: center;"><a href = "2.0.0_develop.html">目录</a></td><td style = "text-align: right;"><a href = "2.1.2_extern.html">下一篇</a></td></tr>
+</table>
+
+<hr/>
+<small>GX Software 2020-2021</small><br/>
+<small>V2.0</small>
+
+</body>
+
+</html>

@@ -1,0 +1,126 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+
+<meta http-equiv = "Content-Type" content = "text/html; charset = utf-8;">
+<title>QuickQuiz帮助文档</title>
+<link rel = "stylesheet" type = "text/css" href = "css/style.css">
+
+</head>
+
+<body>
+
+<h2>
+<img src = "images/title.png" alt = "icon" style = "width: 50px; height: 50px; vertical-align: middle;"/><span style = "margin-left: 8px;">“题库”菜单</span>
+</h2>
+<hr/>
+
+<div class = "p">
+<img src = "images/papermenu.png" alt = "题库菜单" />
+</div>
+
+<div class = "p">
+“题库”菜单的相关说明如下：
+</div>
+
+<div class = "h4"><ul><li>允许编辑</li></ul></div>
+<div class = "p">
+当前选中题库是否为只读，只读则菜单项不被勾选。
+</div>
+<table class = "info">
+<tr><th><img class = "info" src = "images/info.png" alt = "警告" /></th><td>当新建一个题库时，默认允许编辑；<br/>当打开一个题库时，默认不允许编辑。</td></tr>
+</table>
+
+<div class = "h4"><ul><li>加密题库</li></ul></div>
+<div class = "p">
+将题库进行加密或取消加密。<b>打开加密题库、取消加密状态、将加密题库保存为兼容题库模式，均需要先输入密码</b>。
+</div>
+<div class = "p">
+当加密题库时，将弹出如下的对话框对密码进行设置：
+</div>
+<div class = "p">
+<img src = "images/setpass.png"  alt = "密码设置" />
+</div>
+<div class = "p">
+所设密码的要求为：<b>长度6~16位，为半角数字、半角字母、半角符号的组合</b>。若不输入新密码，则视为取消加密。
+</div>
+<div class = "p">
+设置密码后，<b>不会立即使题库文件加密</b>，保存后才会完成加密操作。
+</div>
+<table class = "info">
+<tr><th><img class = "info" src = "images/info.png" alt = "警告" /></th><td>本应用程序采用较强的加密算法，若忘记密码，几乎无法破解，敬请牢记密码。</td></tr>
+</table>
+
+<div class = "h4"><ul><li>新建题目</li></ul></div>
+<div class = "p">
+给当前题库创建新题目。创建过程详见<a href = "1.2.0_newitem.html">新建题目</a>。
+</div>
+<table class = "info">
+<tr><th><img class = "info" src = "images/info.png" alt = "警告" /></th><td>题目组不可用此法创建。</td></tr>
+</table>
+
+<div class = "h4"><ul><li>收藏题目</li></ul></div>
+<div class = "p">
+将当前选中题目收藏至收藏夹内，相关内容详见<a href = "1.2.1_storeitem.html">收藏题目</a>。
+</div>
+
+<div class = "h4"><ul><li>载入收藏夹文件</li></ul></div>
+<div class = "p">
+可从其它路径载入收藏夹文件。
+</div>
+<table class = "info">
+<tr><th><img class = "info" src = "images/info.png" alt = "警告" /></th><td>即使从其它路径载入收藏夹文件，保存时仍将自动保存至和题库同路径。</td></tr>
+</table>
+
+<div class = "h4"><ul><li>编辑对象</li></ul></div>
+<div class = "p">
+将主界面中选中的内容进行编辑。
+</div>
+<ul style = "margin-left: 2em;">
+<li>
+当选中左侧窗格的题库节点时，执行“修改题库名称”动作，题库名称最长支持64个字符。
+</li>
+<li>
+当选中左侧窗格的自定义类型节点时，执行“修改自定义类型名称”动作，自定义类型名称最长支持16个字符。
+</li>
+<li>
+当选中右侧窗格的题目时，执行“编辑题目”动作，详见<a href = "1.2.2_edititem.html">编辑题目</a>。
+</li>
+</ul>
+
+<div class = "h4"><ul><li>题库封面</li></ul></div>
+<div class = "p">
+给当前选中题库设置封面信息，被设置了封面的题库可以保存为带封面的题库格式，详见<a href = "1.2.3_setcover.html">题库封面</a>
+</div>
+
+<div class = "h4"><ul><li>批量操作</li></ul></div>
+<div class = "p">
+给当前选中题库进行某些预设好的批量操作，详见<a href = "1.2.4_batchset.html">批量操作</a>。
+</div>
+
+<div class = "h4"><ul><li>新建题目组/编辑题目组</li></ul></div>
+<div class = "p">
+给当前选中题库创建新的题目组，或对选中的题目组进行编辑，详见<a href = "1.2.5_group.html">题目组</a></b>。
+</div>
+
+<div class = "h4"><ul><li>添加自定义类型/删除自定义类型</li></ul></div>
+<div class = "p">
+添加或删除自定义题目类型，详见<a href = "1.2.6_customtype.html">自定义类型</a></b>。
+</div>
+
+<div class = "h4"><ul><li>打开所在文件夹</li></ul></div>
+<div class = "p">
+将题库文件在Windows资源管理器中显示。
+</div>
+
+<table class = "guide">
+<tr><td><a href = "1.0.3_editmenu.html">上一篇</a></td><td style = "text-align: center;"><a href = "1.0.0_content.html">目录</a></td><td style = "text-align: right;"><a href = "1.0.5_testmenu.html">下一篇</a></td></tr>
+</table>
+
+<hr/>
+<small>GX Software 2020-2021</small><br/>
+<small>V2.0</small>
+
+</body>
+
+</html>

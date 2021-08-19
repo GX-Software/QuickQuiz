@@ -1,0 +1,92 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+
+<meta http-equiv = "Content-Type" content = "text/html; charset = utf-8;">
+<title>QuickQuiz帮助文档</title>
+<link rel = "stylesheet" type = "text/css" href = "css/style.css">
+
+</head>
+
+<body>
+
+<h2>
+<img src = "images/title.png" alt = "icon" style = "width: 50px; height: 50px; vertical-align: middle;"/><span style = "margin-left: 8px;">“文件”菜单</span>
+</h2>
+<hr/>
+
+<div class = "p">
+<img src = "images/filemenu.png" alt = "文件菜单" />
+</div>
+
+<div class = "p">
+“文件”菜单的相关说明如下：
+</div>
+
+<div class = "h4"><ul><li>新建题库</li></ul></div>
+<div class = "p">
+新建一个空白题库，并显示在主界面中。
+</div>
+
+<div class = "h4"><ul><li>打开题库</li></ul></div>
+<div class = "p">
+打开可被QuickQuiz识别的题库文件。QuickQuiz支持的文件格式见表1。
+</div>
+
+<div id = "fig1" style = "margin-bottom: 5px; width: 90%; text-align: center;">表2&nbsp;&nbsp;QuickQuiz 2.0支持的文件格式</div>
+<table style = "width: 90%;">
+<tr><th style = "width: 10%; text-align: center;">扩展名</th><th style = "width: 20%; text-align: center;">类型描述</th><th style = "text-align: center;">说明</th></tr>
+<tr><td>*.qux</td><td>标准题库文件</td><td>QuickQuiz 2.0及更新版本应用程序的默认题库文件格式，适配最新应用程序的全部功能，<b>在大部分场景下推荐保存为此格式</b>，</td></tr>
+<tr><td>*.quiz</td><td>适用于1.x版本的题库文件</td><td>QuickQuiz 1.x版本应用程序的默认题库文件格式，<b>无法适配2.0版本新增功能</b>。</td></tr>
+<tr><td>*.xml<br/>*.qxml<br/>*.txt</td><td>兼容题库文件</td><td>按QuickQuiz的标准保存为XML格式的题库文件，适用于任何版本QuickQuiz，且适用于移动端。</td></tr>
+<tr><td>*.jpeg<br/>*.jpg</td><td>带封面的标准/兼容题库文件</td><td>带有jpeg图片文件头的标准/兼容题库文件，除jpeg文件头外其余内容与标准/兼容题库文件完全相同。<table class = "info" style = "margin-left: 10px;"><tr><th><img class = "info" src = "images/info.png" alt = "警告" /></th><td>不是所有的jpeg/jpg文件都是带封面的标准/兼容题库文件，这里指的是利用QuickQuiz生成的题库文件，或者您自行给标准/兼容题库文件添加jpeg文件头后制作出的题库文件。更多说明详见<a href = "1.2.3_setcover.html">题库封面</a></td></tr></table></td></tr>
+</table>
+
+<table class = "info">
+<tr><th><img class = "info" src = "images/info.png"  alt = "警告" /></th><td>在较旧版本操作系统（Windows 9x）上存取题库时，请参照<a href = "0.0.3_inold.html">在旧版本系统上使用本程序</a>的相关内容，以免造成数据丢失！</td></tr>
+</table>
+
+<div class = "h4"><ul><li>保存题库</li></ul></div>
+<div class = "p">
+将当前选中的题库保存至硬盘。若为新建题库，则保存时需选择保存路径及保存格式；若题库文件曾经编辑过，则不作询问，直接保存至原路径且存为原格式，<b>若需要更改格式，请执行“另存为”</b>。
+</div>
+
+<div class = "h4"><ul><li>全部保存</li></ul></div>
+<div class = "p">
+将当前所有打开的题库保存至硬盘，存储规则与“保存题库”相同。
+</div>
+<table class = "info">
+<tr><th><img class = "info" src = "images/info.png"  alt = "警告" /></th><td>采用此种方法保存，无论保存成功或失败均无提示。</td></tr>
+</table>
+
+<div class = "h4"><ul><li>另存为</li></ul></div>
+<div class = "p">
+将当前选中的题库保存至其他位置或其它格式，支持保存为<a href = "#fig1">表1</a>所列所有格式。
+</div>
+
+<div class = "h4"><ul><li>最近打开的题库</li></ul></div>
+<div class = "p">
+此菜单保存了最近打开的8个题库，点击对应文件名菜单项可以快速打开，您也可以利用“清空最近题库”来清除这些记录。
+</div>
+
+<div class = "h4"><ul><li>关闭题库</li></ul></div>
+<div class = "p">
+关闭当前选中的题库，若题库编辑过，则提示保存。
+</div>
+
+<div class = "h4"><ul><li>退出</li></ul></div>
+<div class = "p">
+关闭全部已打开的题库，并退出应用程序。
+</div>
+
+<table class = "guide">
+<tr><td><a href = "1.0.1_interface.html">上一篇</a></td><td style = "text-align: center;"><a href = "1.0.0_content.html">目录</a></td><td style = "text-align: right;"><a href = "1.0.3_editmenu.html">下一篇</a></td></tr>
+</table>
+
+<hr/>
+<small>GX Software 2020-2021</small><br/>
+<small>V2.0</small>
+
+</body>
+
+</html>

@@ -1,0 +1,95 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+
+<meta http-equiv = "Content-Type" content = "text/html; charset = utf-8;">
+<title>QuickQuiz帮助文档</title>
+<link rel = "stylesheet" type = "text/css" href = "css/style.css">
+
+</head>
+
+<body>
+
+<h2>
+<img src = "images/title.png" alt = "icon" style = "width: 50px; height: 50px; vertical-align: middle;"/><span style = "margin-left: 8px;">题库封面</span>
+</h2>
+<hr/>
+
+<div class = "p">
+设置题库封面后，可以将题库封装在jpeg图片中。
+</div>
+<div class = "p">
+<img src = "images/setcover.png" alt = "编辑题目" />
+</div>
+
+<table class = "info">
+<tr><th><img class = "info" src = "images/info.png" alt = "警告" /></th><td>切勿使用任何图像编辑软件对封装好的题库进行编辑或压缩，否则极易丢失题库信息！！！</td></tr>
+</table>
+
+<div class = "h4"><ul><li>无封面</li></ul></div>
+<div class = "p">
+删除所有的封面信息，且题库不可保存为带封面的题库文件。
+</div>
+
+<div class = "h4"><ul><li>自动封面</li></ul></div>
+<div class = "p">
+生成默认格式的封面，可设定的内容包括：
+</div>
+<ul style = "margin-left: 2em;">
+<li>
+封面文字：用于标识题库名称，长度不限，但可能受限于区域大小而无法全部显示，一般最多可显示20个汉字。
+</li>
+<li>
+封面大小：jpeg图的像素值。（建议长宽均大于50像素，否则可能字迹不清）。
+</li>
+<li>
+背景颜色/字体颜色：支持24位真彩色。
+</li>
+</ul>
+<div class = "p">
+生成的封面样例如下（下图实际为题库，下载后可在QuickQuiz中打开）：
+</div>
+<div class = "p">
+<img src = "images/demo.jpeg" alt = "样例" />
+</div>
+<table class = "info">
+<tr><th><img class = "info" src = "images/info.png" alt = "警告" /></th><td>将带有自动封面题库保存为不带封面题库时，自动封面信息仍然保留。</td></tr>
+</table>
+
+<div class = "h4"><ul><li>自定义封面</li></ul></div>
+<div class = "p">
+导入您喜欢的jpeg图片作为题库封面。
+</div>
+<table class = "info">
+<tr><th><img class = "info" src = "images/info.png" alt = "警告" /></th><td>将带有自定义封面题库保存为不带封面题库时，自定义封面图将丢失。</td></tr>
+</table>
+
+<div class = "h4"><ul><li>手动制作封面</li></ul></div>
+<div class = "p">
+您也可以不借助本应用程序，手动将现有的无封面标准题库文件或无封面兼容题库文件加上封面。
+</div>
+<ol style = "margin-left: 2em;">
+<li>将需要添加封面的题库文件（例如1.qux，<b>必须不带封面</b>）与封面图片（例如1.jpg，<b>必须为jpeg/jpg格式</b>）放在同一路径下（例如D:\a）；</li>
+<li>打开命令提示符，并进入D:\a路径；</li>
+<li>执行命令“copy&nbsp;/b&nbsp;1.qux+1.jpg&nbsp;新建题库.jpg”（<b>注意顺序不能错，否则将看不到封面</b>）；</li>
+<li>最终在D:\a路径下获取添加封面的题库“新建题库.jpg”，可在QuickQuiz中打开。</li>
+</ol>
+<div class = "p">
+<img src = "images/copycover.png" alt = "手动制作" />
+</div>
+
+<table class = "info">
+<tr><th><img class = "info" src = "images/info.png" alt = "警告" /></th><td>如非必要，仍建议使用QuickQuiz对题库封面进行管理。<br/>即使在执行上述命令时将jpg封面和qux文件的顺序弄反，最终生成的题库仍然可以读取。</td></tr>
+</table>
+
+<table class = "guide">
+<tr><td><a href = "1.2.3_itemimage.html">上一篇</a></td><td style = "text-align: center;"><a href = "1.0.0_content.html">目录</a></td><td style = "text-align: right;"><a href = "1.2.5_batchset.html">下一篇</a></td></tr>
+</table>
+
+<hr/>
+<small>GX Software 2020-2021</small><br/>
+<small>V2.0</small>
+
+</body>
+
+</html>

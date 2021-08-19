@@ -1,0 +1,89 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+
+<meta http-equiv = "Content-Type" content = "text/html; charset = utf-8;">
+<title>QuickQuiz帮助文档</title>
+<link rel = "stylesheet" type = "text/css" href = "css/style.css">
+
+</head>
+
+<body>
+
+<h2>
+<img src = "images/title.png" alt = "icon" style = "width: 50px; height: 50px; vertical-align: middle;"/><span style = "margin-left: 8px;">标准题库文件格式</span>
+</h2>
+<hr/>
+
+<div class = "p">
+标准题库文件是被V2.0及更新版QuickQuiz支持的题库文件，扩展名为*.qux，为序列化的二进制文件，推荐使用此格式。
+</div>
+
+<div style = "margin-top: 8px; margin-bottom: 5px; width: 90%; text-align: center;">表13&nbsp;&nbsp;标准题库文件格式</div>
+<table style = "width: 90%">
+<tr><th style = "width: 5%;">段序号</th><th style = "width: 20%; text-align: center;">段描述</th><th style = "width: 10%; text-align: center;">段长度</th><th style = "width: 15%; text-align: center;">是否必需</th><th style = "text-align: center;">说明</th></tr>
+<tr>
+<td>1</td><td>题库开始标记</td><td>9Bytes</td><td>必需</td>
+<td>UTF-8编码方式的“QuickQuiz”字串，区分大小写。</td>
+</tr>
+<tr>
+<td>2</td><td>题库版本信息</td><td>4Bytes</td><td>必需</td>
+<td>用于识别<a href = "2.0.4_oldbinformat.html">quiz题库文件</a>的格式信息，在qux题库文件中，此段可为不低于4的任意值，建议为4。</td>
+</tr>
+<tr>
+<td>3</td><td>加密方式</td><td>1Byte</td><td>必需</td>
+<td><ul>
+<li>0：不加密</li>
+<li>1：CBC模式的128位密钥<a href = "2.1.0_aes.html">AES加密</a></li>
+</ul></td>
+</tr>
+<tr>
+<td>4</td><td>密码的MD5校验值</td><td>4Bytes</td><td>可选，若段3不为0，则有此段</td>
+<td>若题库被加密，计算密码的MD5校验值并保存于此；若题库未加密，无此段。</li></td>
+</tr>
+<tr>
+<td>5</td><td>压缩方式</td><td>1Byte</td><td>必需</td>
+<td><ul>
+<li>0：不压缩</li>
+<li>1：zlib压缩</li>
+</ul></td>
+</tr>
+<tr>
+<td>6</td><td>数据块大小</td><td>4Bytes</td><td>必需</td>
+<td>
+<div>后续存储数据长度。若题库未压缩，此段为原始数据长度；若题库被压缩，此段为压缩后的数据长度。</div>
+<div class = "np">若题库采用方式1加密，需要做128位补全，<b>此长度仍为压缩后数据长度（未补全的长度）</b>，补全后的实际长度需要在读取时计算得出。</div>
+</td>
+</tr>
+<tr>
+<td>7</td><td>解压后数据长度</td><td>4Bytes</td><td>可选，若段5不为0，则有此段</td>
+<td>若题库采用方式1压缩，此段为压缩前数据长度；若题库不压缩，无此段。</td>
+</tr>
+<tr>
+<td>8</td><td>数据块内容</td><td>视内容而定</td><td>必需</td>
+<td>
+<div>实际的题库内容。</div>
+<div class = "np">题库内容的原始数据格式与<a href = "2.0.3_xmlformat.html">兼容题库文件</a>格式基本相同，实际为XML字串，无BOM头，<b>字串末尾必须包含1字节的“\0”，且此“\0”也计算在原始数据长度中。</b></div>
+</td>
+</tr>
+</table>
+
+<div class = "p" style = "margin-top: 16px;">
+题库文件的开头和末尾允许添加无关数据，且不应影响题库内容的解析。
+</div>
+
+<div class = "p">
+在读取文件时，凡不符合表13格式的文件，均视为损坏文件，不予读取。
+</div>
+
+<table class = "guide">
+<tr><td><a href = "2.0.1_code.html">上一篇</a></td><td style = "text-align: center;"><a href = "2.0.0_develop.html">目录</a></td><td style = "text-align: right;"><a href = "2.0.3_xmlformat.html">下一篇</a></td></tr>
+</table>
+
+<hr/>
+<small>GX Software 2020-2021</small><br/>
+<small>V2.0</small>
+
+</body>
+
+</html>

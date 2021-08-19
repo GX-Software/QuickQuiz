@@ -1,0 +1,29 @@
+【libjpeg】
+
+打开解压后的文件夹，找到makefile.vc这个文件，用记事本或者vc6.0打开，找到这一行：
+!include <win32.mak>
+
+将其更改为
+!include <C:/Program Files/Microsoft Visual Studio/VC98/Include/win32.mak>
+注意这里应该是VC6.0的安装路径
+
+执行指令：
+NMAKE /f makefile.vc setup-vc6
+
+然后可以在源码目录下生成VC6.0工程文件，完美编译为lib
+
+
+【zlib】
+
+源码使用1.2.11版，工程文件采用1.2.5.2版（最后一版原生支持VC6.0，位置old\visualc6），完美编译为lib
+
+
+【libpng】
+
+源码使用1.6.37版，工程文件采用1.4.22版（最后一版原生支持VC6.0，位置projects\visualc6），完美编译为lib
+
+本库依赖zlib，需将zlib目录（名称为zlib）置于libpng目录同级
+
+【tinyxml】
+
+直接使用源文件

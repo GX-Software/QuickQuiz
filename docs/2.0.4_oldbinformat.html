@@ -1,0 +1,242 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+
+<meta http-equiv = "Content-Type" content = "text/html; charset = utf-8;">
+<title>QuickQuiz帮助文档</title>
+<link rel = "stylesheet" type = "text/css" href = "css/style.css">
+
+</head>
+
+<body>
+
+<h2>
+<img src = "images/title.png" alt = "icon" style = "width: 50px; height: 50px; vertical-align: middle;"/><span style = "margin-left: 8px;">适用于1.x版本的题库文件格式</span>
+</h2>
+<hr/>
+
+<table class = "info">
+<tr><th><img class = "info" src = "images/info.png" alt = "警告" /></th><td><span style = "color: red;">此格式题库文件存在严重的兼容性问题，不建议继续对此格式进行支持。</span><br/>若需要对题库进行旧版本适配，建议通过兼容题库文件进行。</td></tr>
+</table>
+
+<div class = "p">
+1.x版本QuickQuiz生成的旧版标准题库文件，扩展名*.quiz，每个版本应用程序均向下兼容旧版本题库文件，但不支持新版题库文件。
+</div>
+
+<div class = "p">
+<b>不论应用程序为宽字符版还是多字节版，生成题库中所有文字均按UTF-16规则编码，可以通用。</b>
+</div>
+
+<div id = "rule1" class = "h4"><ul><li>类型编码</ul></li></div>
+<div class = "p">
+QuickQuiz内部给每种默认题目类型指定了一个类型编码：
+</div>
+<ul style = "margin-left: 2em;">
+<li>单选题：1</li>
+<li>多选题：2</li>
+<li>判断题：3</li>
+<li>填空题：4</li>
+<li>简答题：5</li>
+<li>题目组：6</li>
+</ul>
+<div class = "p">
+<b>自定义类型编码的计算方法为：基础类型编码+(<a href = "2.0.3_xmlformat.html#rule1">自定义类型序号</a>×100)</b>。
+</div>
+
+<div id = "rule1" class = "h4"><ul><li>最大缓冲字节数</ul></li></div>
+<div class = "p">
+本项目的设置是为了优化读取，当连续多次读取同一类型字符串时，按照此字节数申请缓冲区，其大小足够用于连续读取这些同类型字符串，而不需要每次读取前均判断所需缓冲区大小。
+</div>
+<div class = "p">
+<b>最大缓冲字节数的计算方法：<span class = "codefont">(需连续读取的字符串的最大长度+1)×每个字符的字节数</span></b>，本项目需要在保存题库时进行计算。
+</div>
+<div class = "p">
+<b>例如</b>：需要连续读取一道选择题的多个选项，长度最长的选项有n个字符，则最大缓冲字节数<span class = "codefont">m=(n+1)×sizeof(WideChar)</span>，在读取时，申请一个大小为m的缓冲区即可用于读出全部选项。
+</div>
+
+<div style = "margin-top: 8px; margin-bottom: 5px; width: 90%; text-align: center;">表14&nbsp;&nbsp;1.x版本标准题库文件格式</div>
+<table style = "width: 90%">
+<tr><th style = "width: 8%;">段序号</th><th style = "width: 15%; text-align: center;">段描述</th><th style = "width: 15%; text-align: center;">长度</th><th style = "width: 12%; text-align: center;">是否必需</th><th style = "width: 5%; text-align: center;">支持的最低版本号</th><th style = "text-align: center;">说明</th></tr>
+<tr>
+<td>1</td><td>题库开始标记</td><td>9Bytes</td><td>必需</td><td>1</td>
+<td>UTF-8编码方式的“QuickQuiz”字串，区分大小写。</td>
+</tr>
+<tr>
+<td>2</td><td>题库版本信息</td><td>4Bytes</td><td>必需</td><td>1</td>
+<td>V1.2.4的版本号为3。</td>
+</tr>
+<tr>
+<td>3</td><td>题库名称长度</td><td>2Bytes</td><td>必需</td><td>1</td>
+<td>题库名称字符串长度，<b>按字节计算，包含字符串末尾的“\0”</b>。</td>
+</tr>
+<tr>
+<td>4</td><td>题库名称</td><td>视内容而定</td><td>必需</td><td>1</td>
+<td>题库名称字符串，必须以“\0”结尾。</td>
+</tr>
+<tr>
+<td>5</td><td>是否被锁定</td><td>1Byte</td><td>必需</td><td>1</td>
+<td>此锁定记号仅供应用程序判定使用者是否有修改题库的权限，不对题库内容进行加密。
+<ul style = "margin-top: 8px;">
+<li>0：未锁定</li>
+<li>1：被锁定</li>
+</ul></td>
+</tr>
+<tr>
+<td>6</td><td>密码的MD5校验值</td><td>4Bytes</td><td>可选，若段5为1，则有此段</td><td>1</td>
+<td>若题库被锁定，计算密码的MD5校验值并保存于此；若题库未锁定，无此段。</td>
+</tr>
+<tr>
+<td>7</td><td>自定义类型数量</td><td>1Byte</td><td>必需</td><td>2</td>
+<td>题库中包含自定义类型的数量。</td>
+</tr>
+<tr>
+<td>8</td><td>最大缓冲字节数</td><td>4Bytes</td><td>可选，若段7不为0，则有此段</td><td>2</td>
+<td>读入自定义类型名称所需缓冲区的大小，按字节计算。</td>
+</tr>
+<tr>
+<tr><th colspan = "6" style = "text-align: center;">自定义类型目录段开始，此段的个数为自定义类型的数量</th></tr>
+<td rowspan = "3">9</td><td>自定义类型编码</td><td>4Bytes</td><td rowspan = "3">可选，若段7不为0，则有此段</td><td rowspan = "3">2</td>
+<td></td>
+</tr>
+<tr>
+<td>自定义类型名称长度</td><td>2Bytes</td>
+<td>自定义类型名称的字符串长度，<b>按字节计算，包含字符串末尾的“\0”</b>。</td>
+</tr>
+<tr>
+<td>自定义类型名称</td><td>视内容而定</td>
+<td>自定义类型名称字符串，必须以“\0”结尾。</td>
+</tr>
+<tr>
+<tr><th colspan = "6" style = "text-align: center;">自定义类型目录段结束</th></tr>
+<tr><th colspan = "6" style = "text-align: center;">题目段开始，此段的个数为题目（组）的数量</th></tr>
+<td rowspan = "2">10</td><td>题目类型编码</td><td>版本1：1Byte<br/>版本2、3：4Bytes</td><td>必需</td><td>1</td>
+<td>当前题目的类型编码</td>
+</tr>
+<td>题目自有信息</td><td>视内容而定</td><td>必需</td><td>1</td>
+<td>每种类型题目的信息均不相同，详见表11。</td>
+</tr>
+<tr><th colspan = "6" style = "text-align: center;">题目段结束</th></tr>
+</table>
+
+<div style = "margin-top: 20px; margin-bottom: 5px; width: 90%; text-align: center;">表15&nbsp;&nbsp;各类型题目其它信息</div>
+<table style = "width: 90%">
+<tr><th style = "width: 8%;">题目类型</th><th style = "width: 15%; text-align: center;">段描述</th><th style = "width: 15%; text-align: center;">长度</th><th style = "width: 12%; text-align: center;">是否必需</th><th style = "width: 5%; text-align: center;">支持的最低版本号</th><th style = "text-align: center;">说明</th></tr>
+<tr>
+<td rowspan = "4">通用头部</td><td>题干长度</td><td>2Bytes</td><td>必需</td><td>1</td>
+<td>题干字符串长度，<b>按字节计算，包含字符串末尾的“\0”</b>。</td>
+</tr>
+<tr>
+<td>题干内容</td><td>视内容而定</td><td>必需</td><td>1</td>
+<td>题干内容字符串，必须以“\0”结尾。</td>
+</tr>
+<td>解析长度</td><td>2Bytes</td><td>必需</td><td>3</td>
+<td>解析字符串长度，<b>按字节计算，包含字符串末尾的“\0”</b>。</td>
+</tr>
+<tr>
+<td>解析内容</td><td>视内容而定</td><td>必需</td><td>3</td>
+<td>解析内容字符串，必须以“\0”结尾。</td>
+</tr>
+<tr>
+<tr>
+<td rowspan = "8">单选题<br/>多选题</td><td>通用头部</td><td>视内容而定</td><td>必需</td><td>1</td>
+<td>本表中“通用头部”内容</td>
+</tr>
+<td>最大缓冲字节数</td><td>4Bytes</td><td>必需</td><td>1</td>
+<td>读入各选项所需缓冲区的大小，按字节计算。</td>
+</tr>
+<tr>
+<td>选项数量</td><td>1Byte</td><td>必需</td><td>1</td>
+<td>选择题的选项数量</td>
+</tr>
+<tr><th colspan = "5" style = "text-align: center;">选项段开始，此段的个数为选项的数量</th></tr>
+<tr>
+<td>当前选项是否正确</td><td>1Byte</td><td>必需</td><td>1</td>
+<td>1为正确，0为不正确。</td>
+</tr>
+<tr>
+<td>当前选项长度</td><td>2Bytes</td><td>必需</td><td>1</td>
+<td>当前选项字符串长度，<b>按字节计算，包含字符串末尾的“\0”</b>。</td>
+</tr>
+<tr>
+<td>当前选项内容</td><td>视内容而定</td><td>必需</td><td>1</td>
+<td>当前选项内容字符串，必须以“\0”结尾。</td>
+</tr>
+<tr><th colspan = "5" style = "text-align: center;">选项段结束</th></tr>
+<tr>
+<td rowspan = "2">判断题</td><td>通用头部</td><td>视内容而定</td><td>必需</td><td>1</td>
+<td>本表中“通用头部”内容</td>
+</tr>
+<tr>
+<td>答案是否正确</td><td>1Byte</td><td>必需</td><td>1</td>
+<td>1为正确，0为不正确。</td>
+</tr>
+<tr>
+<td rowspan = "10">填空题</td><td>通用头部</td><td>视内容而定</td><td>必需</td><td>1</td>
+<td>本表中“通用头部”内容</td>
+</tr>
+<tr>
+<td>最大缓冲字节数</td><td>4Bytes</td><td>必需</td><td>1</td>
+<td>读入各空白答案所需缓冲区的大小，按字节计算</td>
+</tr>
+<tr>
+<td>空白数量</td><td>1Byte</td><td>必需</td><td>1</td>
+<td></td>
+</tr>
+<tr>
+<tr><th colspan = "5" style = "text-align: center;">空白段开始，此段的个数为空白的数量</th></tr>
+<tr>
+<td>当前空白开始位置</td><td>2Bytes</td><td>必需</td><td>1</td>
+<td>每个空白的起始相对于题干开头的偏移量</td>
+</tr>
+<tr>
+<td>当前空白结束位置</td><td>2Bytes</td><td>必需</td><td>1</td>
+<td>每个空白的结束相对于题干开头的偏移量</td>
+</tr>
+<tr>
+<td>当前空白答案长度</td><td>2Bytes</td><td>必需</td><td>1</td>
+<td>当前空白答案字符串长度，<b>按字节计算，包含字符串末尾的“\0”</b>。</td>
+</tr>
+<tr>
+<td>当前空白答案内容</td><td>视内容而定</td><td>必需</td><td>1</td>
+<td>当前空白答案内容字符串，必须以“\0”结尾。</td>
+</tr>
+<tr><th colspan = "6" style = "text-align: center;">空白段结束</th></tr>
+<tr>
+<td rowspan = "3">简答题</td><td>通用头部</td><td>视内容而定</td><td>必需</td><td>1</td>
+<td>本表中“通用头部”内容</td>
+</tr>
+<tr>
+<td>答案长度</td><td>2Bytes</td><td>必需</td><td>1</td>
+<td>答案字符串长度，<b>按字节计算，包含字符串末尾的“\0”</b>。</td>
+</tr>
+<tr>
+<td>答案内容</td><td>视内容而定</td><td>必需</td><td>1</td>
+<td>答案内容字符串，必须以“\0”结尾。</td>
+</tr>
+<td rowspan = "4">题目组</td><td>题目组名称</td><td>12Bytes</td><td>必需</td><td>1</td>
+<td>题目组的类型描述，必须以“\0”结尾，长度不足12Bytes也按12Bytes存储（即最多存储5个宽字符）</td>
+</tr>
+<tr><td>通用头部</td><td>视内容而定</td><td>必需</td><td>1</td>
+<td>本表中“通用头部”内容</td>
+</tr>
+<tr>
+<td>子题目数量</td><td>2Bytes</td><td>必需</td><td>1</td>
+<td>题目组中包含子题目的数量</td>
+</tr>
+<tr>
+<td>子题目信息</td><td>视内容而定</td><td>必需</td><td>1</td>
+<td>本段同表11段10，此段的个数为子题目的数量</td>
+</tr>
+</table>
+
+<table class = "guide">
+<tr><td><a href = "2.0.3_xmlformat.html">上一篇</a></td><td style = "text-align: center;"><a href = "2.0.0_develop.html">目录</a></td><td style = "text-align: right;"><a href = "2.0.5_saveformat.html">下一篇</a></td></tr>
+</table>
+
+<hr/>
+<small>GX Software 2020-2021</small><br/>
+<small>V2.0</small>
+
+</body>
+
+</html>

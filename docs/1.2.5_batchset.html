@@ -1,0 +1,86 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+
+<meta http-equiv = "Content-Type" content = "text/html; charset = utf-8;">
+<title>QuickQuiz帮助文档</title>
+<link rel = "stylesheet" type = "text/css" href = "css/style.css">
+
+</head>
+
+<body>
+
+<h2>
+<img src = "images/title.png" alt = "icon" style = "width: 50px; height: 50px; vertical-align: middle;"/><span style = "margin-left: 8px;">批量操作</span>
+</h2>
+<hr/>
+
+<div class = "p">
+批量操作界面如下：
+</div>
+<div class = "p">
+<img src = "images/batchset.png" alt = "批量操作" />
+</div>
+
+<div class = "h4"><ul><li>将选中的单选题转换为多选题</li></ul></div>
+<div class = "p">
+检测选中题目中的单选题，并将其转换为单个选项的多选题；若选中的题目中包含非单选题，跳过这些题目。
+</div>
+
+<div class = "h4"><ul><li>将选中的单个答案多选题转换为单选题</li></ul></div>
+<div class = "p">
+检测选中题目中单个答案的多选题，并将其转换为单选题；若选中的题目中包含非多选题或答案超过一个的多选题，跳过这些题目。
+</div>
+
+<div class = "h4" id = "rule1"><ul><li>选中所有高相似度的重复题目</li></ul></div>
+<div class = "p">
+首先自动按照类型顺序对主界面右侧窗格中的所有题目进行排序，然后进行检测，若有多个题目相似度大于设定值（可设定为80%~100%），则选中相似题目中除排在最前的题目之外的所有相似题目。
+</div>
+<div class = "p">
+<b>例如</b>，选中下图题库中相似度超过80%的重复题目，结果如下，即认为4道单选题相似度较高，为重复题目，并选中了后3道。
+</div>
+<div class = "p">
+<img src = "images/duplicate.png" alt = "批量操作" />
+</div>
+<div class = "p">
+<b>又例</b>：选中上图题库中相似度超过99%的重复题目，结果未选中任何一道题目，即认为均不相似。
+</div>
+<div class = "p">
+本功能可用于剔除题库中的重复题目。
+</div>
+<table class = "info">
+<tr><th><img class = "info" src = "images/info.png" alt = "警告" /></th><td>相似度仅供参考，若利用此方法剔除重复题目，剔除前一定要重复确认，以免误删。</td></tr>
+</table>
+<div class = "p">
+<b>重复题目的定义如下：</b>
+</div>
+<ul style = "margin-left: 2em;">
+<li>单项选择题/多项选择题：题干、各选项内容相似度不小于设定值，选项数量和答案完全相同；</li>
+<li>判断题：题干相似度不小于设定值，答案完全相同；</li>
+<li>填空题：题干、各答案的相似度不小于设定值，空白数量完全相同；</li>
+<li>简答题：题干、答案的相似度不小于设定值。</li>
+</ul>
+<table class = "info">
+<tr><th><img class = "info" src = "images/info.png" alt = "警告" /></th><td>对于选择题而言，若进行比较的两道题目答案不同，则不认为是重复题目；若选项内容相似，但选项顺序不同，也不认为是重复题目；<br/>题目解析不参与相似度检查。</td></tr>
+</table>
+
+<div class = "h4"><ul><li>将选中的单个答案选择题转换为判断题</li></ul></div>
+<div class = "p">
+检测选中题目中的单选题和单个答案的多选题，并将其转换为判断题。<b>有如下规则</b>：
+</div>
+<ul style = "margin-left: 2em;">
+<li>选项中必须包含明确说明对错的内容（包括但不限于“正确”“对”“TRUE”“√”“错误”“WRONG”“×”等文字），才会被转换，否则跳过；</li>
+<li>若选中的题目中包含非选择题或答案超过一个的多选题，跳过这些题目。</li>
+</ul>
+
+<table class = "guide">
+<tr><td><a href = "1.2.4_setcover.html">上一篇</a></td><td style = "text-align: center;"><a href = "1.0.0_content.html">目录</a></td><td style = "text-align: right;"><a href = "1.2.6_group.html">下一篇</a></td></tr>
+</table>
+
+<hr/>
+<small>GX Software 2020-2021</small><br/>
+<small>V2.0</small>
+
+</body>
+
+</html>

@@ -1,0 +1,142 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+
+<meta http-equiv = "Content-Type" content = "text/html; charset = utf-8;">
+<title>QuickQuiz帮助文档</title>
+<link rel = "stylesheet" type = "text/css" href = "css/style.css">
+
+</head>
+
+<body>
+
+<h2>
+<img src = "images/title.png" alt = "icon" style = "width: 50px; height: 50px; vertical-align: middle;"/><span style = "margin-left: 8px;">“编辑”菜单</span>
+</h2>
+<hr/>
+
+<div class = "p">
+<img src = "images/editmenu.png" alt = "编辑菜单" />
+</div>
+
+<div class = "p">
+“编辑”菜单的相关说明如下：
+</div>
+
+<div class = "h4"><ul><li>撤销</li></ul></div>
+<div class = "p">
+撤销最后一步操作。QuickQuiz可保存<b>最近10步编辑操作</b>，可多次撤销。
+</div>
+
+<div class = "h4"><ul><li>重新执行</li></ul></div>
+<div class = "p">
+重新执行先前被撤销的操作。支持撤销和重新执行的操作如下：
+</div>
+<ul style = "margin-left: 2em;">
+<li>新建题目（组）</li>
+<li>修改题目（组）（包括对题目类型和内容的修改）</li>
+<li>删除题目（组）</li>
+<li>重命名题库</li>
+<li>修改题库封面</li>
+<li>添加自定义类型</li>
+<li>重命名自定义类型</li>
+<li>删除自定义类型（同时删除类型下全部题目）</li>
+</ul>
+<table class = "info">
+<tr><th><img class = "info" src = "images/info.png" alt = "警告" /></th><td>给题库加密不可撤销，若要取消加密，必须输入密码。</td></tr>
+</table>
+
+<div class = "h4"><ul><li>剪切</li></ul></div>
+<div class = "p">
+剪切选中的题目并将其置于剪贴板上，剪切的内容可粘贴至其他题库中。
+</div>
+
+<div class = "h4"><ul><li>复制</li></ul></div>
+<div class = "p">
+复制选中的题目并将其置于剪贴板上，复制的内容可粘贴至其他题库中。
+</div>
+
+<div class = "h4" id = "rule2"><ul><li>文字复制</li></ul></div>
+<div class = "p">
+复制选中题目的文字。执行后，将弹出如下对话框，您可以选择要复制的内容：
+</div>
+<div class = "p">
+<img src = "images/copyex.png" alt = "文字复制选项" />
+</div>
+<div class = "p">
+复制的文字可用于文字编辑，但无法直接粘贴入题库中。
+</div>
+
+<div class = "h4"><ul><li>粘贴</li></ul></div>
+<div class = "p">
+将剪贴板中的题目粘贴入被选中的题库，题目粘贴的规则详见<a href = "1.2.7_customtype.html#rule1">粘贴规则</a>。
+</div>
+<table class = "info">
+<tr><th><img class = "info" src = "images/info.png" alt = "警告" /></th><td>多字节版程序与宽字节版程序的剪贴板内容不可互相粘贴。</td></tr>
+</table>
+
+<div class = "h4"><ul><li>删除</li></ul></div>
+<div class = "p">
+删除在主界面右侧窗格内选中的题目（组）。
+</div>
+<table class = "info">
+<tr><th><img class = "info" src = "images/info.png" alt = "警告" /></th><td>删除功能仅用于删除题目，删除自定义类型列表请使用“删除自定义类型”。</td></tr>
+</table>
+
+<div class = "h4"><ul><li>查找</li></ul></div>
+<div class = "p">
+查找题库中包含某些关键字的题目。
+</div>
+<table class = "info">
+<tr><th><img class = "info" src = "images/info.png" alt = "警告" /></th><td>目前暂不支持通配符查找和正则表达式查找，不支持模糊查找，所查关键字必须为题目内包含的文字，例如判断题的答案“正确”或“错误”不可被查找。</td></tr>
+</table>
+
+<div class = "h4"><ul><li>查找下一个</li></ul></div>
+<div class = "p">
+查找题库中下一个包含某些关键字的题目。
+</div>
+
+<div class = "h4"><ul><li>全选</li></ul></div>
+<div class = "p">
+将主界面右侧窗口中的全部题目选中。
+</div>
+
+<div class = "h4"><ul><li>查看属性</li></ul></div>
+<div class = "p">
+根据主界面中选中的内容显示其属性。
+</div>
+<ul style = "margin-left: 2em;"><li>
+当在主界面左侧窗格中<b>选中题库</b>时，可查看题库的名称、存储路径、是否只读、文件类型、题目数量等信息。
+</li></ul>
+<div class = "p"><img src = "images/paperp.png"  alt = "题库属性" /></div>
+
+<ul style = "margin-left: 2em;"><li>
+当在主界面左侧窗格中<b>选中题库下的类型列表</b>时，可查看选中类型的名称、所属题库、题目数等信息。
+</li></ul>
+<div class = "p"><img src = "images/typep.png"  alt = "类型属性" /></div>
+<div class = "p" id = "rule1">
+您可以为<a href = "1.2.7_customtype.html">自定义类型</a>题目或<a href = "1.2.6_group.html">题目组</a>设置<b>题号</b>，在<a href = "1.3.0_test.html">开始考试</a>或<a href = "1.3.2_make.html">生成试卷</a>时，可选择按题号对题目（组）进行排序，题号可设为从1至32的任意数字，设为0时视为无题号。<b>默认类型题目不可设置题号</b>。
+</div>
+<div class = "p">
+自定义类型题目的题号设置在“类型属性”对话框中完成；题目组的题号设置在<a href = "1.2.6_group.html#rule2">题目组编辑界面</a>中完成。
+</div>
+
+<ul style = "margin-left: 2em;"><li>
+当在主界面右侧窗格中<b>选中题目</b>时，可查看被选中的题目信息。
+</li></ul>
+<div class = "p"><img src = "images/itemp.png"  alt = "题目属性" /></div>
+<table class = "info">
+<tr><th><img class = "info" src = "images/info.png" alt = "警告" /></th><td>当选中一个题目时，可通过“上一题”或“下一题”对整个列表的题目进行滚动查看；<br/>当选中多个题目时，可通过“上一题”或“下一题”对选中的题目进行滚动查看。</td></tr>
+</table>
+
+<table class = "guide">
+<tr><td><a href = "1.0.2_filemenu.html">上一篇</a></td><td style = "text-align: center;"><a href = "1.0.0_content.html">目录</a></td><td style = "text-align: right;"><a href = "1.0.4_papermenu.html">下一篇</a></td></tr>
+</table>
+
+<hr/>
+<small>GX Software 2020-2021</small><br/>
+<small>V2.0</small>
+
+</body>
+
+</html>

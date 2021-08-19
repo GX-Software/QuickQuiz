@@ -1,0 +1,75 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+
+<meta http-equiv = "Content-Type" content = "text/html; charset = utf-8;">
+<title>QuickQuiz帮助文档</title>
+<link rel = "stylesheet" type = "text/css" href = "css/style.css">
+
+</head>
+
+<body>
+
+<h2>
+<img src = "images/title.png" alt = "icon" style = "width: 50px; height: 50px; vertical-align: middle;"/><span style = "margin-left: 8px;">错误信息</span>
+</h2>
+<hr/>
+
+<div class = "p">
+在应用程序执行过程中，可能发生某些错误，错误原因将以错误码形式显示，全部错误码定义如下：
+</div>
+
+<div class = "p">
+<img src = "images/error.png" alt = "错误显示" />
+</div>
+
+<div style = "margin-top: 16px; margin-bottom: 5px; width: 90%; text-align: center;">表12&nbsp;&nbsp;错误码定义及说明</div>
+<table style = "width: 90%;">
+<tr><th style = "width: 10%; text-align: center;">错误码</th><th style = "width: 30%; text-align: center;">错误描述</th><th style = "text-align: center;">说明</th></tr>
+<tr><td>1</td><td>申请内存失败</td><td>计算机内存不足</td></tr>
+<tr><td>2</td><td>文件不存在</td><td>从“最近打开的题库”菜单中打开了已被删除的题库文件</td></tr>
+<tr><td>3</td><td>创建文件失败</td><td>题库文件可能被写保护</tr>
+<tr><td>4</td><td>读取文件失败</td><td></td></tr>
+<tr><td>5</td><td>写入文件失败</td><td></td></tr>
+<tr><td>6</td><td>文字转码失败</td><td>使用了不被系统支持的编码方式</td></tr>
+<tr><td>7</td><td>资源文件缺失</td><td>应用程序可能被破坏</tr>
+<tr><td>8</td><td>无法获得显示设备</td><td>使用了不兼容的显卡或驱动异常</td></tr>
+<tr><td>9</td><td>无法创建DDB</td><td>显示驱动异常，或计算机内存不足</td></tr>
+<tr><td>10</td><td>无法绘图</td><td>显示驱动异常</td></tr>
+<tr><td>101</td><td>文件不完整</td><td>题库文件部分缺失，但不影响题库识别，读入后可能缺失部分题目</tr>
+<tr><td>102</td><td>文件内容被破坏</td><td>文件内容被篡改，无法正常读取</td></tr>
+<tr><td>103</td><td>不支持的版本号</td><td>打开了无法被当前版本应用程序使用的题库</td></tr>
+<tr><td>104</td><td>不支持的文字编码方式</td><td>当前操作系统不包含用于显示题库的内码</td></tr>
+<tr><td>105</td><td>文件头缺失</td><td>题库内容被破坏，无法读取</tr>
+<tr><td>106</td><td>密码缺失</td><td>题库内容被破坏，无法读取</td></tr>
+<tr><td>107</td><td>解密失败</td><td>题库内容被破坏，无法读取</td></tr>
+<tr><td>108</td><td>加密失败</td><td>可能为操作系统错误</td></tr>
+<tr><td>109</td><td>压缩信息缺失</td><td>题库内容被破坏，无法读取</tr>
+<tr><td>110</td><td>解压失败</td><td>题库内容被破坏，无法读取</td></tr>
+<tr><td>111</td><td>压缩失败</td><td>无法保存题库文件</tr>
+<tr><td>112</td><td>XML解析失败</td><td>题库内容被破坏，无法读取</td></tr>
+<tr><td>113</td><td>XML编码失败</td><td>无法保存题库文件</td></tr>
+<tr><td>114</td><td>JPEG封面图片创建失败</td><td>无法添加封面</td></tr>
+<tr><td>115</td><td>JPEG封面图片压缩失败</td><td>无法添加封面</tr>
+<tr><td>116</td><td>JPEG图片解码失败</td><td>无法载入JPEG图片至题库中</td></tr>
+<tr><td>117</td><td>BMP图片读取失败</td><td>无法载入BMP图片至题库中</td></tr>
+<tr><td>118</td><td>PNG图片解码失败</td><td>无法载入PNG图片至题库中</td></tr>
+<tr><td>119</td><td>无法识别的图像base64编码</td><td>包含了JPEG、BMP、PNG格式之外的图片编码，无法正常读取</td></tr>
+<tr><td>120</td><td>base64编码错误</td><td>无法将题目图片保存至题库中，无法保存为单HTML形式试卷</td></tr>
+<tr><td>121</td><td>base64解码错误</td><td>无法读取题库文件中的图片</td></tr>
+<tr><td>122</td><td>不支持的图像格式</td><td>图片内容可能被破坏</td></tr>
+<tr><td>123</td><td>自定义类型错误</td><td>题库内容被破坏，无法读取</td></tr>
+<tr><td>65535</td><td>内部错误</td><td>应用程序内部的执行错误，如果发生，可以反馈给作者</td></tr>
+</table>
+
+<table class = "guide">
+<tr><td><a href = "1.3.3_competitive.html">上一篇</a></td><td style = "text-align: center;"><a href = "1.0.0_content.html">目录</a></td><td style = "text-align: right;"><a href = "2.0.0_develop.html">下一篇</a></td></tr>
+</table>
+
+<hr/>
+<small>GX Software 2020-2021</small><br/>
+<small>V2.0</small>
+
+</body>
+
+</html>
