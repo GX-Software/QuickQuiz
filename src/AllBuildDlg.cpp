@@ -1108,18 +1108,21 @@ BOOL CAllBuildDlg::DetectU32AnswerInQ(CItem *pItem, LPWSTR strWDescription)
 				}
 
 				int n = CheckQuote(nType, strWDescription + nStart, i - nStart, &dwAnswer);
-				switch(nType)
+				if (n)
 				{
-				case TYPE_MCHOISE:
-				case TYPE_JUDGE:
-					pItem->SetU32Answer(dwAnswer);
-					return TRUE;
-
-				case TYPE_SCHOISE:
-					if (n <= 1)
+					switch(nType)
 					{
+					case TYPE_MCHOISE:
+					case TYPE_JUDGE:
 						pItem->SetU32Answer(dwAnswer);
 						return TRUE;
+						
+					case TYPE_SCHOISE:
+						if (n <= 1)
+						{
+							pItem->SetU32Answer(dwAnswer);
+							return TRUE;
+						}
 					}
 				}
 

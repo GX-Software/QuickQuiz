@@ -1149,27 +1149,32 @@ void CDoc::CopyEx(CTempList *pList, int nCopyStyle)
 	// 将题目文字写入剪贴板中
 	CString strMain;
 	_stdstring strTemp;
+	TCHAR index[16] = {0};
 	int i;
 	CItem *pItem;
 	
 	for (i = 0; i < pList->GetItemCount(); ++i)
 	{
 		pItem = pList->GetItem(i);
+
+		_sntprintf(index, 16, _T("%d. "), i + 1);
+		strMain += index;
+
 		switch(nCopyStyle)
 		{
 		case COPYEX_WITHASW:
 			pItem->MakeAnswer(strTemp,
-				MKASW_ASWINQUESTION | MKTXT_OPTIONNEWLINE | MKASW_ENDLINE, -1);
+				MKASW_ASWINQUESTION | MKTXT_OPTIONNEWLINE | MKTXT_OPTIONSINALINE | MKASW_ENDLINE, -1);
 			break;
 
 		case COPYEX_ALL:
 			pItem->MakeAnswer(strTemp,
-				MKASW_ASWINQUESTION | MKTXT_OPTIONNEWLINE | MKASW_ENDLINE | MKASW_WITHRESOLVE, -1);
+				MKASW_ASWINQUESTION | MKTXT_OPTIONNEWLINE | MKTXT_OPTIONSINALINE | MKASW_ENDLINE | MKASW_WITHRESOLVE, -1);
 			break;
 
 		default:
 			pItem->MakeText(strTemp,
-				MKTXT_OPTIONNEWLINE | MKTXT_ENDLINE | MKTXT_JUDGEBRACKET, 0);
+				MKTXT_OPTIONNEWLINE | MKTXT_OPTIONSINALINE | MKTXT_ENDLINE | MKTXT_JUDGEBRACKET, 0);
 			break;
 		}
 		strMain += strTemp.c_str();
