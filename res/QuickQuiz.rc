@@ -306,8 +306,8 @@ FONT 9, "宋体"
 BEGIN
     ICON            IDR_MAINFRAME,IDC_STATIC,11,17,20,20
     LTEXT           "",IDC_STATIC_TITLE,40,10,163,12,SS_NOPREFIX
-    LTEXT           "2016-2021 GX Software By 南郊居士",IDC_STATIC,40,24,143,
-                    12
+    LTEXT           "2016-2021 GX Software By 南郊居士（52pojie首发）",
+                    IDC_STATIC,40,24,212,12
     DEFPUSHBUTTON   "确定",IDOK,202,7,50,14,WS_GROUP
     LTEXT           "",IDC_STATIC_INFO,39,68,177,12
     LTEXT           "XML功能基于Lee Thomason的TinyXml2.6.2制作",IDC_STATIC,

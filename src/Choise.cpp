@@ -200,11 +200,6 @@ BOOL CChoise::AutoOptions(LPCWSTR pText, int nStrLen)
 			{
 				// 空白
 			CASE_SPACE:
-				// 找到选项号后的空白，意味着新的选项开始了
-				if (STATE_INDEXSEP == nState)
-				{
-					bFindIndexSep = TRUE;
-				}
 				break;
 
 			CASE_RETURN:
