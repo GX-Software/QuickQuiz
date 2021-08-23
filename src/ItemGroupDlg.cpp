@@ -678,7 +678,7 @@ void CItemGroupDlg::OnButtonCopy()
 	{
 		CItem *pItem = pGroup->GetItem(i);
 		// 仅复制有描述的题目
-		if (_tcslen(pItem->GetDescription()))
+		if (lstrlen(pItem->GetDescription()))
 		{
 			List.AddItem(pItem);
 		}

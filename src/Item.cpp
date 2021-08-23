@@ -64,7 +64,7 @@ LPCTSTR CItem::GetTypeDesc()
 		else if (pParent->IsList())
 		{
 			LPCTSTR strTitle = pParent->GetDescription();
-			if (_tcslen(strTitle))
+			if (lstrlen(strTitle))
 			{
 				return strTitle;
 			}
@@ -275,7 +275,7 @@ RETURN_E TiXmlElement* CItem::WriteXML(TiXmlElement *pParent, int nEncode, BOOL 
 	}
 	pNode->LinkEndChild(pText);
 
-	if (_tcslen(GetResolve()))
+	if (lstrlen(GetResolve()))
 	{
 		pNode = new TiXmlElement(xml_lpszNode_Resolve);
 		if (!pNode)
@@ -387,7 +387,7 @@ int CItem::GetDescriptionSaveLen()
 {
 	LPCTSTR strDescription = GetDescription();
 #ifdef _UNICODE
-	return (_tcslen(strDescription) + 1) * sizeof(TCHAR);
+	return (lstrlen(strDescription) + 1) * sizeof(TCHAR);
 #else
 	return MultiByteToWideChar(CP_ACP, 0, strDescription, -1, NULL, 0) * sizeof(WCHAR);
 #endif
@@ -745,11 +745,11 @@ void CItem::ClipCopy(CFixedSharedFile &sf)
 {
 	sf.Write(&m_nType, sizeof(m_nType));
 
-	int nLen = _tcslen(GetDescription());
+	int nLen = lstrlen(GetDescription());
 	sf.Write(&nLen, sizeof(nLen));
 	sf.Write(GetDescription(), nLen * sizeof(TCHAR));
 
-	nLen = _tcslen(CItem::GetResolve());
+	nLen = lstrlen(CItem::GetResolve());
 	sf.Write(&nLen, sizeof(nLen));
 	sf.Write(CItem::GetResolve(), nLen * sizeof(TCHAR));
 
@@ -772,7 +772,7 @@ void CItem::ClipCopy(CFixedSharedFile &sf)
 			sf.Write(&(p->ulImageSize), sizeof(p->ulImageSize));
 			sf.Write(p->pImageData, p->ulImageSize);
 			
-			nLen = _tcslen(p->szImageTitle);
+			nLen = lstrlen(p->szImageTitle);
 			sf.Write(&nLen, sizeof(nLen));
 			if (nLen)
 			{
@@ -1074,7 +1074,7 @@ void CItem::WriteHTMLImageTitle(_stdstring &str, LPCTSTR format, int nStart, int
 		
 		_sntprintf(szTitle, 64, format, i + 1);
 		str += szTitle;
-		if (p->szImageTitle && _tcslen(p->szImageTitle))
+		if (p->szImageTitle && lstrlen(p->szImageTitle))
 		{
 			str += _T(" - ");
 			str += p->szImageTitle;
@@ -1132,7 +1132,7 @@ void CItem::MakeResolve(_stdstring &str, int nPaperType)
 	TCHAR sz[64] = {0};
 	_stdstring temp;
 
-	if (!GetResolve() || !_tcslen(GetResolve()))
+	if (!GetResolve() || !lstrlen(GetResolve()))
 	{
 		return;
 	}
@@ -1206,7 +1206,7 @@ void CItem::CalcCRC()
 
 #ifdef _UNICODE
 	PBYTE ptr = (PBYTE)strDescription;
-	int nLen = _tcslen(strDescription) * sizeof(TCHAR);
+	int nLen = lstrlen(strDescription) * sizeof(TCHAR);
 #else
 	PBYTE ptr = (PBYTE)CTextManager::SwitchSave(strDescription, CS_UTF16, NULL);
 	int nLen = wcslen((LPWSTR)ptr) * sizeof(WCHAR);

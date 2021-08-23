@@ -1669,7 +1669,7 @@ END
 STRINGTABLE DISCARDABLE 
 BEGIN
     IDS_EDITDLG_DELASK      "您确认要删除本题吗？"
-    IDS_EDITDLGC_ONLYOPTION "选择题一般不会只有一个选项，您确认要这样吗？"
+    IDS_EDITDLGC_ONLYOPTION "当前选择题的选项数少于2个，您确认要这样吗？"
     IDS_EDITDLGC_INVALID    "您在未设置选项内容的项上设置了答案，您确认要这样吗？"
     IDS_EDITFRM_TITLE       "编辑器"
     IDS_EDITFRM_INITFAIL    "编辑器初始化失败！"

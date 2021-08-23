@@ -51,7 +51,7 @@ BOOL CText::SetAnswer(LPCTSTR strAnswer, int nLen)
 	}
 	if (nLen < 0)
 	{
-		nLen = _tcslen(strAnswer);
+		nLen = lstrlen(strAnswer);
 	}
 
 	m_strAnswer = (LPTSTR)malloc((nLen + 1) * sizeof(TCHAR));
@@ -178,7 +178,7 @@ EBOOL CText::SaveFile(FILE *fp)
 	}
 
 #ifdef _UNICODE
-	nTemp = (_tcslen(m_strAnswer) + 1) * sizeof(TCHAR);
+	nTemp = (lstrlen(m_strAnswer) + 1) * sizeof(TCHAR);
 	if (!fwrite(&nTemp, sizeof(short),1, fp))
 	{
 		return Q_ERROR(ERROR_WRITE_FILE_FAIL);
@@ -336,7 +336,7 @@ void CText::ClipCopy(CFixedSharedFile &sf)
 	
 	int nLen;
 	
-	nLen = _tcslen(m_strAnswer);
+	nLen = lstrlen(m_strAnswer);
 	sf.Write(&nLen, sizeof(nLen));
 	
 	sf.Write(m_strAnswer, nLen * sizeof(TCHAR));
@@ -566,7 +566,7 @@ int CText::AutoScore(CTestPara *pCPara)
 
 BOOL CText::IsAnswered()
 {
-	if (m_strUserAnswer && _tcslen(m_strUserAnswer))
+	if (m_strUserAnswer && lstrlen(m_strUserAnswer))
 	{
 		return TRUE;
 	}

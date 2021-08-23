@@ -31,6 +31,10 @@ public:
 	CChildSChoiseDlg(CWnd* pParent = NULL);   // standard constructor
 	
 	virtual void SetShow(const CItem *pChoise);
+	virtual BOOL OnKillActive(BOOL bIsDestroy);
+
+	void SetMChoisePtr(CTabPage *pPage) { m_pMChoisePage = pPage; }
+	void FillChoiseText(CTabPage *pPage);
 	
 	virtual int CheckSaveable();
 	void GetInfo(CChoise *pChoise);
@@ -85,6 +89,8 @@ protected:
 	//}}AFX_MSG
 	afx_msg void OnSet(UINT uID);
 	DECLARE_MESSAGE_MAP()
+
+	CTabPage *m_pMChoisePage;
 };
 
 /////////////////////////////////////////////////////////////////////////////
@@ -97,6 +103,10 @@ public:
 	CChildMChoiseDlg(CWnd* pParent = NULL);   // standard constructor
 	
 	virtual void SetShow(const CItem *pChoise);
+	virtual BOOL OnKillActive(BOOL bIsDestroy);
+
+	void SetSChoisePtr(CTabPage *pPage) { m_pSChoisePage = pPage; }
+	void FillChoiseText(CTabPage *pPage);
 	
 	virtual int CheckSaveable();
 	void GetInfo(CChoise *pChoise);
@@ -150,6 +160,8 @@ protected:
 	//}}AFX_MSG
 	afx_msg void OnSet(UINT uID);
 	DECLARE_MESSAGE_MAP()
+
+	CTabPage *m_pSChoisePage;
 };
 
 /////////////////////////////////////////////////////////////////////////////

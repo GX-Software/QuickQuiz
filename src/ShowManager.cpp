@@ -412,7 +412,7 @@ BOOL CShowManager::MakeImageInfo(int nShowInfoType,
 		LoadString(AfxGetInstanceHandle(), IDS_ITEM_IMAGETITLE, format, 64);
 		_sntprintf(sz, 64, format, i + 1);
 		str = sz;
-		if (pImage->szImageTitle && _tcslen(pImage->szImageTitle))
+		if (pImage->szImageTitle && lstrlen(pImage->szImageTitle))
 		{
 			LPCTSTR and = _T(" - ");
 			_tcsncat(sz, and, 64);
@@ -486,7 +486,7 @@ BOOL CShowManager::MakeImageInfo(int nShowInfoType,
 		{
 			return FALSE;
 		}
-		if (!SetStringShow(p2, hDC, sz, _tcslen(sz), nImageWidth + nLeft, nLeft + nTitleLeft))
+		if (!SetStringShow(p2, hDC, sz, lstrlen(sz), nImageWidth + nLeft, nLeft + nTitleLeft))
 		{
 			ClearShowInfo(p2);
 			goto _MakeImageInfo_Fail;
@@ -499,14 +499,14 @@ BOOL CShowManager::MakeImageInfo(int nShowInfoType,
 		nTitleLeft += p2->lWidth;
 
 		// 图片标题
-		if (pImage->szImageTitle && _tcslen(pImage->szImageTitle))
+		if (pImage->szImageTitle && lstrlen(pImage->szImageTitle))
 		{
 			p2 = CreateShowInfo(SHOWTYPE_TEXTDIVISION);
 			if (!p2)
 			{
 				return FALSE;
 			}
-			if (!SetStringShow(p2, hDC, pImage->szImageTitle, _tcslen(pImage->szImageTitle),
+			if (!SetStringShow(p2, hDC, pImage->szImageTitle, lstrlen(pImage->szImageTitle),
 				nImageWidth + nLeft, nLeft + nTitleLeft))
 			{
 				ClearShowInfo(p2);
@@ -843,7 +843,7 @@ long CShowManager::RecalcItemShow(HDC hDC, long lyOffset, long lWidth)
 	}
 	
 	if ((m_dwShowStyle & SHOWSTYLE_WITHRESOLVE) &&
-		(_tcslen(m_pItem->CItem::GetResolve()) || m_pItem->GetImageCount(ITEMIMAGEFLAG_RESOLVE)))
+		(lstrlen(m_pItem->CItem::GetResolve()) || m_pItem->GetImageCount(ITEMIMAGEFLAG_RESOLVE)))
 	{
 		lRet += GetMetrix(SHOWMETRIX_RESOLVEGAP);
 		lRet += SetResolveShow(hDC, lyOffset + lRet, lWidth);
@@ -903,7 +903,7 @@ long CShowManager::SetDescriptionShow(HDC hDC,
 
 	SelectObject(hDC, m_pFont[2]);
 	_sntprintf(sz, 64, _T("%d. "), m_nShowIndex);
-	if (!GetTextExtentPoint(hDC, sz, _tcslen(sz), &size))
+	if (!GetTextExtentPoint(hDC, sz, lstrlen(sz), &size))
 	{
 		return 0;
 	}
@@ -911,7 +911,7 @@ long CShowManager::SetDescriptionShow(HDC hDC,
 	// 题干序号
 	if (m_dwShowStyle & SHOWSTYLE_WITHINDEX)
 	{
-		p = MakeShowInfo(SHOWTYPE_TEXTSPAN, hDC, m_pFont[2], sz, _tcslen(sz),
+		p = MakeShowInfo(SHOWTYPE_TEXTSPAN, hDC, m_pFont[2], sz, lstrlen(sz),
 			lWidth, nLeft, lyOffset, &lRet);
 		if (!p)
 		{
@@ -946,9 +946,9 @@ long CShowManager::SetDescriptionShow(HDC hDC,
 	}
 	
 	pDesc = m_pItem->GetDescription();
-	if (_tcslen(pDesc))
+	if (lstrlen(pDesc))
 	{
-		p = MakeShowInfo(uTextType, hDC, m_pFont[0], pDesc, _tcslen(pDesc),
+		p = MakeShowInfo(uTextType, hDC, m_pFont[0], pDesc, lstrlen(pDesc),
 			lWidth, nLeft, lyOffset, &lRet);
 		if (!p)
 		{
@@ -960,7 +960,7 @@ long CShowManager::SetDescriptionShow(HDC hDC,
 	// 可能没有题干的情况
 	else
 	{
-		p = MakeShowInfo(SHOWTYPE_TEXTDIVISION, hDC, m_pFont[0], sz, _tcslen(sz),
+		p = MakeShowInfo(SHOWTYPE_TEXTDIVISION, hDC, m_pFont[0], sz, lstrlen(sz),
 			lWidth, nLeft, lyOffset, &lRet);
 		if (!p)
 		{
@@ -1023,7 +1023,7 @@ long CShowManager::SetOptionsShow(HDC hDC, long lyOffset, long lWidth)
 
 		// 选项号
 		nLeft = 0;
-		p = MakeShowInfo(SHOWTYPE_OPTIONINDEX, hDC, hFont, s_optionIndex[i], _tcslen(s_optionIndex[i]),
+		p = MakeShowInfo(SHOWTYPE_OPTIONINDEX, hDC, hFont, s_optionIndex[i], lstrlen(s_optionIndex[i]),
 			lWidth, nLeft, lyOffset, &lRet);
 		if (!p)
 		{
@@ -1033,7 +1033,7 @@ long CShowManager::SetOptionsShow(HDC hDC, long lyOffset, long lWidth)
 		m_pInfoList->SetData(m_nInfoIndex++, p);
 
 		nLeft = p->lLastXOff;
-		p = MakeShowInfo(SHOWTYPE_OPTION, hDC, hFont, pChoise->GetOption(i), _tcslen(pChoise->GetOption(i)),
+		p = MakeShowInfo(SHOWTYPE_OPTION, hDC, hFont, pChoise->GetOption(i), lstrlen(pChoise->GetOption(i)),
 			lWidth, nLeft, lyOffset, &lRet);
 		if (!p)
 		{
@@ -1053,7 +1053,7 @@ long CShowManager::SetOptionsShow(HDC hDC, long lyOffset, long lWidth)
 
 		lRet += GetMetrix(SHOWMETRIX_AFTERDESCGAP);
 		nLeft = 0;
-		p = MakeShowInfo(SHOWTYPE_TEXTSPAN, hDC, m_pFont[2], s_UserAnswer, _tcslen(s_UserAnswer),
+		p = MakeShowInfo(SHOWTYPE_TEXTSPAN, hDC, m_pFont[2], s_UserAnswer, lstrlen(s_UserAnswer),
 			lWidth, nLeft, lyOffset, &lRet);
 		if (!p)
 		{
@@ -1076,7 +1076,7 @@ long CShowManager::SetOptionsShow(HDC hDC, long lyOffset, long lWidth)
 
 		lRet += p->lHeight + GetMetrix(SHOWMETRIX_AFTERDESCGAP);
 		nLeft = 0;
-		p = MakeShowInfo(SHOWTYPE_TEXTSPAN, hDC, m_pFont[2], s_Answer, _tcslen(s_Answer),
+		p = MakeShowInfo(SHOWTYPE_TEXTSPAN, hDC, m_pFont[2], s_Answer, lstrlen(s_Answer),
 			lWidth, nLeft, lyOffset, &lRet);
 		if (!p)
 		{
@@ -1138,7 +1138,7 @@ long CShowManager::SetJudgeShow(HDC hDC, long lyOffset, long lWidth)
 			hFont = m_pFont[0];
 		}
 		
-		p = MakeShowInfo(SHOWTYPE_OPTION, hDC, hFont, s_Judge[i], _tcslen(s_Judge[i]),
+		p = MakeShowInfo(SHOWTYPE_OPTION, hDC, hFont, s_Judge[i], lstrlen(s_Judge[i]),
 			lWidth, nLeft, lyOffset, &lRet);
 		if (!p)
 		{
@@ -1165,7 +1165,7 @@ long CShowManager::SetJudgeShow(HDC hDC, long lyOffset, long lWidth)
 		
 		lRet += GetMetrix(SHOWMETRIX_AFTERDESCGAP);
 		nLeft = 0;
-		p = MakeShowInfo(SHOWTYPE_TEXTSPAN, hDC, m_pFont[2], s_UserAnswer, _tcslen(s_UserAnswer),
+		p = MakeShowInfo(SHOWTYPE_TEXTSPAN, hDC, m_pFont[2], s_UserAnswer, lstrlen(s_UserAnswer),
 			lWidth, nLeft, lyOffset, &lRet);
 		if (!p)
 		{
@@ -1189,7 +1189,7 @@ long CShowManager::SetJudgeShow(HDC hDC, long lyOffset, long lWidth)
 		
 		lRet += p->lHeight + GetMetrix(SHOWMETRIX_AFTERDESCGAP);
 		nLeft = 0;
-		p = MakeShowInfo(SHOWTYPE_TEXTSPAN, hDC, m_pFont[2], s_Answer, _tcslen(s_Answer),
+		p = MakeShowInfo(SHOWTYPE_TEXTSPAN, hDC, m_pFont[2], s_Answer, lstrlen(s_Answer),
 			lWidth, nLeft, lyOffset, &lRet);
 		if (!p)
 		{
@@ -1223,7 +1223,7 @@ long CShowManager::GetBlankSampleSize(HDC hDC)
 	SIZE size = {0};
 	
 	LoadString(AfxGetInstanceHandle(), IDS_ITEM_BLANKSAMPLE, sz, 64);
-	if (!GetTextExtentPoint(hDC, sz, _tcslen(sz), &size))
+	if (!GetTextExtentPoint(hDC, sz, lstrlen(sz), &size))
 	{
 		return 0;
 	}
@@ -1256,7 +1256,7 @@ long CShowManager::SetBlanksShow(HDC hDC,
 	
 	SelectObject(hDC, m_pFont[2]);
 	_sntprintf(sz, 64, _T("%d. "), m_nShowIndex);
-	if (!GetTextExtentPoint(hDC, sz, _tcslen(sz), &size))
+	if (!GetTextExtentPoint(hDC, sz, lstrlen(sz), &size))
 	{
 		return 0;
 	}
@@ -1264,7 +1264,7 @@ long CShowManager::SetBlanksShow(HDC hDC,
 
 	if (m_dwShowStyle & SHOWSTYLE_WITHINDEX)
 	{
-		p = MakeShowInfo(SHOWTYPE_TEXTSPAN, hDC, m_pFont[2], sz, _tcslen(sz),
+		p = MakeShowInfo(SHOWTYPE_TEXTSPAN, hDC, m_pFont[2], sz, lstrlen(sz),
 			lWidth, nLeft, lyOffset, &lRet);
 		if (!p)
 		{
@@ -1305,7 +1305,7 @@ long CShowManager::SetBlanksShow(HDC hDC,
 			return 0;
 		}
 
-		p = MakeShowInfo(SHOWTYPE_TEXTDIVISION, hDC, m_pFont[0], pStr, _tcslen(pStr),
+		p = MakeShowInfo(SHOWTYPE_TEXTDIVISION, hDC, m_pFont[0], pStr, lstrlen(pStr),
 			lWidth, nLeft, lyOffset, &lRet);
 		if (!p)
 		{
@@ -1368,7 +1368,7 @@ long CShowManager::SetBlanksShow(HDC hDC,
 			if (m_dwShowStyle & SHOWSTYLE_WITHUSERANSWER)
 			{
 				pBlkText = pBlank->GetUserAnswer(i);
-				if (!pBlkText || !_tcslen(pBlkText))
+				if (!pBlkText || !lstrlen(pBlkText))
 				{
 					hFont = m_pFont[0];
 					if (bShowAns ||
@@ -1411,7 +1411,7 @@ long CShowManager::SetBlanksShow(HDC hDC,
 			}
 			SelectObject(hDC, hFont);
 
-			if (!GetTextExtentPoint(hDC, pBlkText, _tcslen(pBlkText), &size))
+			if (!GetTextExtentPoint(hDC, pBlkText, lstrlen(pBlkText), &size))
 			{
 				return 0;
 			}
@@ -1428,7 +1428,7 @@ long CShowManager::SetBlanksShow(HDC hDC,
 			// 答案前后会有一段空白
 
 			// 填空题答案
-			p = MakeShowInfo(SHOWTYPE_BLANK, hDC, hFont, pBlkText, _tcslen(pBlkText),
+			p = MakeShowInfo(SHOWTYPE_BLANK, hDC, hFont, pBlkText, lstrlen(pBlkText),
 				lWidth, nLeft, lyOffset, &lRet);
 			if (!p)
 			{
@@ -1472,10 +1472,10 @@ long CShowManager::SetBlanksShow(HDC hDC,
 		}
 
 		// 最后一个空白后面还有内容
-		if (nPtr < _tcslen(pDesc))
+		if (nPtr < lstrlen(pDesc))
 		{
 			// 将最后一段内容加入
-			p = MakeShowInfo(SHOWTYPE_TEXTDIVISION, hDC, m_pFont[0], pDesc + nPtr, _tcslen(pDesc) - nPtr,
+			p = MakeShowInfo(SHOWTYPE_TEXTDIVISION, hDC, m_pFont[0], pDesc + nPtr, lstrlen(pDesc) - nPtr,
 				lWidth, nLeft, lyOffset, &lRet);
 			if (!p)
 			{
@@ -1494,7 +1494,7 @@ long CShowManager::SetBlanksShow(HDC hDC,
 		if (bShowAns)
 		{
 			nLeft = 0;
-			p = MakeShowInfo(SHOWTYPE_TEXTSPAN, hDC, m_pFont[2], s_Answer, _tcslen(s_Answer),
+			p = MakeShowInfo(SHOWTYPE_TEXTSPAN, hDC, m_pFont[2], s_Answer, lstrlen(s_Answer),
 				lWidth, nLeft, lyOffset, &lRet);
 			if (!p)
 			{
@@ -1508,7 +1508,7 @@ long CShowManager::SetBlanksShow(HDC hDC,
 			for (i = 0; i < pBlank->GetBlankCount(); ++i)
 			{
 				pBlkText = pBlank->GetBlank(i);
-				if (!GetTextExtentPoint(hDC, pBlkText, _tcslen(pBlkText), &size))
+				if (!GetTextExtentPoint(hDC, pBlkText, lstrlen(pBlkText), &size))
 				{
 					return 0;
 				}
@@ -1519,7 +1519,7 @@ long CShowManager::SetBlanksShow(HDC hDC,
 					lRet += (size.cy + GetMetrix(SHOWMETRIX_BLANKGAP));
 				}
 
-				p = MakeShowInfo(SHOWTYPE_BLANKANS, hDC, m_pFont[0], pBlkText, _tcslen(pBlkText),
+				p = MakeShowInfo(SHOWTYPE_BLANKANS, hDC, m_pFont[0], pBlkText, lstrlen(pBlkText),
 					lWidth, nLeft, lyOffset, &lRet);
 				if (!p)
 				{
@@ -1551,7 +1551,7 @@ long CShowManager::GetTextSampleSize(HDC hDC)
 	SIZE size = {0};
 	
 	LoadString(AfxGetInstanceHandle(), IDS_ITEM_BLANKSAMPLE, sz, 64);
-	if (!GetTextExtentPoint(hDC, sz, _tcslen(sz), &size))
+	if (!GetTextExtentPoint(hDC, sz, lstrlen(sz), &size))
 	{
 		return 0;
 	}
@@ -1576,7 +1576,7 @@ long CShowManager::SetTextShow(HDC hDC, long lyOffset, long lWidth)
 		if (m_dwShowStyle & SHOWSTYLE_WITHANSWER ||
 			SHOWWNDTYPE_SUBJECTIVEVIEW == m_nShowType)
 		{
-			p = MakeShowInfo(SHOWTYPE_TEXTSPAN, hDC, m_pFont[2], s_UserAnswer, _tcslen(s_UserAnswer),
+			p = MakeShowInfo(SHOWTYPE_TEXTSPAN, hDC, m_pFont[2], s_UserAnswer, lstrlen(s_UserAnswer),
 				lWidth, nLeft, lyOffset, &lRet);
 			if (!p)
 			{
@@ -1588,7 +1588,7 @@ long CShowManager::SetTextShow(HDC hDC, long lyOffset, long lWidth)
 			nLeft = p->lLastXOff;
 
 			pAnswer = pText->GetUserAnswer();
-			if (!pAnswer || !_tcslen(pAnswer))
+			if (!pAnswer || !lstrlen(pAnswer))
 			{
 				pAnswer = s_NoAnswer;
 			}
@@ -1596,14 +1596,14 @@ long CShowManager::SetTextShow(HDC hDC, long lyOffset, long lWidth)
 		else
 		{
 			pAnswer = pText->GetUserAnswer();
-			if (!pAnswer || !_tcslen(pAnswer))
+			if (!pAnswer || !lstrlen(pAnswer))
 			{
 				pAnswer = s_NoAnswer;
 				bHide = TRUE;
 			}
 		}
 
-		p = MakeShowInfo(SHOWTYPE_TEXTANS, hDC, m_pFont[0], pAnswer, _tcslen(pAnswer),
+		p = MakeShowInfo(SHOWTYPE_TEXTANS, hDC, m_pFont[0], pAnswer, lstrlen(pAnswer),
 			lWidth, nLeft, lyOffset, &lRet);
 		if (!p)
 		{
@@ -1623,7 +1623,7 @@ long CShowManager::SetTextShow(HDC hDC, long lyOffset, long lWidth)
 
 			// 显示得分
 			nLeft = 0;
-			p = MakeShowInfo(SHOWTYPE_TEXTSPAN, hDC, m_pFont[2], s_Score, _tcslen(s_Score),
+			p = MakeShowInfo(SHOWTYPE_TEXTSPAN, hDC, m_pFont[2], s_Score, lstrlen(s_Score),
 				lWidth, nLeft, lyOffset, &lRet);
 			if (!p)
 			{
@@ -1635,7 +1635,7 @@ long CShowManager::SetTextShow(HDC hDC, long lyOffset, long lWidth)
 
 			nLeft = p->lLastXOff;
 			_sntprintf(score, 32, _T("%d"), pText->GetPoint());
-			p = MakeShowInfo(SHOWTYPE_TEXTDIVISION, hDC, m_pFont[0], score, _tcslen(score),
+			p = MakeShowInfo(SHOWTYPE_TEXTDIVISION, hDC, m_pFont[0], score, lstrlen(score),
 				lWidth, nLeft, lyOffset, &lRet);
 			p->nInfo = 0;
 			p->pData = _tcsdup(score);
@@ -1665,7 +1665,7 @@ long CShowManager::SetTextShow(HDC hDC, long lyOffset, long lWidth)
 		}
 		
 		nLeft = 0;
-		p = MakeShowInfo(SHOWTYPE_TEXTSPAN, hDC, m_pFont[2], s_Answer, _tcslen(s_Answer),
+		p = MakeShowInfo(SHOWTYPE_TEXTSPAN, hDC, m_pFont[2], s_Answer, lstrlen(s_Answer),
 			lWidth, nLeft, lyOffset, &lRet);
 		if (!p)
 		{
@@ -1690,7 +1690,7 @@ long CShowManager::SetTextShow(HDC hDC, long lyOffset, long lWidth)
 			{
 				return NULL;
 			}
-			if (!SetStringShow(p, hDC, pAnswer, _tcslen(pAnswer), lWidth, nLeft, m_nShowStep))
+			if (!SetStringShow(p, hDC, pAnswer, lstrlen(pAnswer), lWidth, nLeft, m_nShowStep))
 			{
 				ClearShowInfo(pMalloc);
 				return NULL;
@@ -1716,7 +1716,7 @@ long CShowManager::SetTextShow(HDC hDC, long lyOffset, long lWidth)
 		}
 		else
 		{
-			p = MakeShowInfo(SHOWTYPE_TEXT, hDC, m_pFont[0], pAnswer, _tcslen(pAnswer),
+			p = MakeShowInfo(SHOWTYPE_TEXT, hDC, m_pFont[0], pAnswer, lstrlen(pAnswer),
 				lWidth, nLeft, lyOffset, &lRet);
 			if (!p)
 			{
@@ -1750,7 +1750,7 @@ long CShowManager::SetGroupShow(HDC hDC, long lyOffset, long lWidth)
 	int nLeft = 0;
 
 	// 当为单题显示时，不显示顶部内容
-	if (m_nShowStep >= 0 || !_tcslen(pGroup->GetDescription()))
+	if (m_nShowStep >= 0 || !lstrlen(pGroup->GetDescription()))
 	{
 		return lRet;
 	}
@@ -1785,9 +1785,9 @@ long CShowManager::SetResolveShow(HDC hDC, long lyOffset, long lWidth)
 	int nLeft = 0;
 
 	pRes = m_pItem->CItem::GetResolve();
-	if (pRes && _tcslen(pRes))
+	if (pRes && lstrlen(pRes))
 	{
-		p = MakeShowInfo(SHOWTYPE_TEXTSPAN, hDC, m_pFont[2], s_Resolve, _tcslen(s_Resolve),
+		p = MakeShowInfo(SHOWTYPE_TEXTSPAN, hDC, m_pFont[2], s_Resolve, lstrlen(s_Resolve),
 			lWidth, nLeft, lyOffset, &lRet);
 		if (!p)
 		{
@@ -1796,7 +1796,7 @@ long CShowManager::SetResolveShow(HDC hDC, long lyOffset, long lWidth)
 		m_pInfoList->SetData(m_nInfoIndex++, p);
 		nLeft = p->lWidth;
 
-		p = MakeShowInfo(SHOWTYPE_TEXTDIVISION, hDC, m_pFont[0], pRes, _tcslen(pRes),
+		p = MakeShowInfo(SHOWTYPE_TEXTDIVISION, hDC, m_pFont[0], pRes, lstrlen(pRes),
 			lWidth, nLeft, lyOffset, &lRet);
 		if (!p)
 		{

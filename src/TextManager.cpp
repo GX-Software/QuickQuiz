@@ -404,7 +404,7 @@ LPSTR FUNCCALL CTextManager::SwitchSave(LPCTSTR lpszText, int nCS, int *pLen)
 		{
 			if (pLen)
 			{
-				*pLen = _tcslen(lpszText) * sizeof(TCHAR);
+				*pLen = lstrlen(lpszText) * sizeof(TCHAR);
 			}
 
 			LPWSTR str = wcsdup(lpszText);
@@ -415,7 +415,7 @@ LPSTR FUNCCALL CTextManager::SwitchSave(LPCTSTR lpszText, int nCS, int *pLen)
 		{
 			if (pLen)
 			{
-				*pLen = _tcslen(lpszText) * sizeof(TCHAR);
+				*pLen = lstrlen(lpszText) * sizeof(TCHAR);
 			}
 
 			LPWSTR str = wcsdup(lpszText);
@@ -461,7 +461,7 @@ LPSTR FUNCCALL CTextManager::SwitchSave(LPCTSTR lpszText, int nCS, int *pLen)
 		{
 			if (pLen)
 			{
-				*pLen = _tcslen(lpszText) * sizeof(TCHAR);
+				*pLen = lstrlen(lpszText) * sizeof(TCHAR);
 			}
 			LPSTR str = strdup(lpszText);
 			return str;
@@ -836,7 +836,7 @@ EBOOL FUNCCALL CTextManager::SaveFileString(FILE *fp, LPCTSTR szSave, int nStrLe
 #ifdef _UNICODE
 	if (nStrLenSize)
 	{
-		nSize = (_tcslen(szSave) + 1) * sizeof(TCHAR);
+		nSize = (lstrlen(szSave) + 1) * sizeof(TCHAR);
 		if (!fwrite(&nSize, nStrLenSize, 1, fp))
 		{
 			return Q_ERROR(ERROR_WRITE_FILE_FAIL);
@@ -1028,7 +1028,7 @@ void FUNCCALL CTextManager::RemoveReturn(LPTSTR ptr, size_t ulLen)
 	size_t a = 0, b = 0;
 	if (!ulLen)
 	{
-		ulLen = _tcslen(ptr);
+		ulLen = lstrlen(ptr);
 	}
 	
 	while(b < ulLen)
@@ -1105,16 +1105,16 @@ long FUNCCALL CTextManager::GetRealIndex(LPCTSTR str, int nPos)
 int FUNCCALL CTextManager::GetCharactersCount(LPCTSTR str)
 {
 #ifdef _UNICODE
-	return _tcslen(str);
+	return lstrlen(str);
 #else
-	return MultiByteToWideChar(CP_ACP, 0, str, _tcslen(str), NULL, 0);
+	return MultiByteToWideChar(CP_ACP, 0, str, lstrlen(str), NULL, 0);
 #endif
 }
 
 BOOL FUNCCALL CTextManager::GetFilePath(CString &strPath, LPCTSTR strFile)
 {
 	CString str;
-	int i = _tcslen(strFile) - 1;
+	int i = lstrlen(strFile) - 1;
 	while(i)
 	{
 		if (_T('\\') == strFile[i])

@@ -519,7 +519,7 @@ BOOL CPaperMaker::MakeAnswer(LPCTSTR strPath)
 					temp.Format(_T("%d. %s"), nIndex, temp1.c_str());
 					m_string += temp;
 
-					if (m_bWithRes && pSub->GetResolve() && _tcslen(pSub->GetResolve()))
+					if (m_bWithRes && pSub->GetResolve() && lstrlen(pSub->GetResolve()))
 					{
 						m_string += CTextManager::s_szWinReturn;
 						m_string += sz;
@@ -563,7 +563,7 @@ BOOL CPaperMaker::MakeAnswer(LPCTSTR strPath)
 					temp.Format(_T("%d. %s"), nIndex, temp1.c_str());
 					m_string += temp;
 					
-					if (m_bWithRes && pItem->GetResolve() && _tcslen(pItem->GetResolve()))
+					if (m_bWithRes && pItem->GetResolve() && lstrlen(pItem->GetResolve()))
 					{
 						m_string += CTextManager::s_szWinReturn;
 						m_string += sz;

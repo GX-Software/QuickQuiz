@@ -18,8 +18,9 @@ static char THIS_FILE[] = __FILE__;
 // CChildSChoiseDlg dialog
 
 
-CChildSChoiseDlg::CChildSChoiseDlg(CWnd* pParent /*=NULL*/)
-	: CTabPage(CChildSChoiseDlg::IDD, pParent)
+CChildSChoiseDlg::CChildSChoiseDlg(CWnd* pParent /*=NULL*/) :
+	CTabPage(CChildSChoiseDlg::IDD, pParent),
+	m_pMChoisePage(NULL)
 {
 	//{{AFX_DATA_INIT(CChildSChoiseDlg)
 	m_nAnswer = -1;
@@ -133,6 +134,43 @@ void CChildSChoiseDlg::SetShow(const CItem *pChoise)
 	
 	m_bModify = FALSE;
 	UpdateData(FALSE);
+}
+
+BOOL CChildSChoiseDlg::OnKillActive(BOOL bIsDestroy)
+{
+	UpdateData();
+
+	if (m_pMChoisePage)
+	{
+		((CChildMChoiseDlg*)m_pMChoisePage)->FillChoiseText(this);
+	}
+
+	m_nAnswer = -1;
+	UpdateData(FALSE);
+	return TRUE;
+}
+
+void CChildSChoiseDlg::FillChoiseText(CTabPage *pPage)
+{
+	CChildMChoiseDlg *pM = (CChildMChoiseDlg*)pPage;
+	CString str;
+
+	pM->m_cEditAnswer1.GetWindowText(str);
+	m_cEditAnswer1.SetWindowText(str);
+	pM->m_cEditAnswer2.GetWindowText(str);
+	m_cEditAnswer2.SetWindowText(str);
+	pM->m_cEditAnswer3.GetWindowText(str);
+	m_cEditAnswer3.SetWindowText(str);
+	pM->m_cEditAnswer4.GetWindowText(str);
+	m_cEditAnswer4.SetWindowText(str);
+	pM->m_cEditAnswer5.GetWindowText(str);
+	m_cEditAnswer5.SetWindowText(str);
+	pM->m_cEditAnswer6.GetWindowText(str);
+	m_cEditAnswer6.SetWindowText(str);
+	pM->m_cEditAnswer7.GetWindowText(str);
+	m_cEditAnswer7.SetWindowText(str);
+	pM->m_cEditAnswer8.GetWindowText(str);
+	m_cEditAnswer8.SetWindowText(str);
 }
 
 int CChildSChoiseDlg::CheckSaveable()

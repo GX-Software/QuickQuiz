@@ -28,8 +28,8 @@ CTextSimilarity::~CTextSimilarity()
 
 BOOL CTextSimilarity::Compare(LPCTSTR szStr1, LPCTSTR szStr2)
 {
-	int nLen1 = _tcslen(szStr1 ? szStr1 : _T(""));
-	int nLen2 = _tcslen(szStr2 ? szStr2 : _T(""));
+	int nLen1 = lstrlen(szStr1 ? szStr1 : _T(""));
+	int nLen2 = lstrlen(szStr2 ? szStr2 : _T(""));
 
 	m_nDenom += max(nLen1, nLen2);
 	

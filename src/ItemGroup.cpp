@@ -361,7 +361,7 @@ RETURN_E TiXmlElement* CItemGroup::WriteXML(TiXmlElement *pParent, int nEncode, 
 	pNode->LinkEndChild(pText);
 
 	// 题干解析（可能为空）
-	if (_tcslen(CItem::GetResolve()))
+	if (lstrlen(CItem::GetResolve()))
 	{
 		pNode = new TiXmlElement(xml_lpszNode_Resolve);
 		if (!pNode)
@@ -583,7 +583,7 @@ void CItemGroup::ClipCopy(CFixedSharedFile &sf)
 	CItem::ClipCopy(sf);
 
 	// 复制类型名称
-	int nLen = _tcslen(m_szTypeDesc);
+	int nLen = lstrlen(m_szTypeDesc);
 	sf.Write(&nLen, sizeof(nLen));
 	sf.Write(m_szTypeDesc, nLen * sizeof(TCHAR));
 
@@ -617,7 +617,7 @@ void CItemGroup::MakeText(_stdstring &str, UINT nStyle, int nPara)
 	int nIndex = m_nStartIndex;
 	BOOL bFromBegin = (nIndex == 1);
 
-	if (_tcslen(GetDescription()))
+	if (lstrlen(GetDescription()))
 	{
 		str = m_strDescription;
 		str += CTextManager::s_szWinReturn;
@@ -1016,7 +1016,7 @@ BOOL CItemGroup::IsAnswered(int nItem)
 
 LPCTSTR CItemGroup::GetResolve()
 {
-	if (_tcslen(CItem::GetResolve()))
+	if (lstrlen(CItem::GetResolve()))
 	{
 		m_strGResolve = CItem::GetResolve();
 		m_strGResolve += CTextManager::s_szWinReturn;
@@ -1031,7 +1031,7 @@ LPCTSTR CItemGroup::GetResolve()
 	CItem *pItem = m_pHead;
 	while(pItem)
 	{
-		if (_tcslen(pItem->GetResolve()))
+		if (lstrlen(pItem->GetResolve()))
 		{
 			_sntprintf(szIndex, _countof(szIndex), _T("(%d) "), nIndex++);
 			m_strGResolve += szIndex;

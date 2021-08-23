@@ -47,7 +47,7 @@ static EBOOL FUNCCALL DrawTitle(HDC dc, LPPAPERCOVERINFO info)
 	// 获得每行的字符数，及总显示高度
 	while(1)
 	{
-		if (!GetTextExtentExPoint(dc, info->strTitle + nCharIndex, _tcslen(info->strTitle + nCharIndex),
+		if (!GetTextExtentExPoint(dc, info->strTitle + nCharIndex, lstrlen(info->strTitle + nCharIndex),
 			info->nWidth / 10 * 9, &nFit, NULL, &size))
 		{
 			goto fail;
@@ -59,7 +59,7 @@ static EBOOL FUNCCALL DrawTitle(HDC dc, LPPAPERCOVERINFO info)
 		nDrawHeight += size.cy;
 		nCharCount[nLineIndex++] = nFit;
 		nCharIndex += nFit;
-		if (nCharIndex >= _tcslen(info->strTitle))
+		if (nCharIndex >= lstrlen(info->strTitle))
 		{
 			break;
 		}

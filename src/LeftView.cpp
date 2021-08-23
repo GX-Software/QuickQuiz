@@ -596,7 +596,7 @@ void CLView::OnEndLabelEdit(NMHDR* pNMHDR, LRESULT* pResult)
 	CList *pItem = (CList*)pTVDispInfo->item.lParam;
 	
 	if (!pTVDispInfo->item.pszText ||
-		!_tcslen(pTVDispInfo->item.pszText) ||
+		!lstrlen(pTVDispInfo->item.pszText) ||
 		!CTextManager::CheckValidCharactor(pTVDispInfo->item.pszText))
 	{
 		*pResult = 0;

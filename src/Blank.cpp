@@ -190,7 +190,7 @@ BOOL CBlank::EditBlank(int nIndex, LPCTSTR strBlank, int nLen)
 	
 	if (nLen < 0)
 	{
-		nLen = _tcslen(strBlank);
+		nLen = lstrlen(strBlank);
 	}
 	LPTSTR strTemp = (LPTSTR)malloc((nLen + 1) * sizeof(TCHAR));
 	if (!strTemp)
@@ -250,7 +250,7 @@ BOOL CBlank::DelBlank(int nIndex, BOOL bFillAnswer)
 		return FALSE;
 	}
 
-	LPTSTR strTemp = (LPTSTR)malloc((_tcslen(m_strDescription) + _tcslen(m_pBlanks[nIndex].pBlank) + 1) * sizeof(TCHAR));
+	LPTSTR strTemp = (LPTSTR)malloc((lstrlen(m_strDescription) + lstrlen(m_pBlanks[nIndex].pBlank) + 1) * sizeof(TCHAR));
 	if (!strTemp)
 	{
 		m_dwErrorCode = ERROR_ALLOCFAIL;
@@ -275,7 +275,7 @@ BOOL CBlank::DelBlank(int nIndex, BOOL bFillAnswer)
 	// 调整空的位置
 	int i;
 #ifdef _UNICODE
-	int nOffset = (bFillAnswer ? _tcslen(m_pBlanks[nIndex].pBlank) : 0) - 4;
+	int nOffset = (bFillAnswer ? lstrlen(m_pBlanks[nIndex].pBlank) : 0) - 4;
 #else
 	int nOffset = MultiByteToWideChar(CP_ACP, 0, m_pBlanks[nIndex].pBlank, -1, NULL, 0);
 	if (!nOffset)
@@ -343,7 +343,7 @@ void CBlank::SetBlankPara(int nPara /* = BLANKPARA_NORMAL */)
 			else
 			{
 #ifdef _UNICODE
-				nOffset += (_tcslen(m_pBlanks[i].pBlank) - 6);
+				nOffset += (lstrlen(m_pBlanks[i].pBlank) - 6);
 #else
 				nOffset += (MultiByteToWideChar(CP_ACP, 0, m_pBlanks[i].pBlank, -1, NULL, 0) - 7);
 #endif
@@ -375,7 +375,7 @@ void CBlank::SetBlankPara(int nPara /* = BLANKPARA_NORMAL */)
 		for (i = 0; i < j; i++)
 		{
 #ifdef _UNICODE
-			nOffset += (_tcslen(m_pBlanks[i].pBlank) - 6);
+			nOffset += (lstrlen(m_pBlanks[i].pBlank) - 6);
 #else
 			nOffset += (MultiByteToWideChar(CP_ACP, 0, m_pBlanks[i].pBlank, -1, NULL, 0) - 7);
 #endif
@@ -593,7 +593,7 @@ EBOOL CBlank::SaveFile(FILE *fp)
 	// 找出读取需要的最大缓冲区大小
 	for(i = 0; i < m_nBlanksCount; i++)
 	{
-		nTemp = (_tcslen(m_pBlanks[i].pBlank) + 1) * sizeof(TCHAR);
+		nTemp = (lstrlen(m_pBlanks[i].pBlank) + 1) * sizeof(TCHAR);
 		nMaxLen = max(nMaxLen, nTemp);
 	}
 	if (!fwrite(&nMaxLen, sizeof(int), 1, fp))
@@ -620,7 +620,7 @@ EBOOL CBlank::SaveFile(FILE *fp)
 		}
 
 		// 答案长度
-		nTemp = (_tcslen(m_pBlanks[i].pBlank) + 1) * sizeof(TCHAR);
+		nTemp = (lstrlen(m_pBlanks[i].pBlank) + 1) * sizeof(TCHAR);
 		if (!fwrite(&nTemp, sizeof(short), 1, fp))
 		{
 			return Q_ERROR(ERROR_WRITE_FILE_FAIL);
@@ -878,7 +878,7 @@ void CBlank::ClipCopy(CFixedSharedFile &sf)
 		sf.Write(&m_pBlanks[i].nStart, sizeof(m_pBlanks[i].nStart));
 		sf.Write(&m_pBlanks[i].nEnd, sizeof(m_pBlanks[i].nEnd));
 
-		nLen = _tcslen(m_pBlanks[i].pBlank);
+		nLen = lstrlen(m_pBlanks[i].pBlank);
 		
 		sf.Write(&nLen, sizeof(nLen));
 		sf.Write(m_pBlanks[i].pBlank, nLen * sizeof(TCHAR));
@@ -987,12 +987,12 @@ void CBlank::MakeText(_stdstring &str, UINT nStyle, int nPara)
 #ifdef _UNICODE
 				str.erase(m_pBlanks[i].nStart + nOffset - 1, 6);
 				str.insert(m_pBlanks[i].nStart + nOffset - 1, m_pBlanks[i].pBlank);
-				nOffset += (_tcslen(m_pBlanks[i].pBlank) - 6);
+				nOffset += (lstrlen(m_pBlanks[i].pBlank) - 6);
 #else
 				idxInsert = CTextManager::GetRealIndex(m_strDescription, m_pBlanks[i].nStart);
 				str.erase(idxInsert + nOffset - 1, 6);
 				str.insert(idxInsert + nOffset - 1, m_pBlanks[i].pBlank);
-				nOffset += (_tcslen(m_pBlanks[i].pBlank) - 6);
+				nOffset += (lstrlen(m_pBlanks[i].pBlank) - 6);
 #endif
 			}
 		}
@@ -1175,7 +1175,7 @@ void CBlank::MakeHTML(FILE *fp,
 		nPtr = CTextManager::GetRealIndex(lpDesc, nEnd + 1);
 	}
 
-	nStrLen = _tcslen(lpDesc) - nPtr;
+	nStrLen = lstrlen(lpDesc) - nPtr;
 	if (nStrLen)
 	{
 		temp.append(lpDesc, nPtr, nStrLen);
@@ -1206,7 +1206,7 @@ BOOL CBlank::SetUserAnswer(int nIndex, LPCTSTR strAnswer)
 
 	if (m_pUserAnswers[nIndex])
 	{
-		if (_tcslen(m_pUserAnswers[nIndex]))
+		if (lstrlen(m_pUserAnswers[nIndex]))
 		{
 			m_nUserAnswerCount--;
 		}
@@ -1221,7 +1221,7 @@ BOOL CBlank::SetUserAnswer(int nIndex, LPCTSTR strAnswer)
 		return FALSE;
 	}
 
-	if (_tcslen(strAnswer))
+	if (lstrlen(strAnswer))
 	{
 		m_nUserAnswerCount++;
 	}
@@ -1393,7 +1393,7 @@ void CBlank::CalcCRC()
 	int nBuffSize = 0;
 	for (i = 0; i < m_nBlanksCount; i++)
 	{
-		j = _tcslen(m_pBlanks[i].pBlank) + 1;
+		j = lstrlen(m_pBlanks[i].pBlank) + 1;
 		nBuffSize = max(nBuffSize, j);
 	}
 	nBuffSize *= sizeof(WCHAR);
@@ -1411,7 +1411,7 @@ void CBlank::CalcCRC()
 
 #ifdef _UNICODE
 		ptr = (PBYTE)m_pBlanks[i].pBlank;
-		nLen = _tcslen(m_pBlanks[i].pBlank) * sizeof(TCHAR);
+		nLen = lstrlen(m_pBlanks[i].pBlank) * sizeof(TCHAR);
 #else
 		if (!MultiByteToWideChar(CP_ACP, 0, m_pBlanks[i].pBlank, -1, str, nBuffSize))
 		{
@@ -1521,7 +1521,7 @@ LPWSTR CBlank::GetWDescription(int &nBuffSize)
 	nBuffSize = 0;
 	// 需要预留一些空间（用于可能会添加的括号）
 #ifdef _UNICODE
-	int nLen = _tcslen(m_strDescription);
+	int nLen = lstrlen(m_strDescription);
 	
 	// 这里还要加上末尾的0
 	nBuffSize = nLen + 6 + 1;
@@ -1631,7 +1631,7 @@ LPTSTR CBlank::ClearSpaces(LPTSTR strText)
 
 	int i = 0;
 	int nBegin = -1, nEnd = -1;
-	int nLen = _tcslen(strText);
+	int nLen = lstrlen(strText);
 
 	while(strText[i])
 	{
@@ -1897,12 +1897,12 @@ void CBlank::FillAnswer(_stdstring &str, BOOL bIsRealAsw, int nCount)
 #ifdef _UNICODE
 			str.erase(pBlank[i].nStart + nOffset, 4);
 			str.insert(pBlank[i].nStart + nOffset, pBlank[i].pBlank);
-			nOffset += (_tcslen(pBlank[i].pBlank) - 4);
+			nOffset += (lstrlen(pBlank[i].pBlank) - 4);
 #else
 			idxInsert = CTextManager::GetRealIndex(strTmpDesc.c_str(), pBlank[i].nStart);
 			str.erase(idxInsert + nOffset, 4);
 			str.insert(idxInsert + nOffset, pBlank[i].pBlank);
-			nOffset += (_tcslen(pBlank[i].pBlank) - 4);
+			nOffset += (lstrlen(pBlank[i].pBlank) - 4);
 #endif
 		}
 	}
@@ -1917,12 +1917,12 @@ void CBlank::FillAnswer(_stdstring &str, BOOL bIsRealAsw, int nCount)
 #ifdef _UNICODE
 			str.erase(pBlank[i].nStart + nOffset, 4);
 			str.insert(pBlank[i].nStart + nOffset, m_pUserAnswers[i]);
-			nOffset += (_tcslen(m_pUserAnswers[i]) - 4);
+			nOffset += (lstrlen(m_pUserAnswers[i]) - 4);
 #else
 			idxInsert = CTextManager::GetRealIndex(strTmpDesc.c_str(), pBlank[i].nStart);
 			str.erase(idxInsert + nOffset, 4);
 			str.insert(idxInsert + nOffset, m_pUserAnswers[i]);
-			nOffset += (_tcslen(m_pUserAnswers[i]) - 4);
+			nOffset += (lstrlen(m_pUserAnswers[i]) - 4);
 #endif
 		}
 	}

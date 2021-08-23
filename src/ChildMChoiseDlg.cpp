@@ -19,7 +19,8 @@ static char THIS_FILE[] = __FILE__;
 
 
 CChildMChoiseDlg::CChildMChoiseDlg(CWnd* pParent /*=NULL*/) :
-	CTabPage(CChildMChoiseDlg::IDD, pParent)
+	CTabPage(CChildMChoiseDlg::IDD, pParent),
+	m_pSChoisePage(NULL)
 {
 	//{{AFX_DATA_INIT(CChildMChoiseDlg)
 		// NOTE: the ClassWizard will add member initialization here
@@ -129,6 +130,41 @@ void CChildMChoiseDlg::SetShow(const CItem *pChoise)
 	}
 	
 	m_bModify = FALSE;
+}
+
+BOOL CChildMChoiseDlg::OnKillActive(BOOL bIsDestroy)
+{
+	UpdateData();
+	
+	if (m_pSChoisePage)
+	{
+		((CChildSChoiseDlg*)m_pSChoisePage)->FillChoiseText(this);
+	}
+
+	return TRUE;
+}
+
+void CChildMChoiseDlg::FillChoiseText(CTabPage *pPage)
+{
+	CChildSChoiseDlg *pM = (CChildSChoiseDlg*)pPage;
+	CString str;
+	
+	pM->m_cEditAnswer1.GetWindowText(str);
+	m_cEditAnswer1.SetWindowText(str);
+	pM->m_cEditAnswer2.GetWindowText(str);
+	m_cEditAnswer2.SetWindowText(str);
+	pM->m_cEditAnswer3.GetWindowText(str);
+	m_cEditAnswer3.SetWindowText(str);
+	pM->m_cEditAnswer4.GetWindowText(str);
+	m_cEditAnswer4.SetWindowText(str);
+	pM->m_cEditAnswer5.GetWindowText(str);
+	m_cEditAnswer5.SetWindowText(str);
+	pM->m_cEditAnswer6.GetWindowText(str);
+	m_cEditAnswer6.SetWindowText(str);
+	pM->m_cEditAnswer7.GetWindowText(str);
+	m_cEditAnswer7.SetWindowText(str);
+	pM->m_cEditAnswer8.GetWindowText(str);
+	m_cEditAnswer8.SetWindowText(str);
 }
 
 int CChildMChoiseDlg::CheckSaveable()

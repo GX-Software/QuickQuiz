@@ -39,7 +39,7 @@ int CPaper::GetFileExt(LPCTSTR strFilePath)
 {
 	ASSERT(strFilePath);
 
-	int i = _tcslen(strFilePath) - 1;
+	int i = lstrlen(strFilePath) - 1;
 	for (; i >= 0; i--)
 	{
 		if (strFilePath[i] == _T('.'))
@@ -75,7 +75,7 @@ void CPaper::GetSaveFilePath(LPTSTR strPath)
 	_tcsncpy(strPath, m_strFilePath, MAX_PATH);
 	
 	int i;
-	for (i = _tcslen(strPath) - 1; i >= 0; i--)
+	for (i = lstrlen(strPath) - 1; i >= 0; i--)
 	{
 		if (_T('.') == strPath[i])
 		{

@@ -226,7 +226,7 @@ void CTxtOutDlg::OnFilePath()
 void CTxtOutDlg::FillFileInfo(LPCTSTR pPath)
 {
 	int i;
-	for (i = _tcslen(pPath) - 1; i >= 0; --i)
+	for (i = lstrlen(pPath) - 1; i >= 0; --i)
 	{
 		if (pPath[i] == _T('\\'))
 		{
@@ -237,9 +237,9 @@ void CTxtOutDlg::FillFileInfo(LPCTSTR pPath)
 	_tcscpyn(pSave, pPath, i + 2);
 	m_sFilePath.ReleaseBuffer();
 	
-	pSave = m_sFileTitle.GetBuffer(_tcslen(pPath) - i + 2);
-	_tcscpyn(pSave, pPath + i + 1, _tcslen(pPath) - i + 2);
-	for (i = _tcslen(pSave); i >= 0; --i)
+	pSave = m_sFileTitle.GetBuffer(lstrlen(pPath) - i + 2);
+	_tcscpyn(pSave, pPath + i + 1, lstrlen(pPath) - i + 2);
+	for (i = lstrlen(pSave); i >= 0; --i)
 	{
 		if (pSave[i] == _T('.'))
 		{

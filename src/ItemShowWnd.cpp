@@ -826,7 +826,7 @@ void CItemShowWnd::SetShowInfo(HDC hDC)
 		if (pParent && pParent->GetType() == TYPE_GROUP)
 		{
 			CItemGroup *pGroup = (CItemGroup*)pParent;
-			if (_tcslen(pGroup->GetDescription()))
+			if (lstrlen(pGroup->GetDescription()))
 			{
 				pMgr = GetShowManager(nMgrIndex, pGroup);
 				if (!pMgr)

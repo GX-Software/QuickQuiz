@@ -957,7 +957,7 @@ int CEditFrame::ReplaceAll(LPFINDREPLACE ptr)
 		string.Delete(i, nLen);
 		string.Insert(i, ptr->lpstrReplaceWith);
 
-		i += _tcslen(ptr->lpstrReplaceWith);
+		i += lstrlen(ptr->lpstrReplaceWith);
 		nCount++;
 	}
 

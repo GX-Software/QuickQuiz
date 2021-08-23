@@ -185,6 +185,12 @@ int CEditDlg::DoModal()
 			return IDCANCEL;
 		}
 	}
+	else if (m_pSChoiseDlg)
+	{
+		delete m_pSChoiseDlg;
+		m_pSChoiseDlg = NULL;
+	}
+
 	if (CItem::IsDefaultType(m_nType) || nType == TYPE_MCHOISE)
 	{
 		// 多选题
@@ -199,6 +205,12 @@ int CEditDlg::DoModal()
 			return IDCANCEL;
 		}
 	}
+	else if (m_pMChoiseDlg)
+	{
+		delete m_pMChoiseDlg;
+		m_pMChoiseDlg = NULL;
+	}
+
 	if (CItem::IsDefaultType(m_nType) || nType == TYPE_JUDGE)
 	{
 		// 判断题
@@ -213,6 +225,12 @@ int CEditDlg::DoModal()
 			return IDCANCEL;
 		}
 	}
+	else if (m_pJudgeDlg)
+	{
+		delete m_pJudgeDlg;
+		m_pJudgeDlg = NULL;
+	}
+
 	if (CItem::IsDefaultType(m_nType) || nType == TYPE_BLANK)
 	{
 		// 填空题
@@ -227,6 +245,12 @@ int CEditDlg::DoModal()
 			return IDCANCEL;
 		}
 	}
+	else if (m_pBlankDlg)
+	{
+		delete m_pBlankDlg;
+		m_pBlankDlg = NULL;
+	}
+
 	if (CItem::IsDefaultType(m_nType) || nType == TYPE_TEXT)
 	{
 		// 简答题
@@ -241,6 +265,14 @@ int CEditDlg::DoModal()
 			return IDCANCEL;
 		}
 	}
+	else if (m_pTextDlg)
+	{
+		delete m_pTextDlg;
+		m_pTextDlg = NULL;
+	}
+
+	m_pSChoiseDlg->SetMChoisePtr(m_pMChoiseDlg);
+	m_pMChoiseDlg->SetSChoisePtr(m_pSChoiseDlg);
 
 	if (!CItem::IsDefaultType(m_nType))
 	{
@@ -443,11 +475,9 @@ void CEditDlg::SetShow()
 	// 当新建题目时，也应允许向前滚动
 	GetDlgItem(IDC_BUTTON_PRE)->EnableWindow(m_pList->GetItemCount() && m_nCurShow != 0);
 	GetDlgItem(IDC_BUTTON_NEXT)->EnableWindow(m_nCurShow >= 0 && m_nCurShow < m_pList->GetItemCount() - 1);
-
-	// 编辑界面不能新建和删除
-	GetDlgItem(IDC_BUTTON_NEW)->EnableWindow(m_bIsNew && m_pAddList->GetItemCount() < MAX_QUESTION_NUM);
-	GetDlgItem(IDC_BUTTON_DEL)->EnableWindow(m_bIsNew && m_pList->GetItemCount());
-	GetDlgItem(IDC_BUTTON_ALLBUILD)->EnableWindow(m_bIsNew && m_pAddList->GetItemCount() < MAX_QUESTION_NUM);
+	GetDlgItem(IDC_BUTTON_NEW)->EnableWindow(m_pAddList->GetItemCount() < MAX_QUESTION_NUM);
+	GetDlgItem(IDC_BUTTON_DEL)->EnableWindow(m_pList->GetItemCount());
+	GetDlgItem(IDC_BUTTON_ALLBUILD)->EnableWindow(m_pAddList->GetItemCount() < MAX_QUESTION_NUM);
 
 	CString string;
 
@@ -463,24 +493,6 @@ void CEditDlg::SetShow()
 		if (IsWindow(m_pListWnd->GetSafeHwnd()))
 		{
 			m_pListWnd->UpdateList();
-		}
-
-		if (m_nType == TYPE_DEFAULT || m_nType == TYPE_GROUP)
-		{
-			if (m_nLastShow < 0)
-			{
-				m_cTab.SwitchPage(0);
-			}
-			else
-			{
-				CItem *pLastShow = m_pList->GetItem(m_nLastShow);
-				// 这里的取余是为了让为题目组添加题目时选中0
-				m_cTab.SwitchPage(AfxTypeToIndex(pLastShow->GetType()) % TYPE_GROUP);
-			}
-		}
-		else
-		{
-			m_cTab.SwitchPage(AfxTypeToIndex(m_nType) % TYPE_GROUP);
 		}
 	}
 	else

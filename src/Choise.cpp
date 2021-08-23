@@ -556,7 +556,7 @@ EBOOL CChoise::SaveFile(FILE *fp)
 	nMaxLen = 0;
 	for(i = 0; i < m_nOptionCount; i++)
 	{
-		nTemp = (_tcslen(m_Option[i].option) + 1) * sizeof(TCHAR);
+		nTemp = (lstrlen(m_Option[i].option) + 1) * sizeof(TCHAR);
 		nMaxLen = max(nMaxLen, nTemp);
 	}
 	if (!fwrite(&nMaxLen, sizeof(int), 1, fp))
@@ -579,7 +579,7 @@ EBOOL CChoise::SaveFile(FILE *fp)
 		}
 		
 		// 选项长度
-		nTemp = (_tcslen(m_Option[i].option) + 1) * sizeof(TCHAR);
+		nTemp = (lstrlen(m_Option[i].option) + 1) * sizeof(TCHAR);
 		if (!fwrite(&nTemp, sizeof(short), 1, fp))
 		{
 			return Q_ERROR(ERROR_WRITE_FILE_FAIL);
@@ -833,7 +833,7 @@ void CChoise::ClipCopy(CFixedSharedFile &sf)
 	
 	for (i = 0; i < m_nOptionCount; i++)
 	{
-		nLen = _tcslen(m_Option[i].option);
+		nLen = lstrlen(m_Option[i].option);
 		
 		sf.Write(&nLen, sizeof(nLen));
 		sf.Write(m_Option[i].option, nLen * sizeof(TCHAR));
@@ -1072,7 +1072,7 @@ void CChoise::MakeHTML(FILE *fp,
 	str += _T("<ol class=\"choise");
 
 	// 如果题干为空，则选项和题号在同一行
-	if (!pDesc || !_tcslen(pDesc))
+	if (!pDesc || !lstrlen(pDesc))
 	{
 		str += _T("in\">\n");
 	}
@@ -1279,7 +1279,7 @@ void CChoise::CalcCRC()
 	int nBuffSize = 0;
 	for (i = 0; i < m_nOptionCount; i++)
 	{
-		j = _tcslen(m_Option[i].option) + 1;
+		j = lstrlen(m_Option[i].option) + 1;
 		nBuffSize = max(nBuffSize, j);
 	}
 	nBuffSize *= sizeof(WCHAR);
@@ -1294,7 +1294,7 @@ void CChoise::CalcCRC()
 	{
 #ifdef _UNICODE
 		ptr = (PBYTE)m_Option[i].option;
-		nLen = _tcslen(m_Option[i].option) * sizeof(TCHAR);
+		nLen = lstrlen(m_Option[i].option) * sizeof(TCHAR);
 #else
 		if (!MultiByteToWideChar(CP_ACP, 0, m_Option[i].option, -1, str, nBuffSize))
 		{
@@ -1517,10 +1517,10 @@ void CChoise::MakeOptionText(_stdstring &str, UINT nStyle, int nPara)
 	}
 	else
 	{
-		nMax = _tcslen(m_Option[0].option);
+		nMax = lstrlen(m_Option[0].option);
 		for (i = 1; i < m_nOptionCount; i++)
 		{
-			nSize = _tcslen(m_Option[i].option);
+			nSize = lstrlen(m_Option[i].option);
 			nMax = max(nSize, nMax);
 		}
 	}
