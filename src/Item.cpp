@@ -753,6 +753,9 @@ void CItem::ClipCopy(CFixedSharedFile &sf)
 	sf.Write(&nLen, sizeof(nLen));
 	sf.Write(CItem::GetResolve(), nLen * sizeof(TCHAR));
 
+	// 复制时也包含收藏信息
+	sf.Write(&m_uState, sizeof(m_uState));
+
 	int i, j;
 	PITEMIMAGE p;
 	for (j = 0; j < _countof(s_nImageListFlag); ++j)
@@ -785,6 +788,7 @@ void CItem::ClipCopy(CFixedSharedFile &sf)
 BOOL CItem::ClipPaste(CFixedSharedFile &sf)
 {
 	int nLen = 0;
+	UINT uState = 0;
 	CString str;
 
 	sf.Read(&nLen, sizeof(nLen));
@@ -799,6 +803,12 @@ BOOL CItem::ClipPaste(CFixedSharedFile &sf)
 	if (!SetResolve(str))
 	{
 		return FALSE;
+	}
+
+	sf.Read(&uState, sizeof(uState));
+	if (uState & ITEMMARK_STORE)
+	{
+		SetStore(TRUE);
 	}
 
 	int i, j;

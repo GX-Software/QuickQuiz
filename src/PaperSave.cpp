@@ -1648,8 +1648,14 @@ void CPaper::LoadSave(LPCTSTR strFilePath)
 void CPaper::SaveSave()
 {
 	TCHAR strSaveFile[MAX_PATH] = {0};
-	GetSaveFilePath(strSaveFile);
 
+	// 如果题库尚未保存，则不保存错题库
+	if (!lstrlen(m_strFilePath))
+	{
+		return;
+	}
+
+	GetSaveFilePath(strSaveFile);
 	if (!m_pSaveList->GetItemCount())
 	{
 		_tremove(strSaveFile);

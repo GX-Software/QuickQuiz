@@ -749,31 +749,46 @@ BOOL CAllBuildDlg::CheckNumIndex(LPCWSTR pWText, int *nJump)
 		switch(pWText[i])
 		{
 		CASE_SPACE:
+			break;
+
+		CASE_LEFTBRACE:
+			if (bIndexEnd)
+			{
+				*nJump = i;
+				return TRUE;
+			}
+			else if (bFindIndex)
+			{
+				return FALSE;
+			}
+			break;
+
 		CASE_POINT:
 		CASE_RIGHTBRACE:
 			if (bFindIndex)
 			{
 				bIndexEnd = TRUE;
 			}
+			else
+			{
+				return FALSE;
+			}
 			break;
 
 		default:
-			if ( pWText[i] >= _L('0') && pWText[i] <= _L('9') ||
-				(pWText[i] >= _L('£°') && pWText[i] <= _L('£¹')))
+			if (bIndexEnd)
+			{
+				*nJump = i;
+				return TRUE;
+			}
+			else if( pWText[i] >= _L('0') && pWText[i] <= _L('9') ||
+					(pWText[i] >= _L('£°') && pWText[i] <= _L('£¹')))
 			{
 				bFindIndex = TRUE;
 			}
 			else
 			{
-				if (bIndexEnd)
-				{
-					*nJump = i;
-					return TRUE;
-				}
-				else
-				{
-					return FALSE;
-				}
+				return FALSE;
 			}
 		}
 
