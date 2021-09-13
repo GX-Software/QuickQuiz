@@ -271,8 +271,11 @@ int CEditDlg::DoModal()
 		m_pTextDlg = NULL;
 	}
 
-	m_pSChoiseDlg->SetMChoisePtr(m_pMChoiseDlg);
-	m_pMChoiseDlg->SetSChoisePtr(m_pSChoiseDlg);
+	if (m_pSChoiseDlg && m_pMChoiseDlg)
+	{
+		m_pSChoiseDlg->SetMChoisePtr(m_pMChoiseDlg);
+		m_pMChoiseDlg->SetSChoisePtr(m_pSChoiseDlg);
+	}
 
 	if (!CItem::IsDefaultType(m_nType))
 	{
